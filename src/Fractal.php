@@ -3,7 +3,6 @@
 namespace Spatie\Fractal;
 
 use League\Fractal\Manager;
-use League\Fractal\Resource\Collection;
 use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractal\Exceptions\InvalidTransformation;
 use Spatie\Fractal\Exceptions\NoTransformerSpecified;
@@ -105,7 +104,7 @@ class Fractal
     /**
      * Set the serializer to be used.
      *
-     * @param SerializerAbstract $serializer
+     * @param  \League\Fractal\Serializer\SerializerAbstract $serializer
      */
     public function serializeWith(SerializerAbstract $serializer)
     {
@@ -137,8 +136,8 @@ class Fractal
      *
      * @param string $format
      * @return mixed
-     * @throws InvalidTransformation
-     * @throws NoTransformerSpecified
+     * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
+     * @throws \Spatie\Fractal\Exceptions\NoTransformerSpecified
      */
     protected function transform($format)
     {
@@ -159,8 +158,8 @@ class Fractal
 
     /**
      * Get the resource.
-     * @return Collection
-     * @throws InvalidTransformation
+     * @return \League\Fractal\Resource\Collection;
+     * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
      */
     protected function getResource()
     {
