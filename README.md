@@ -8,8 +8,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 
 The package provides a nice and easy integration with [Fractal](http://fractal.thephpleague.com/)
-for your Laravel 5 projects. If you don't know what Fractal does, [take a peek at their intro](http://fractal.thephpleague.com/)
-Shortly said, Fractal is very useful to transform  data before using it in an API.
+for your Laravel 5 projects. If you don't know what Fractal does, [take a peek at their intro](http://fractal.thephpleague.com/).
+Shortly said, Fractal is very useful to transform data before using it in an API.
 
 Using Fractal data can be transformed like this:
 
@@ -21,12 +21,12 @@ $fractal = new Manager();
 
 $books = [['id'=>1, 'title'=>'Hogfather'], ['id'=>2, 'title'=>'Game Of Kill Everyone']];
 
-$resource = new Collection($books, new BookTranformer();
+$resource = new Collection($books, new BookTransformer();
 
 $array = $fractal->createData($resource)->toArray();
 ```
 
-This package makes that a tad easier:
+This package makes that process a tad easier:
 
 ```php
 fractal()
@@ -40,8 +40,8 @@ Lovers of facades will be glad to know that a facade is provided:
 Fractal::collection($books)->transformWith(new BookTransformer())->toArray();
 ```
 
-
-Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
+Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all 
+our open source projects [on our website](https://spatie.be/opensource).
 
 ## Install
 
@@ -93,7 +93,7 @@ return [
 
 ## Usage
 
-We'll explain how to usage with this array as example input:
+In the following examples were going to use the following array as example input:
 
 ```php
 $books = [['id'=>1, 'title'=>'Hogfather'], ['id'=>2, 'title'=>'Game Of Kill Everyone']];
@@ -138,7 +138,7 @@ fractal()->collection($book, new BookTransformer())->toJson();
 
 A single item can also be transformed:
 ```php
-fractal()->single($book[0], new BookTransformer())->toArray();
+fractal()->item($book[0], new BookTransformer())->toArray();
 ```
 
 ##Using a serializer
@@ -153,7 +153,7 @@ Notice that `data`-key? That's Fractal's default behaviour. Take a look at
 [Fractals's documentation on serializers](http://fractal.thephpleague.com/serializers/) why that happens.
 
 If you want to use another serializer you can specify one with the `serializeWith`-method.
-Out of the box comes the `Spatie\Fractal\ArraySerializer` which removes the `data` namespace for
+The `Spatie\Fractal\ArraySerializer` comes out of the box. It removes the `data` namespace for
 both collections and items.
 
 ```php
