@@ -106,13 +106,13 @@ Let's start with a simple transformation.
 ```php
 fractal()
    ->collection($book)
-   ->transformWith(function($book) { return ['id' => $book['id']];});
+   ->transformWith(function($book) { return ['id' => $book['id']];})
    ->toArray();
 ``` 
 
 This will return:
 ```php
-['data' => [['id' => 1], ['id' => 2]];
+['data' => [['id' => 1], ['id' => 2]]
 ```
 
 Instead of using a closure you can also pass [a Transformer](http://fractal.thephpleague.com/transformers/):
@@ -120,7 +120,7 @@ Instead of using a closure you can also pass [a Transformer](http://fractal.thep
 ```php
 fractal()
    ->collection($book)
-   ->transformWith(new BookTransformer());
+   ->transformWith(new BookTransformer())
    ->toArray();
 ```
 
@@ -159,11 +159,11 @@ both collections and items.
 ```php
 fractal()
    ->collection($book)
-   ->transformWith(function($book) { return ['id' => $book['id']];});
+   ->transformWith(function($book) { return ['id' => $book['id']];})
    ->serializeWith(new \Spatie\Fractal\ArraySerializer())
    ->toArray();
 
-//returns [['id' => 1], ['id' => 2]];
+//returns [['id' => 1], ['id' => 2]]
 ```
 
 ### Changing the default serializer
