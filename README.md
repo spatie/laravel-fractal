@@ -28,7 +28,7 @@ $resource = new Collection($books, new BookTranformer();
 $array = $fractal->createData($resource)->toArray();
 ```
 
-This service provider makes that a tad easier:
+This package makes that a tad easier:
 
 ```php
 fractal()
@@ -143,11 +143,35 @@ A single item can also be transformed:
 fractal()->single($book[0], new BookTransformer())->toArray();
 ```
 
-To be continued,
+##Using a serializer
+
+Let's take a look again a the output of the first example:
+
+```php
+['data' => [['id' => 1], ['id' => 2]];
+```
+
+Notice that `data`-key? That's Fractal's default behaviour. Take a look at
+[Fractals's documentation on serializers](http://fractal.thephpleague.com/serializers/) why that happens.
+
+If you want to use another serializer you can specify one with the `serializeWith`-method.
+Out of the box comes the `Spatie\Fractal\ArraySerializer` which removes the `data` namespace for
+both collections and items.
+
+```php
+fractal()
+   ->collection($book)
+   ->transformWith(function($book) { return ['id' => $book['id']];});
+   ->serializeWith(new \Spatie\Fractal\ArraySerializer())
+   ->toArray();
+
+//returns [['id' => 1], ['id' => 2]];
+```
 
 ### Changing the default serializer
 
-Coming soon
+You can change the default serializer by providing the classname of your favorite serializer in
+the config file.
 
 ## Change log
 
