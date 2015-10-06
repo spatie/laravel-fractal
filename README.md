@@ -115,7 +115,7 @@ This will return:
 ['data' => [['id' => 1], ['id' => 2]];
 ```
 
-Instead of using a closure you can also pass [a Transformer](http://fractal.thephpleague.com/transformers/)
+Instead of using a closure you can also pass [a Transformer](http://fractal.thephpleague.com/transformers/):
 
 ```php
 fractal()
