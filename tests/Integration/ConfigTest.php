@@ -18,7 +18,7 @@ class ConfigTest extends TestCase
     {
         $array = $this->fractal
             ->item($this->testBooks[0])
-            ->transformWith(new TestTransformation())
+            ->transformWith(new TestTransformer())
             ->toArray();
 
         $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];

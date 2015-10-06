@@ -4,7 +4,7 @@ namespace Spatie\Fractal\Test\Integration;
 
 use League\Fractal\TransformerAbstract;
 
-class TestTransformation extends TransformerAbstract
+class TestTransformer extends TransformerAbstract
 {
     /**
      * @param array $book

@@ -59,7 +59,7 @@ php artisan vendor:publish --provider="Spatie\Fractal\FractalServiceProvider"
 
 Coming soon
 
-## Changing the default serializer
+### Changing the default serializer
 
 Coming soon
 

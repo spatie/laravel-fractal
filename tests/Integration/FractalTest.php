@@ -10,7 +10,7 @@ class FractalTest extends TestCase
     public function it_can_transform_multiple_items_using_a_transformer_to_json()
     {
         $json = $this->fractal
-            ->collection($this->testBooks, new TestTransformation())
+            ->collection($this->testBooks, new TestTransformer())
             ->toJson();
 
         $expectedJson = '{"data":[{"id":1,"author":"Philip K Dick"},{"id":2,"author":"George R. R. Satan"}]}';
@@ -24,7 +24,7 @@ class FractalTest extends TestCase
     public function it_can_transform_multiple_items_using_a_transformer_to_an_array()
     {
         $array = $this->fractal
-            ->collection($this->testBooks, new TestTransformation())
+            ->collection($this->testBooks, new TestTransformer())
             ->toArray();
 
         $expectedArray = ['data' => [
@@ -60,7 +60,7 @@ class FractalTest extends TestCase
     {
         $array = $this->fractal
             ->collection($this->testBooks)
-            ->transformWith(new TestTransformation())
+            ->transformWith(new TestTransformer())
             ->toArray();
 
         $expectedArray = ['data' => [
@@ -77,7 +77,7 @@ class FractalTest extends TestCase
     public function it_can_perform_a_single_item()
     {
         $array = $this->fractal
-            ->item($this->testBooks[0], new TestTransformation())
+            ->item($this->testBooks[0], new TestTransformer())
             ->toArray();
 
         $expectedArray = ['data' => [
