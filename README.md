@@ -149,8 +149,8 @@ Let's take a look again a the output of the first example:
 ['data' => [['id' => 1], ['id' => 2]];
 ```
 
-Notice that `data`-key? That's Fractal's default behaviour. Take a look at
-[Fractals's documentation on serializers](http://fractal.thephpleague.com/serializers/) why that happens.
+Notice that `data`-key? That's part of Fractal's default behaviour. Take a look at
+[Fractals's documentation on serializers](http://fractal.thephpleague.com/serializers/) to find out why that happens.
 
 If you want to use another serializer you can specify one with the `serializeWith`-method.
 The `Spatie\Fractal\ArraySerializer` comes out of the box. It removes the `data` namespace for
