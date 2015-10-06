@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton;
+namespace Spatie\Fractal;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -23,12 +23,18 @@ class FractalServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../resources/config/laravel-fractal.php', 'laravel-fractal');
 
-        $this->app->bind('laravel-fractal', function () {
+        $config = $this->app['config']->get('laravel-fractal');
+
+        $this->app->bind('laravel-fractal', function () use ($config) {
             $fractal = $this->app(\Spatie\Fractal\Fractal::class);
 
-            $fractal->setOutputFormat($this->app['config']->get('laravel-fractal.default_output_format'));
+            if ($config['default_serializer'] != '') {
+                $fractal->serializeWith(new $config['default_serializer']());
+            }
 
             return $fractal;
         });
+
+        include __DIR__.'/helpers.php';
     }
 }

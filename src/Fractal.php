@@ -2,9 +2,9 @@
 
 namespace Spatie\Fractal;
 
-use Illuminate\Contracts\Config\Repository;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
+use League\Fractal\Serializer\SerializerAbstract;
 
 class Fractal
 {
@@ -14,32 +14,74 @@ class Fractal
     protected $manager;
 
     /**
-     * @param \League\Fractal\TransformerAbstract|Callable $transformer
+     * @var \League\Fractal\Serializer\SerializerAbstract
+     */
+    protected $serializer;
+
+    /**
+     * @var \League\Fractal\TransformerAbstract|Callable
      */
     protected $transformer;
 
-    protected $subject;
     /**
-     * @var Repository
+     * @var string
      */
-    protected $config;
+    protected $dataType;
 
-    public function __construct(Manager $manager, Repository $config)
+    /**
+     * @var Mixed
+     */
+    protected $data;
+
+    public function __construct(Manager $manager)
     {
         $this->manager = $manager;
-        $this->config = $config;
     }
 
     /**
-     * Set the collection or item that must be transformed.
+     * Set the collection data that must be transformed.
      *
-     * @param $subject
+     * @param mixed                                             $data
+     * @param \League\Fractal\TransformerAbstract|Callable|null $transformer
      *
      * @return $this
      */
-    public function setSubject($subject)
+    public function collection($data, $transformer = null)
     {
-        $this->subject = $subject;
+        return $this->data('collection', $data, $transformer);
+    }
+
+    /**
+     * Set the item data that must be transformed.
+     *
+     * @param mixed                                             $data
+     * @param \League\Fractal\TransformerAbstract|Callable|null $transformer
+     *
+     * @return $this
+     */
+    public function item($data, $transformer = null)
+    {
+        return $this->data('item', $data, $transformer);
+    }
+
+    /**
+     * Set the data that must be transformed.
+     *
+     * @param string                                            $dataType
+     * @param mixed                                             $data
+     * @param \League\Fractal\TransformerAbstract|Callable|null $transformer
+     *
+     * @return $this
+     */
+    protected function data($dataType, $data, $transformer = null)
+    {
+        $this->dataType = $dataType;
+
+        $this->data = $data;
+
+        if (!is_null($transformer)) {
+            $this->transformer = $transformer;
+        }
 
         return $this;
     }
@@ -51,7 +93,7 @@ class Fractal
      *
      * @return $this
      */
-    public function setTransformer($transformer)
+    public function transformWith($transformer)
     {
         $this->transformer = $transformer;
 
@@ -59,23 +101,33 @@ class Fractal
     }
 
     /**
-     * Get the resource.
+     * Set the serializer to be used.
      *
-     * @return Collection
+     * @param SerializerAbstract $serializer
      */
-    public function getResource()
+    public function serializeWith(SerializerAbstract $serializer)
     {
-        return new Collection($this->subject, $this->transformer);
+        $this->serializer = $serializer;
     }
 
     /**
-     * Get the data.
+     * Perform the transformation to json.
      *
-     * @return \League\Fractal\Scope
+     * @return mixed
      */
-    public function getData()
+    public function toJson()
     {
-        return $this->manager->createData($this->getResource());
+        return $this->transform('json');
+    }
+
+    /**
+     * Perform the transformation to array.
+     *
+     * @return mixed
+     */
+    public function toArray()
+    {
+        return $this->transform('array');
     }
 
     /**
@@ -85,19 +137,30 @@ class Fractal
      *
      * @return mixed
      */
-    public function transform($format = '')
+    protected function transform($format)
     {
-        if ($format == '') {
-            $format == $this->getDefaultFormat();
+        if (!is_null($this->serializer)) {
+            $this->manager->setSerializer($this->serializer);
         }
+
+        $resource = $this->getResource();
+
+        $fractalData = $this->manager->createData($resource);
 
         $conversionMethod = 'to'.ucFirst($format);
 
-        return $this->getData()->$conversionMethod();
+        return $fractalData->$conversionMethod();
     }
 
-    protected function getDefaultFormat()
+    /**
+     * Get the resource.
+     *
+     * @return Collection
+     */
+    protected function getResource()
     {
-        return $this->config->get('laravel-fractal.default_output_format');
+        $resourceClass = "League\\Fractal\\Resource\\{$this->dataType}";
+
+        return new $resourceClass($this->data, $this->transformer);
     }
 }
