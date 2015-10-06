@@ -167,7 +167,7 @@ class Fractal
     /**
      * Get the resource.
      *
-     * @return \League\Fractal\Resource\Collection;
+     * @return \League\Fractal\Resource\Collection
      *
      * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
      */
