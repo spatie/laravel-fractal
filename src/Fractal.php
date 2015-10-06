@@ -30,10 +30,13 @@ class Fractal
     protected $dataType;
 
     /**
-     * @var Mixed
+     * @var mixed
      */
     protected $data;
 
+    /**
+     * @param \League\Fractal\Manager $manager
+     */
     public function __construct(Manager $manager)
     {
         $this->manager = $manager;
@@ -118,7 +121,7 @@ class Fractal
     /**
      * Perform the transformation to json.
      *
-     * @return mixed
+     * @return string
      */
     public function toJson()
     {
@@ -128,7 +131,7 @@ class Fractal
     /**
      * Perform the transformation to array.
      *
-     * @return mixed
+     * @return array
      */
     public function toArray()
     {
@@ -140,7 +143,7 @@ class Fractal
      *
      * @param string $format
      *
-     * @return mixed
+     * @return string|array
      *
      * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
      * @throws \Spatie\Fractal\Exceptions\NoTransformerSpecified
