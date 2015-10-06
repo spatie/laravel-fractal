@@ -32,13 +32,14 @@ This service provider makes that a tad easier:
 
 ```php
 fractal()
-   ->collection($books, new BookTransformer())
+   ->collection($books)
+   ->transformWith(new BookTransformer())
    ->toArray();
 ```
 
 Lovers of facades will be glad to know that a facade is provided:
 ```php
-Fractal::collection($books, new BookTransformer())->toArray();
+Fractal::collection($books)->transformWith(new BookTransformer())->toArray();
 ```
 
 
