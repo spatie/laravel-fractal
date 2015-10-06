@@ -1,5 +1,3 @@
-## WORK IN PROGRESS DO NOT USE
-
 # A Fractal service provider for Laravel 5
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
