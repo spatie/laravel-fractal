@@ -104,11 +104,15 @@ class Fractal
     /**
      * Set the serializer to be used.
      *
-     * @param  \League\Fractal\Serializer\SerializerAbstract $serializer
+     * @param \League\Fractal\Serializer\SerializerAbstract $serializer
+     *
+     * @return $this
      */
     public function serializeWith(SerializerAbstract $serializer)
     {
         $this->serializer = $serializer;
+
+        return $this;
     }
 
     /**
@@ -135,13 +139,17 @@ class Fractal
      *  Perform the transformation.
      *
      * @param string $format
+     *
      * @return mixed
+     *
      * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
      * @throws \Spatie\Fractal\Exceptions\NoTransformerSpecified
      */
     protected function transform($format)
     {
-        if (is_null($this->transformer)) throw new NoTransformerSpecified;
+        if (is_null($this->transformer)) {
+            throw new NoTransformerSpecified();
+        }
 
         if (!is_null($this->serializer)) {
             $this->manager->setSerializer($this->serializer);
@@ -158,14 +166,18 @@ class Fractal
 
     /**
      * Get the resource.
+     *
      * @return \League\Fractal\Resource\Collection;
+     *
      * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
      */
     protected function getResource()
     {
-        $resourceClass = "League\\Fractal\\Resource\\".ucfirst($this->dataType);
+        $resourceClass = 'League\\Fractal\\Resource\\'.ucfirst($this->dataType);
 
-        if (! class_exists($resourceClass)) throw new InvalidTransformation;
+        if (!class_exists($resourceClass)) {
+            throw new InvalidTransformation();
+        }
 
         return new $resourceClass($this->data, $this->transformer);
     }

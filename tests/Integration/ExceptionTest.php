@@ -6,7 +6,6 @@ use Spatie\Fractal\Exceptions\NoTransformerSpecified;
 
 class ExceptionTest extends TestCase
 {
-
     /**
      * @test
      */
@@ -19,13 +18,10 @@ class ExceptionTest extends TestCase
     /**
      * @test
      */
-    public function it_throws_an_exception_if_no_transformer_was_specified() {
-
+    public function it_throws_an_exception_if_no_transformer_was_specified()
+    {
         $this->setExpectedException(NoTransformerSpecified::class);
 
         $this->fractal->collection($this->testBooks)->toJson();
-
-
     }
-
 }

@@ -18,11 +18,18 @@ abstract class TestCase extends Orchestra
      */
     protected $testBooks;
 
-    public function setUp()
+    /**
+     * @var string
+     */
+    protected $defaultSerializer;
+
+    public function setUp($defaultSerializer = '')
     {
+        $this->defaultSerializer = $defaultSerializer;
+
         parent::setUp();
 
-        $this->fractal = $this->app->make(Fractal::class);
+        $this->fractal = $this->app->make('laravel-fractal');
 
         $this->testBooks = [
             [
@@ -56,5 +63,17 @@ abstract class TestCase extends Orchestra
         return [
             'Fractal' => 'Spatie\Fractal\FractalFacade',
         ];
+    }
+
+    /**
+     * Define environment setup.
+     *
+     * @param \Illuminate\Foundation\Application $app
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        if ($this->defaultSerializer != '') {
+            $app['config']->set('laravel-fractal.default_serializer', $this->defaultSerializer);
+        }
     }
 }
