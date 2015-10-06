@@ -10,13 +10,37 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 
 The package provides a nice and easy integration with [Fractal](http://fractal.thephpleague.com/)
-for your Laravel 5 projects.
+for your Laravel 5 projects. If you don't know what Fractal does, [take a peek at their intro](http://fractal.thephpleague.com/)
+Shortly said, Fractal is very usefull when you want to transform your data before using it in an API.
 
-Here how it can be used:
+Using Fractal data can be transformed like this:
 
 ```php
-Fractal::collection($someCollection)->transformWith(new YourTransformerClass())->toJson();
+use League\Fractal\Manager;
+use League\Fractal\Resource\Collection;
+
+$fractal = new Manager();
+
+$books = [['id'=>1, 'title'=>'Hogfather'], ['id'=>2, 'title'=>'Game Of Kill Everyone']];
+
+$resource = new Collection($books, new BookTranformer();
+
+$array = $fractal->createData($resource)->toArray();
 ```
+
+This service provider makes that a tad easier:
+
+```php
+fractal()
+   ->collection($books, new BookTransformer())
+   ->toArray();
+```
+
+Lovers of facades will be glad to know that a facade is provided:
+```php
+Fractal::collection($books, new BookTransformer())->toArray();
+```
+
 
 Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
@@ -53,6 +77,19 @@ you must publish the config file:
 
 ```bash
 php artisan vendor:publish --provider="Spatie\Fractal\FractalServiceProvider"
+```
+
+This is the contents of the published file:
+
+```php
+return [
+
+    /*
+     * The default serializer to be used when performing a transformation.
+     * Leave empty to use the Fractal's default.
+     */
+    'default_serializer' => '',
+];
 ```
 
 ## Usage
