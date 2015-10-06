@@ -1,0 +1,41 @@
+{
+    "name": "spatie/laravel-fractal",
+    "description": "A Fractal service provider for Laravel 5",
+    "keywords": [
+        "spatie",
+        "laravel-fractal"
+    ],
+    "homepage": "https://github.com/spatie/laravel-fractal",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Freek Van der Herten",
+            "email": "freek@spatie.be",
+            "homepage": "https://spatie.be",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.5.0",
+        "league/fractal": "^0.12.0",
+        "illuminate/support": "^5.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1",
+        "orchestra/testbench": "~3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spatie\\Fractal\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spatie\\Fractal\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
