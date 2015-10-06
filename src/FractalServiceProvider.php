@@ -23,10 +23,10 @@ class FractalServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../resources/config/laravel-fractal.php', 'laravel-fractal');
 
-        $config = $this->app['config']->get('laravel-fractal');
+        $this->app->bind('laravel-fractal', function () {
+            $fractal = $this->app->make(Fractal::class);
 
-        $this->app->bind('laravel-fractal', function () use ($config) {
-            $fractal = $this->app(\Spatie\Fractal\Fractal::class);
+            $config = $this->app['config']->get('laravel-fractal');
 
             if ($config['default_serializer'] != '') {
                 $fractal->serializeWith(new $config['default_serializer']());
