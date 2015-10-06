@@ -5,6 +5,8 @@ namespace Spatie\Fractal;
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Serializer\SerializerAbstract;
+use Spatie\Fractal\Exceptions\InvalidTransformation;
+use Spatie\Fractal\Exceptions\NoTransformerSpecified;
 
 class Fractal
 {
@@ -134,11 +136,14 @@ class Fractal
      *  Perform the transformation.
      *
      * @param string $format
-     *
      * @return mixed
+     * @throws InvalidTransformation
+     * @throws NoTransformerSpecified
      */
     protected function transform($format)
     {
+        if (is_null($this->transformer)) throw new NoTransformerSpecified;
+
         if (!is_null($this->serializer)) {
             $this->manager->setSerializer($this->serializer);
         }
@@ -154,12 +159,14 @@ class Fractal
 
     /**
      * Get the resource.
-     *
      * @return Collection
+     * @throws InvalidTransformation
      */
     protected function getResource()
     {
-        $resourceClass = "League\\Fractal\\Resource\\{$this->dataType}";
+        $resourceClass = "League\\Fractal\\Resource\\".ucfirst($this->dataType);
+
+        if (! class_exists($resourceClass)) throw new InvalidTransformation;
 
         return new $resourceClass($this->data, $this->transformer);
     }

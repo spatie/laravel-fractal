@@ -9,24 +9,58 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-fractal.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-fractal)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+The package provides a nice and easy integration with [Fractal](http://fractal.thephpleague.com/)
+for your Laravel 5 projects.
+
+Here how it can be used:
+
+```php
+Fractal::collection($someCollection)->transformWith(new YourTransformerClass())->toJson();
+```
 
 Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
 ## Install
 
-You can install the package via composer:
+You can pull in the package via composer:
 ``` bash
 $ composer require spatie/laravel-fractal
 ```
 
+Next up, the service provider must be registered:
+
+```php
+// config/app.php
+'providers' => [
+    ...
+    Spatie\Fractal\FractalServiceProvider::class,
+
+];
+```
+
+If you want to make use of the facade you must install it as well:
+
+```php
+// config/app.php
+'aliases' => [
+    ...
+    'Fractal' => Spatie\Fractal\FractalFacade::class,
+];
+```
+
+If you want to [change the default serializer](), you must publish the config file:
+
+```bash
+php artisan vendor:publish --provider="Spatie\Fractal\FractalServiceProvider"
+```
+
 ## Usage
 
-``` php
-$skeleton = new Spatie\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
-```
+Coming soon
+
+## Changing the default serializer
+
+Coming soon
 
 ## Change log
 
@@ -48,7 +82,7 @@ If you discover any security related issues, please email freek@spatie.be instea
 
 ## Credits
 
-- [Freek Van der Herten](https://github.com/freekmurze)
+- [Freek Van der Herten](https://twitter.com/freekmurze)
 - [All Contributors](../../contributors)
 
 ## About Spatie
