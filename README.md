@@ -95,7 +95,55 @@ return [
 
 ## Usage
 
-Coming soon
+We'll explain how to usage with this array as example input:
+
+```php
+$books = [['id'=>1, 'title'=>'Hogfather'], ['id'=>2, 'title'=>'Game Of Kill Everyone']];
+```
+
+But know that any structure that can be looped (for instance a collection) can be used.
+
+Let's start with a simple transformation.
+
+```php
+fractal()
+->collection($book)
+->transformWith(function($book) { return ['id' => $book['id']];});
+->toArray();
+``` 
+
+This will return:
+```php
+['data' => [['id' => 1], ['id' => 2]];
+```
+
+Instead of using a closure you can also pass [a Transformer](http://fractal.thephpleague.com/transformers/)
+
+```php
+fractal()
+->collection($book)
+->transformWith(new BookTransformer());
+->toArray();
+```
+
+To make your code a bit shorter you could also pass the transform closure or class as a 
+second parameter of the `collection`-method:
+
+```php
+fractal()->collection($book, new BookTransformer())->toArray();
+```
+
+Want to get some sweet json output instead of an array? No problem!
+```php
+fractal()->collection($book, new BookTransformer())->toJson();
+```
+
+A single item can also be transformed:
+```php
+fractal()->single($book[0], new BookTransformer())->toArray();
+```
+
+To be continued,
 
 ### Changing the default serializer
 
@@ -122,7 +170,7 @@ If you discover any security related issues, please email freek@spatie.be instea
 ## Credits
 
 - [Freek Van der Herten](https://twitter.com/freekmurze)
-- [All Contributors](../../contributors)
+- [All contributors](../../contributors)
 
 ## About Spatie
 Spatie is webdesign agency in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
