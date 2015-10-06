@@ -105,9 +105,9 @@ Let's start with a simple transformation.
 
 ```php
 fractal()
-->collection($book)
-->transformWith(function($book) { return ['id' => $book['id']];});
-->toArray();
+   ->collection($book)
+   ->transformWith(function($book) { return ['id' => $book['id']];});
+   ->toArray();
 ``` 
 
 This will return:
@@ -119,9 +119,9 @@ Instead of using a closure you can also pass [a Transformer](http://fractal.thep
 
 ```php
 fractal()
-->collection($book)
-->transformWith(new BookTransformer());
-->toArray();
+   ->collection($book)
+   ->transformWith(new BookTransformer());
+   ->toArray();
 ```
 
 To make your code a bit shorter you could also pass the transform closure or class as a 
