@@ -10,7 +10,7 @@ use Spatie\Fractal\Exceptions\NoTransformerSpecified;
 class Fractal
 {
     /**
-     * @var Manager
+     * @var \League\Fractal\Manager
      */
     protected $manager;
 
@@ -125,7 +125,7 @@ class Fractal
      */
     public function toJson()
     {
-        return $this->transform('json');
+        return $this->transform('toJson');
     }
 
     /**
@@ -135,20 +135,20 @@ class Fractal
      */
     public function toArray()
     {
-        return $this->transform('array');
+        return $this->transform('toArray');
     }
 
     /**
      *  Perform the transformation.
      *
-     * @param string $format
+     * @param string $conversionMethod
      *
      * @return string|array
      *
      * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
      * @throws \Spatie\Fractal\Exceptions\NoTransformerSpecified
      */
-    protected function transform($format)
+    protected function transform($conversionMethod)
     {
         if (is_null($this->transformer)) {
             throw new NoTransformerSpecified();
@@ -161,8 +161,6 @@ class Fractal
         $resource = $this->getResource();
 
         $fractalData = $this->manager->createData($resource);
-
-        $conversionMethod = 'to'.ucFirst($format);
 
         return $fractalData->$conversionMethod();
     }

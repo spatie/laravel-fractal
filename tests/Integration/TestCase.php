@@ -29,7 +29,7 @@ abstract class TestCase extends Orchestra
 
         parent::setUp();
 
-        $this->fractal = $this->app->make('laravel-fractal');
+        $this->fractal = $this->app->make(Fractal::class);
 
         $this->testBooks = [
             [
