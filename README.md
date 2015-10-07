@@ -21,7 +21,7 @@ $fractal = new Manager();
 
 $books = [['id'=>1, 'title'=>'Hogfather'], ['id'=>2, 'title'=>'Game Of Kill Everyone']];
 
-$resource = new Collection($books, new BookTransformer();
+$resource = new Collection($books, new BookTransformer());
 
 $array = $fractal->createData($resource)->toArray();
 ```
