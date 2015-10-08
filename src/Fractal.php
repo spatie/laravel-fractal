@@ -168,11 +168,11 @@ class Fractal
     /**
      * Get the resource.
      *
-     * @return \League\Fractal\Resource\Collection
+     * @return \League\Fractal\Resource\ResourceInterface
      *
      * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
      */
-    protected function getResource()
+    public function getResource()
     {
         $resourceClass = 'League\\Fractal\\Resource\\'.ucfirst($this->dataType);
 

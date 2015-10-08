@@ -85,4 +85,16 @@ class FractalTest extends TestCase
 
         $this->assertEquals($expectedArray, $array);
     }
+
+    /**
+     * @test
+     */
+    public function it_can_create_a_resource()
+    {
+        $resource = $this->fractal
+            ->collection($this->testBooks, new TestTransformer())
+            ->getResource();
+
+        $this->assertInstanceOf(\League\Fractal\Resource\ResourceInterface::class, $resource);
+    }
 }
