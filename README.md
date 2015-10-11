@@ -17,13 +17,20 @@ Using Fractal data can be transformed like this:
 use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 
-$fractal = new Manager();
 
-$books = [['id'=>1, 'title'=>'Hogfather'], ['id'=>2, 'title'=>'Game Of Kill Everyone']];
+
+$books = [
+   ['id'=>1, 'title'=>'Hogfather', 'characters' => [...]], 
+   ['id'=>2, 'title'=>'Game Of Kill Everyone', 'characters' => [...]]
+];
+
+$manager = new Manager();
 
 $resource = new Collection($books, new BookTransformer());
 
-$array = $fractal->createData($resource)->toArray();
+$manager->parseIncludes('characters');
+
+$manager->createData($resource)->toArray();
 ```
 
 This package makes that process a tad easier:
@@ -32,6 +39,7 @@ This package makes that process a tad easier:
 fractal()
    ->collection($books)
    ->transformWith(new BookTransformer())
+   ->includeCharacters();
    ->toArray();
 ```
 
