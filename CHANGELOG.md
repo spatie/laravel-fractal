@@ -2,6 +2,12 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.2.0 - 2015-10-11
+
+### Added
+- Methods to use includes
+- Create data method
+
 ## 1.1.0 - 2015-10-08
 
 ### Changed
