@@ -171,6 +171,29 @@ fractal()
 You can change the default serializer by providing the classname of your favorite serializer in
 the config file.
 
+### Using includes
+
+Fractal provides support for [optionally including data](http://fractal.thephpleague.com/transformers/) on the relationships for
+the data you're exporting. You can use Fractal's `parseInclude` which accepts a string or an array:
+
+```php
+$resultWithParseCharacters = fractal()
+    ->collection($this->testBooks, new TestTransformer())
+    ->parseIncludes(['characters', 'publisher'])
+    ->toArray();
+```
+
+To improve readablity you can also a function named `include` followed by the name
+of the include you want to... include:
+
+```php
+$resultWithParseCharacters = fractal()
+    ->collection($this->testBooks, new TestTransformer())
+    ->includeCharacters()
+    ->includePublisher()
+    ->toArray();
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.

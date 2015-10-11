@@ -25,6 +25,11 @@ class Fractal
     protected $transformer;
 
     /**
+     * @var array
+     */
+    protected $includes = [];
+
+    /**
      * @var string
      */
     protected $dataType;
@@ -105,6 +110,40 @@ class Fractal
     }
 
     /**
+     * Specify the includes
+     *
+     * @param array|string $includes Array or csv string of resources to include
+     *
+     * @return $this
+     */
+    public function parseIncludes($includes)
+    {
+        if (is_string($includes)) {
+            $includes = [$includes];
+        }
+
+        $this->includes = array_merge($this->includes, $includes);
+
+        return $this;
+    }
+
+    /**
+     * Support for magic methods to included data.
+     *
+     * @return $this
+     */
+    public function __call($name, array $arguments)
+    {
+        if (! starts_with($name, 'include')) {
+            trigger_error('Call to undefined method '.__CLASS__.'::'.$methodName.'()', E_USER_ERROR);
+        }
+
+        $includeName = lcfirst(substr($name, strlen('include')));
+
+        return $this->parseIncludes($includeName);
+    }
+
+    /**
      * Set the serializer to be used.
      *
      * @param \League\Fractal\Serializer\SerializerAbstract $serializer
@@ -156,6 +195,10 @@ class Fractal
 
         if (!is_null($this->serializer)) {
             $this->manager->setSerializer($this->serializer);
+        }
+
+        if (!is_null($this->includes)) {
+            $this->manager->parseIncludes($this->includes);
         }
 
         $resource = $this->getResource();
