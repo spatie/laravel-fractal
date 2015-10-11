@@ -97,4 +97,16 @@ class FractalTest extends TestCase
 
         $this->assertInstanceOf(\League\Fractal\Resource\ResourceInterface::class, $resource);
     }
+
+    /**
+     * @test
+     */
+    public function it_can_create_fractal_data()
+    {
+        $resource = $this->fractal
+            ->collection($this->testBooks, new TestTransformer())
+            ->createData();
+
+        $this->assertInstanceOf(\League\Fractal\Scope::class, $resource);
+    }
 }

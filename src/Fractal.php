@@ -110,7 +110,7 @@ class Fractal
     }
 
     /**
-     * Specify the includes
+     * Specify the includes.
      *
      * @param array|string $includes Array or csv string of resources to include
      *
@@ -189,6 +189,21 @@ class Fractal
      */
     protected function transform($conversionMethod)
     {
+        $fractalData = $this->createData();
+
+        return $fractalData->$conversionMethod();
+    }
+
+    /**
+     * Create fractal data.
+     *
+     * @return \League\Fractal\Scope
+     *
+     * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
+     * @throws \Spatie\Fractal\Exceptions\NoTransformerSpecified
+     */
+    public function createData()
+    {
         if (is_null($this->transformer)) {
             throw new NoTransformerSpecified();
         }
@@ -203,9 +218,7 @@ class Fractal
 
         $resource = $this->getResource();
 
-        $fractalData = $this->manager->createData($resource);
-
-        return $fractalData->$conversionMethod();
+        return $this->manager->createData($resource);
     }
 
     /**
