@@ -177,10 +177,10 @@ fractal()
 You can change the default serializer by providing the classname of your favorite serializer in
 the config file.
 
-### Using includes
+## Using includes
 
 Fractal provides support for [optionally including data](http://fractal.thephpleague.com/transformers/) on the relationships for
-the data you're exporting. You can use Fractal's `parseInclude` which accepts a string or an array:
+the data you're exporting. You can use Fractal's `parseIncludes` which accepts a string or an array:
 
 ```php
 fractal()
