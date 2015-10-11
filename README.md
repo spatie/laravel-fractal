@@ -177,21 +177,21 @@ Fractal provides support for [optionally including data](http://fractal.thephple
 the data you're exporting. You can use Fractal's `parseInclude` which accepts a string or an array:
 
 ```php
-$resultWithParseCharacters = fractal()
-    ->collection($this->testBooks, new TestTransformer())
-    ->parseIncludes(['characters', 'publisher'])
-    ->toArray();
+fractal()
+   ->collection($this->testBooks, new TestTransformer())
+   ->parseIncludes(['characters', 'publisher'])
+   ->toArray();
 ```
 
 To improve readablity you can also a function named `include` followed by the name
 of the include you want to... include:
 
 ```php
-$resultWithParseCharacters = fractal()
-    ->collection($this->testBooks, new TestTransformer())
-    ->includeCharacters()
-    ->includePublisher()
-    ->toArray();
+fractal()
+   ->collection($this->testBooks, new TestTransformer())
+   ->includeCharacters()
+   ->includePublisher()
+   ->toArray();
 ```
 
 ## Change log
