@@ -3,6 +3,7 @@
 namespace Spatie\Fractal;
 
 use League\Fractal\Manager;
+use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractal\Exceptions\InvalidTransformation;
 use Spatie\Fractal\Exceptions\NoTransformerSpecified;
@@ -25,6 +26,11 @@ class Fractal
     protected $transformer;
 
     /**
+     * @var \League\Fractal\Pagination\PaginatorInterface
+     */
+    protected $paginator;
+
+    /**
      * @var array
      */
     protected $includes = [];
@@ -38,6 +44,11 @@ class Fractal
      * @var mixed
      */
     protected $data;
+
+    /**
+     * @var string
+     */
+    protected $resource_name;
 
     /**
      * @param \League\Fractal\Manager $manager
@@ -55,8 +66,10 @@ class Fractal
      *
      * @return $this
      */
-    public function collection($data, $transformer = null)
+    public function collection($data, $transformer = null, $resource_name = null)
     {
+        $this->resource_name = $resource_name;
+
         return $this->data('collection', $data, $transformer);
     }
 
@@ -68,8 +81,10 @@ class Fractal
      *
      * @return $this
      */
-    public function item($data, $transformer = null)
+    public function item($data, $transformer = null, $resource_name = null)
     {
+        $this->resource_name = $resource_name;
+
         return $this->data('item', $data, $transformer);
     }
 
@@ -110,6 +125,20 @@ class Fractal
     }
 
     /**
+     * Set a Fractal paginator for the data
+     *
+     * @param PaginatorInterface $paginator
+     *
+     * @return $this
+     */
+    public function paginateWith(PaginatorInterface $paginator)
+    {
+        $this->paginator = $paginator;
+
+        return $this;
+    }
+
+    /**
      * Specify the includes.
      *
      * @param array|string $includes Array or csv string of resources to include
@@ -135,7 +164,7 @@ class Fractal
     public function __call($name, array $arguments)
     {
         if (! starts_with($name, 'include')) {
-            trigger_error('Call to undefined method '.__CLASS__.'::'.$methodName.'()', E_USER_ERROR);
+            trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
         }
 
         $includeName = lcfirst(substr($name, strlen('include')));
@@ -153,6 +182,18 @@ class Fractal
     public function serializeWith(SerializerAbstract $serializer)
     {
         $this->serializer = $serializer;
+
+        return $this;
+    }
+
+    /**
+     * Set the resource name, to replace 'data' as the root of the collection or item
+     *
+     * @param $resource_name
+     */
+    public function resourceName($resource_name)
+    {
+        $this->resource_name = $resource_name;
 
         return $this;
     }
@@ -236,6 +277,12 @@ class Fractal
             throw new InvalidTransformation();
         }
 
-        return new $resourceClass($this->data, $this->transformer);
+        $resource = new $resourceClass($this->data, $this->transformer, $this->resource_name);
+
+        if (!is_null($this->paginator)) {
+            $resource->setPaginator($this->paginator);
+        }
+
+        return $resource;
     }
 }
