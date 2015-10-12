@@ -1,9 +1,10 @@
 <?php
 
-namespace Spatie\Fractal;
+namespace Spatie\Fractal\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Manager;
+use Spatie\Fractal\Fractal;
 
 class FractalServiceProvider extends ServiceProvider
 {
@@ -12,9 +13,7 @@ class FractalServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/../resources/config/laravel-fractal.php' => config_path('laravel-fractal.php'),
-        ], 'config');
+        $this->setupConfig();
     }
 
     /**
@@ -22,8 +21,6 @@ class FractalServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../resources/config/laravel-fractal.php', 'laravel-fractal');
-
         $this->app->bind(Fractal::class, function () {
 
             $manager = new Manager();
@@ -41,6 +38,16 @@ class FractalServiceProvider extends ServiceProvider
 
         $this->app->alias(Fractal::class, 'laravel-fractal');
 
-        include __DIR__.'/helpers.php';
+        include __DIR__ . '/../helpers.php';
+    }
+
+    /**
+     * Setup the configuration.
+     *
+     * @return void
+     */
+    protected function setupConfig()
+    {
+        $this->mergeConfigFrom(__DIR__ . '/../../resources/config/laravel-fractal.php', 'laravel-fractal');
     }
 }

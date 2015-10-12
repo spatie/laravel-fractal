@@ -58,11 +58,14 @@ $ composer require spatie/laravel-fractal
 
 Next up, the service provider must be registered:
 
+### Laravel
+
+Open `config/app.php` and register the required service provider.
+
 ```php
-// config/app.php
 'providers' => [
     ...
-    Spatie\Fractal\FractalServiceProvider::class,
+    Spatie\Fractal\Providers\LaravelServiceProvider::class,
 
 ];
 ```
@@ -81,7 +84,7 @@ If you want to [change the default serializer](https://github.com/spatie/laravel
 you must publish the config file:
 
 ```bash
-php artisan vendor:publish --provider="Spatie\Fractal\FractalServiceProvider"
+php artisan vendor:publish --provider="Spatie\Fractal\Providers\LaravelServiceProvider"
 ```
 
 This is the contents of the published file:
@@ -95,6 +98,22 @@ return [
      */
     'default_serializer' => '',
 ];
+```
+
+### Lumen
+
+Open `bootstrap/app.php` and register the required service provider.
+
+```php
+$app->register(Spatie\Fractal\Providers\LumenServiceProvider::class);
+
+```
+
+If you want to make use of the facade add this line on `bootstrap/app.php`
+
+```php
+class_alias(Spatie\Fractal\FractalFacade::class, 'Fractal');
+
 ```
 
 ## Usage

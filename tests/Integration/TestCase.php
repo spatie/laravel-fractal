@@ -4,7 +4,7 @@ namespace Spatie\Fractal\Test\Integration;
 
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Fractal\Fractal;
-use Spatie\Fractal\FractalServiceProvider;
+use Spatie\Fractal\Providers\LaravelServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
@@ -59,7 +59,7 @@ abstract class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        return [FractalServiceProvider::class];
+        return [LaravelServiceProvider::class];
     }
 
     protected function getPackageAliases($app)
