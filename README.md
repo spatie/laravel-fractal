@@ -59,7 +59,7 @@ $ composer require spatie/laravel-fractal
 Next up, the service provider must be registered:
 
 ```php
-// config/app.php
+// Laravel5: config/app.php
 'providers' => [
     ...
     Spatie\Fractal\FractalServiceProvider::class,
@@ -70,7 +70,7 @@ Next up, the service provider must be registered:
 or, if you are using Lumen:
 
 ```php
-// bootstrap/app.php
+// Lumen: bootstrap/app.php
 $app->register(Spatie\Fractal\FractalLumenServiceProvider::class);
 ```
 
