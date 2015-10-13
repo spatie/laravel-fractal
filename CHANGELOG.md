@@ -2,6 +2,11 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.3.0 - 2015-10-13
+
+### Added
+- Support for Lumen
+
 ## 1.2.0 - 2015-10-11
 
 ### Added
