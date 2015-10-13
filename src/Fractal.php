@@ -125,7 +125,7 @@ class Fractal
     }
 
     /**
-     * Set a Fractal paginator for the data
+     * Set a Fractal paginator for the data.
      *
      * @param PaginatorInterface $paginator
      *
@@ -163,7 +163,7 @@ class Fractal
      */
     public function __call($name, array $arguments)
     {
-        if (! starts_with($name, 'include')) {
+        if (!starts_with($name, 'include')) {
             trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
         }
 
@@ -187,7 +187,7 @@ class Fractal
     }
 
     /**
-     * Set the resource name, to replace 'data' as the root of the collection or item
+     * Set the resource name, to replace 'data' as the root of the collection or item.
      *
      * @param $resource_name
      *

@@ -2,9 +2,7 @@
 
 namespace Spatie\Fractal\Test;
 
-use Illuminate\Pagination\LengthAwarePaginator;
 use League\Fractal\Manager;
-use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use Spatie\Fractal\ArraySerializer;
 use Spatie\Fractal\Fractal;
 
