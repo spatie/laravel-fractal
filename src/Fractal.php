@@ -202,9 +202,9 @@ class Fractal
      * @param array $meta
      * @return $this
      */
-    public function meta(array $meta)
+    public function addMeta(array $meta)
     {
-        $this->meta = $meta;
+        $this->meta += $meta;
 
         return $this;
     }

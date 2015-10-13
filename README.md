@@ -214,7 +214,7 @@ Fractal provides support for including meta data. You can use Fractal's `meta` w
 ```php
 fractal()
    ->collection($this->testBooks, new TestTransformer())
-   ->meta(['key', 'value'])
+   ->addMeta(['key', 'value'])
    ->toArray();
 ```
 
