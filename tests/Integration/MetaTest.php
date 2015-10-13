@@ -11,13 +11,12 @@ class MetaTest extends TestCase
     {
         $array = $this->fractal
             ->collection($this->testBooks, new TestTransformer())
-            ->parseIncludes('characters')
             ->meta(['key' => 'value'])
             ->toArray();
 
         $expectedArray = ['data' => [
-            ['id' => 1, 'author' => 'Philip K Dick',  'characters' => ['data' => ['Death', 'Hex']]],
-            ['id' => 2, 'author' => 'George R. R. Satan', 'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']]],
+            ['id' => 1, 'author' => 'Philip K Dick'],
+            ['id' => 2, 'author' => 'George R. R. Satan'],
         ],
         'meta' => ['key' => 'value']];
 
