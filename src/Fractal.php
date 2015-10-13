@@ -48,7 +48,7 @@ class Fractal
     /**
      * @var string
      */
-    protected $resource_name;
+    protected $resourceName;
 
     /**
      * @param \League\Fractal\Manager $manager
@@ -63,12 +63,13 @@ class Fractal
      *
      * @param mixed                                             $data
      * @param \League\Fractal\TransformerAbstract|Callable|null $transformer
+     * @param string|null                                       $resourceName
      *
      * @return $this
      */
-    public function collection($data, $transformer = null, $resource_name = null)
+    public function collection($data, $transformer = null, $resourceName = null)
     {
-        $this->resource_name = $resource_name;
+        $this->resourceName = $resourceName;
 
         return $this->data('collection', $data, $transformer);
     }
@@ -78,12 +79,13 @@ class Fractal
      *
      * @param mixed                                             $data
      * @param \League\Fractal\TransformerAbstract|Callable|null $transformer
+     * @param string|null                                       $resourceName
      *
      * @return $this
      */
-    public function item($data, $transformer = null, $resource_name = null)
+    public function item($data, $transformer = null, $resourceName = null)
     {
-        $this->resource_name = $resource_name;
+        $this->resourceName = $resourceName;
 
         return $this->data('item', $data, $transformer);
     }
@@ -127,7 +129,7 @@ class Fractal
     /**
      * Set a Fractal paginator for the data.
      *
-     * @param PaginatorInterface $paginator
+     * @param \League\Fractal\Pagination\PaginatorInterface $paginator
      *
      * @return $this
      */
@@ -159,6 +161,9 @@ class Fractal
     /**
      * Support for magic methods to included data.
      *
+     * @param string $name
+     * @param array  $arguments
+     *
      * @return $this
      */
     public function __call($name, array $arguments)
@@ -189,13 +194,13 @@ class Fractal
     /**
      * Set the resource name, to replace 'data' as the root of the collection or item.
      *
-     * @param $resource_name
+     * @param string $resourceName
      *
      * @return $this
      */
-    public function resourceName($resource_name)
+    public function resourceName($resourceName)
     {
-        $this->resource_name = $resource_name;
+        $this->resourceName = $resourceName;
 
         return $this;
     }
@@ -279,7 +284,7 @@ class Fractal
             throw new InvalidTransformation();
         }
 
-        $resource = new $resourceClass($this->data, $this->transformer, $this->resource_name);
+        $resource = new $resourceClass($this->data, $this->transformer, $this->resourceName);
 
         if (!is_null($this->paginator)) {
             $resource->setPaginator($this->paginator);
