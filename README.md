@@ -207,6 +207,42 @@ fractal()
    ->toArray();
 ```
 
+## Using pagination
+
+Fractal provides a Laravel-specific paginator, `IlluminatePaginatorAdapter`, which accepts an instance of Laravel's `LengthAwarePaginator`
+and works with paginated Eloquent results. When using some serializers, such as the `JsonApiSerializer`, pagination data can be
+automatically generated and included in the result set:
+
+```php
+$paginator = Book::paginate(5);
+$books = $paginator->getCollection();
+
+fractal()
+    ->collection($books, new TestTransformer())
+    ->serializeWith(new JsonApiSerializer())
+    ->paginateWith(new IlluminatePaginatorAdapter($paginator))
+    ->toArray();
+```
+
+## Setting a custom resource name
+
+Certain serializers wrap the array output with a `data` element. The name of this element can be customized:
+
+```php
+fractal()
+    ->collection($this->testBooks, new TestTransformer())
+    ->serializeWith(new JsonApiSerializer())
+    ->resourceName('books')
+    ->toArray();
+```
+
+```php
+fractal()
+    ->item($this->testBooks[0], new TestTransformer(), 'book')
+    ->serializeWith(new JsonApiSerializer())
+    ->toArray();
+```
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
