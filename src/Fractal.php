@@ -190,6 +190,8 @@ class Fractal
      * Set the resource name, to replace 'data' as the root of the collection or item
      *
      * @param $resource_name
+     *
+     * @return $this
      */
     public function resourceName($resource_name)
     {
