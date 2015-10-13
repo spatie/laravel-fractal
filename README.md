@@ -207,6 +207,17 @@ fractal()
    ->toArray();
 ```
 
+## Include meta data
+
+Fractal provides support for including meta data. You can use Fractal's `meta` which accepts an array:
+
+```php
+fractal()
+   ->collection($this->testBooks, new TestTransformer())
+   ->meta(['key', 'value'])
+   ->toArray();
+```
+
 ## Using pagination
 
 Fractal provides a Laravel-specific paginator, `IlluminatePaginatorAdapter`, which accepts an instance of Laravel's `LengthAwarePaginator`

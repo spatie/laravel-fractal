@@ -284,10 +284,6 @@ class Fractal
 
         $resource = $this->getResource();
 
-        foreach ($this->meta as $key => $value) {
-            $resource->setMetaValue($key, $value);
-        }
-
         return $this->manager->createData($resource);
     }
 
@@ -307,6 +303,10 @@ class Fractal
         }
 
         $resource = new $resourceClass($this->data, $this->transformer, $this->resourceName);
+
+        foreach ($this->meta as $key => $value) {
+            $resource->setMetaValue($key, $value);
+        }
 
         if (!is_null($this->paginator)) {
             $resource->setPaginator($this->paginator);
