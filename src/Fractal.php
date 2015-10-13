@@ -134,7 +134,7 @@ class Fractal
      */
     public function __call($name, array $arguments)
     {
-        if (! starts_with($name, 'include')) {
+        if (!starts_with($name, 'include')) {
             trigger_error('Call to undefined method '.__CLASS__.'::'.$methodName.'()', E_USER_ERROR);
         }
 
