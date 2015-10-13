@@ -1,4 +1,4 @@
-# A Fractal service provider for Laravel 5
+# A Fractal service provider for Laravel 5 and Lumen
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
