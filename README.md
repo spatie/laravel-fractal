@@ -67,6 +67,13 @@ Next up, the service provider must be registered:
 ];
 ```
 
+or, if you are using Lumen:
+
+```php
+// bootstrap/app.php
+$app->register(Spatie\Fractal\FractalLumenServiceProvider::class);
+```
+
 If you want to make use of the facade you must install it as well:
 
 ```php
