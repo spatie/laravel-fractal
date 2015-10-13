@@ -51,6 +51,11 @@ class Fractal
     protected $resourceName;
 
     /**
+     * @var array
+     */
+    protected $meta = [];
+
+    /**
      * @param \League\Fractal\Manager $manager
      */
     public function __construct(Manager $manager)
@@ -192,6 +197,19 @@ class Fractal
     }
 
     /**
+     * Set the meta data.
+     *
+     * @param array $meta
+     * @return $this
+     */
+    public function meta(array $meta)
+    {
+        $this->meta = $meta;
+
+        return $this;
+    }
+
+    /**
      * Set the resource name, to replace 'data' as the root of the collection or item.
      *
      * @param string $resourceName
@@ -265,6 +283,10 @@ class Fractal
         }
 
         $resource = $this->getResource();
+
+        foreach ($this->meta as $key => $value) {
+            $resource->setMetaValue($key, $value);
+        }
 
         return $this->manager->createData($resource);
     }
