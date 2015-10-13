@@ -2,6 +2,12 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.4.0 - 2015-10-13
+
+### Added
+- Pagination methods
+- Custom resource names
+
 ## 1.3.0 - 2015-10-13
 
 ### Added
