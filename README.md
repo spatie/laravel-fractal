@@ -209,7 +209,7 @@ fractal()
 
 ## Including meta data
 
-Fractal provides support for including meta data. You can use Fractal's `addMeta` which accepts 
+Fractal has support for including meta data. You can use `addMeta` which accepts 
 one or more arrays:
 
 ```php
