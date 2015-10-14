@@ -39,8 +39,12 @@ class MetaTest extends TestCase
             ['id' => 1, 'author' => 'Philip K Dick'],
             ['id' => 2, 'author' => 'George R. R. Satan'],
         ],
-        'meta' => ['key1' => 'value1', 'key2' => 'value2',
-                   'key3' => 'value3', 'key4' => 'value4', ], ];
+        'meta' => [
+            'key1' => 'value1',
+            'key2' => 'value2',
+            'key3' => 'value3',
+            'key4' => 'value4',
+        ], ];
 
         $this->assertEquals($expectedArray, $array);
     }

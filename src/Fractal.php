@@ -199,6 +199,8 @@ class Fractal
     /**
      * Set the meta data.
      *
+     * @param $array,...
+     *
      * @return $this
      */
     public function addMeta()

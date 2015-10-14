@@ -209,13 +209,28 @@ fractal()
 
 ## Include meta data
 
-Fractal provides support for including meta data. You can use Fractal's `addMeta` which accepts one or more arrays:
+Fractal provides support for including meta data. You can use Fractal's `addMeta` which accepts 
+one or more arrays:
 
 ```php
 fractal()
-   ->collection($this->testBooks, new TestTransformer())
-   ->addMeta(['key1', 'value1'], ['key2', 'value2'])
+   ->collection($this->testBooks, function($book) { return ['name' => $book['name']];})
+   ->addMeta(['key1' => 'value1'], ['key2' => 'value2'])
    ->toArray();
+```
+
+This will return the following array:
+
+```php
+[
+   'data' => [
+        ['title' => 'Hogfather'],
+        ['title' => 'Game Of Kill Everyone'],
+    ],
+   'meta' => [
+        ['key1' => 'value1'], 
+        ['key2' => 'value2'],
+];
 ```
 
 ## Using pagination
