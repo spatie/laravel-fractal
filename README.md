@@ -209,12 +209,12 @@ fractal()
 
 ## Include meta data
 
-Fractal provides support for including meta data. You can use Fractal's `meta` which accepts an array:
+Fractal provides support for including meta data. You can use Fractal's `addMeta` which accepts one or more arrays:
 
 ```php
 fractal()
    ->collection($this->testBooks, new TestTransformer())
-   ->addMeta(['key', 'value'])
+   ->addMeta(['key1', 'value1'], ['key2', 'value2'])
    ->toArray();
 ```
 

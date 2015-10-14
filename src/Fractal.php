@@ -199,12 +199,15 @@ class Fractal
     /**
      * Set the meta data.
      *
-     * @param array $meta
      * @return $this
      */
-    public function addMeta(array $meta)
+    public function addMeta()
     {
-        $this->meta += $meta;
+        foreach (func_get_args() as $meta) {
+            if (is_array($meta)) {
+                $this->meta += $meta;
+            }
+        }
 
         return $this;
     }
