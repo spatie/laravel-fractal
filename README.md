@@ -37,7 +37,7 @@ This package makes that process a tad easier:
 fractal()
    ->collection($books)
    ->transformWith(new BookTransformer())
-   ->includeCharacters();
+   ->includeCharacters()
    ->toArray();
 ```
 
