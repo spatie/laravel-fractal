@@ -2,6 +2,11 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.5.0 - 2015-10-14
+
+### Added
+- Support for including meta data
+
 ## 1.4.0 - 2015-10-13
 
 ### Added
