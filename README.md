@@ -207,7 +207,7 @@ fractal()
    ->toArray();
 ```
 
-## Include meta data
+## Including meta data
 
 Fractal provides support for including meta data. You can use Fractal's `addMeta` which accepts 
 one or more arrays:
