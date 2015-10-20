@@ -17,9 +17,21 @@ class ResourceNameTest extends TestCase
             ->toArray();
 
         $expectedArray = [
-            'books' => [
-                ['id' => 1, 'author' => 'Philip K Dick'],
-                ['id' => 2, 'author' => 'George R. R. Satan'],
+            'data' => [
+                [
+                    'id' => 1,
+                    'type' => 'books',
+                    'attributes' => [
+                        'author' => 'Philip K Dick',
+                    ],
+                ],
+                [
+                    'id' => 2,
+                    'type' => 'books',
+                    'attributes' => [
+                        'author' => 'George R. R. Satan',
+                    ],
+                ],
             ],
         ];
 
@@ -38,9 +50,21 @@ class ResourceNameTest extends TestCase
             ->toArray();
 
         $expectedArray = [
-            'books' => [
-                ['id' => 1, 'author' => 'Philip K Dick'],
-                ['id' => 2, 'author' => 'George R. R. Satan'],
+            'data' => [
+                [
+                    'id' => 1,
+                    'type' => 'books',
+                    'attributes' => [
+                        'author' => 'Philip K Dick',
+                    ],
+                ],
+                [
+                    'id' => 2,
+                    'type' => 'books',
+                    'attributes' => [
+                        'author' => 'George R. R. Satan',
+                    ],
+                ],
             ],
         ];
 
@@ -59,8 +83,12 @@ class ResourceNameTest extends TestCase
             ->toArray();
 
         $expectedArray = [
-            'book' => [
-                ['id' => 1, 'author' => 'Philip K Dick'],
+            'data' => [
+                'id' => 1,
+                'type' => 'book',
+                'attributes' => [
+                    'author' => 'Philip K Dick',
+                ],
             ],
         ];
 
@@ -70,7 +98,7 @@ class ResourceNameTest extends TestCase
     /**
      * @test
      */
-    public function it_uses_data_as_resource_name_when_not_set()
+    public function it_uses_null_as_resource_name_when_not_set()
     {
         $array = $this->fractal
             ->collection($this->testBooks, new TestTransformer())
@@ -79,8 +107,20 @@ class ResourceNameTest extends TestCase
 
         $expectedArray = [
             'data' => [
-                ['id' => 1, 'author' => 'Philip K Dick'],
-                ['id' => 2, 'author' => 'George R. R. Satan'],
+                [
+                    'id' => 1,
+                    'type' => null,
+                    'attributes' => [
+                        'author' => 'Philip K Dick',
+                    ],
+                ],
+                [
+                    'id' => 2,
+                    'type' => null,
+                    'attributes' => [
+                        'author' => 'George R. R. Satan',
+                    ],
+                ],
             ],
         ];
 
