@@ -5,7 +5,7 @@ All Notable changes to `laravel-fractal` will be documented in this file
 ## 1.6.0 - 2015-10-20
 
 ### Added
-- compatiblity with version v0.13 of fractal.
+- compatiblity with version v0.13 of Fractal
 
 Please not that the output of `JsonApiSerializer` has been changed in v0.13 of Fractal.
 
