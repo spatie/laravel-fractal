@@ -24,7 +24,13 @@ class PaginatorTest extends TestCase
 
         $expectedArray = [
             'data' => [
-                ['id' => 1, 'author' => 'Philip K Dick'],
+                [
+                    'id' => 1,
+                    'type' => null,
+                    'attributes' => [
+                        'author' => 'Philip K Dick'
+                    ],
+                ],
             ],
             'meta' => [
                 'pagination' => [
