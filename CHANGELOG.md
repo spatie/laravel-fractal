@@ -2,6 +2,11 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.6.1 - 2015-10-21
+
+### Fixed
+- dependency version number of fractal in composer.json
+
 ## 1.6.0 - 2015-10-20
 
 ### Added
