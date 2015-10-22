@@ -309,9 +309,7 @@ class Fractal
 
         $resource = new $resourceClass($this->data, $this->transformer, $this->resourceName);
 
-        foreach ($this->meta as $key => $value) {
-            $resource->setMetaValue($key, $value);
-        }
+        $resource->setMeta($this->meta);
 
         if (!is_null($this->paginator)) {
             $resource->setPaginator($this->paginator);
