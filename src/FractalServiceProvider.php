@@ -4,6 +4,7 @@ namespace Spatie\Fractal;
 
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Manager;
+use League\Fractal\Serializer\SerializerAbstract;
 
 class FractalServiceProvider extends ServiceProvider
 {
@@ -32,8 +33,12 @@ class FractalServiceProvider extends ServiceProvider
 
             $config = $this->app['config']->get('laravel-fractal');
 
-            if ($config['default_serializer'] != '') {
-                $fractal->serializeWith(new $config['default_serializer']());
+            if ( ! empty($config['default_serializer'])) {
+                if ($config['default_serializer'] instanceof SerializerAbstract) {
+                    $fractal->serializeWith($config['default_serializer']);
+                } else {
+                    $fractal->serializeWith(new $config['default_serializer']());
+                }
             }
 
             return $fractal;
