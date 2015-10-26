@@ -2,6 +2,11 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.7.0 - 2015-10-26
+
+### Added
+- Allow default_serializer to be set as an instantiation
+
 ## 1.6.1 - 2015-10-21
 
 ### Fixed
