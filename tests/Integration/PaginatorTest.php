@@ -28,7 +28,7 @@ class PaginatorTest extends TestCase
                     'id' => 1,
                     'type' => null,
                     'attributes' => [
-                        'author' => 'Philip K Dick'
+                        'author' => 'Philip K Dick',
                     ],
                 ],
             ],

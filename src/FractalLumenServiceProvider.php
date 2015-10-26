@@ -29,8 +29,8 @@ class FractalLumenServiceProvider extends ServiceProvider
 
             $config = $this->app['config']->get('laravel-fractal');
 
-            if ($config['default_serializer'] != '') {
-                $fractal->serializeWith(new $config['default_serializer']());
+            if (! empty($config['default_serializer'])) {
+                $fractal = $this->setDefaultSerializer($fractal, $config['default_serializer']);
             }
 
             return $fractal;
@@ -39,5 +39,22 @@ class FractalLumenServiceProvider extends ServiceProvider
         $this->app->alias(Fractal::class, 'laravel-fractal');
 
         include __DIR__.'/helpers.php';
+    }
+
+    /**
+     * Set the default serializer.
+     *
+     * @param \Spatie\Fractal\Fractal                              $fractal
+     * @param string|\League\Fractal\Serializer\SerializerAbstract $serializer
+     *
+     * @return mixed
+     */
+    protected function setDefaultSerializer($fractal, $serializer)
+    {
+        if ($serializer instanceof SerializerAbstract) {
+            return $fractal->serializeWith($serializer);
+        }
+
+        return $fractal->serializeWith(new $serializer());
     }
 }
