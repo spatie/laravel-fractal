@@ -2,6 +2,11 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.7.1 - 2015-10-26
+
+### Fixed
+- Fix for setting the default_serializer as an instantiation in Lumen
+
 ## 1.7.0 - 2015-10-26
 
 ### Added

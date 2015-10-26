@@ -4,6 +4,7 @@ namespace Spatie\Fractal;
 
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Manager;
+use League\Fractal\Serializer\SerializerAbstract;
 
 class FractalLumenServiceProvider extends ServiceProvider
 {
