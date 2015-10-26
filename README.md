@@ -98,7 +98,8 @@ return [
 
     /*
      * The default serializer to be used when performing a transformation.
-     * Leave empty to use the Fractal's default.
+     * Leave empty to use the Fractal's default. This can be a string or
+     * it can be an instance of League\Fractal\Serializer\SerializerAbstract
      */
     'default_serializer' => '',
 ];
@@ -181,7 +182,7 @@ fractal()
 
 ### Changing the default serializer
 
-You can change the default serializer by providing the classname of your favorite serializer in
+You can change the default serializer by providing the classname or an instantiation of your favorite serializer in
 the config file.
 
 ## Using includes
