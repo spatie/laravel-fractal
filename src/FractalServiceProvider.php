@@ -33,7 +33,7 @@ class FractalServiceProvider extends ServiceProvider
 
             $config = $this->app['config']->get('laravel-fractal');
 
-            if (! empty($config['default_serializer'])) {
+            if (!empty($config['default_serializer'])) {
                 $fractal = $this->setDefaultSerializer($fractal, $config['default_serializer']);
             }
 
