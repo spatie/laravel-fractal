@@ -2,6 +2,11 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.7.2 - 2015-11-09
+
+### Fixed
+- Fix for add multiple includes in one go.
+
 ## 1.7.1 - 2015-10-26
 
 ### Fixed

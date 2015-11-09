@@ -66,12 +66,18 @@ class IncludesTest extends TestCase
     {
         $array = $this->fractal
             ->collection($this->testBooks, new TestTransformer())
-            ->parseIncludes('characters,publisher')
+            ->parseIncludes('characters, publisher')
             ->toArray();
 
         $expectedArray = ['data' => [
-            ['id' => 1, 'author' => 'Philip K Dick',  'characters' => ['data' => ['Death', 'Hex']], 'publisher' => ['data' => ['Elephant books']]],
-            ['id' => 2, 'author' => 'George R. R. Satan', 'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']], 'publisher' => ['data' => ['Bloody Fantasy inc.']]],
+            ['id' => 1, 'author' => 'Philip K Dick',
+                'characters' => ['data' => ['Death', 'Hex']],
+                'publisher' => ['data' => ['Elephant books']],
+            ],
+            ['id' => 2, 'author' => 'George R. R. Satan',
+                'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']],
+                'publisher' => ['data' => ['Bloody Fantasy inc.']],
+            ],
         ]];
 
         $this->assertEquals($expectedArray, $array);
