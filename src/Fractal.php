@@ -155,7 +155,7 @@ class Fractal
     public function parseIncludes($includes)
     {
         if (is_string($includes)) {
-            $includes = array_map(function($value) {
+            $includes = array_map(function ($value) {
                return trim($value);
             },  explode(',', $includes));
         }
