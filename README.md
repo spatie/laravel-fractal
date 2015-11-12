@@ -119,7 +119,7 @@ Let's start with a simple transformation.
 
 ```php
 fractal()
-   ->collection($book)
+   ->collection($books)
    ->transformWith(function($book) { return ['id' => $book['id']];})
    ->toArray();
 ``` 
@@ -133,7 +133,7 @@ Instead of using a closure you can also pass [a Transformer](http://fractal.thep
 
 ```php
 fractal()
-   ->collection($book)
+   ->collection($books)
    ->transformWith(new BookTransformer())
    ->toArray();
 ```
@@ -142,17 +142,17 @@ To make your code a bit shorter you could also pass the transform closure or cla
 second parameter of the `collection`-method:
 
 ```php
-fractal()->collection($book, new BookTransformer())->toArray();
+fractal()->collection($books, new BookTransformer())->toArray();
 ```
 
 Want to get some sweet json output instead of an array? No problem!
 ```php
-fractal()->collection($book, new BookTransformer())->toJson();
+fractal()->collection($books, new BookTransformer())->toJson();
 ```
 
 A single item can also be transformed:
 ```php
-fractal()->item($book[0], new BookTransformer())->toArray();
+fractal()->item($books[0], new BookTransformer())->toArray();
 ```
 
 ##Using a serializer
@@ -172,7 +172,7 @@ both collections and items.
 
 ```php
 fractal()
-   ->collection($book)
+   ->collection($books)
    ->transformWith(function($book) { return ['id' => $book['id']];})
    ->serializeWith(new \Spatie\Fractal\ArraySerializer())
    ->toArray();
