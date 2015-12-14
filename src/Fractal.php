@@ -160,7 +160,7 @@ class Fractal
             },  explode(',', $includes));
         }
 
-        $this->includes = array_merge($this->includes, $includes);
+        $this->includes = array_merge($this->includes, (array)$includes);
 
         return $this;
     }
