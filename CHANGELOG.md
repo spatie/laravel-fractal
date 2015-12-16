@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.7.4 - 2015-12-16
+- Fixed a bug when passing a null value to parseIncludes
+
 ## 1.7.3 - 2015-11-09
 
 ### Fixed
