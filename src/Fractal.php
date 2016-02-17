@@ -2,13 +2,14 @@
 
 namespace Spatie\Fractal;
 
+use JsonSerializable;
 use League\Fractal\Manager;
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractal\Exceptions\InvalidTransformation;
 use Spatie\Fractal\Exceptions\NoTransformerSpecified;
 
-class Fractal
+class Fractal implements JsonSerializable
 {
     /**
      * @var \League\Fractal\Manager
@@ -318,5 +319,15 @@ class Fractal
         }
 
         return $resource;
+    }
+
+    /**
+     * Convert the object into something JSON serializable.
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return $this->toArray();
     }
 }
