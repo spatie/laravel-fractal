@@ -2,6 +2,8 @@
 
 namespace Spatie\Fractal\Test\Integration;
 
+use Illuminate\Http\JsonResponse;
+
 class FractalTest extends TestCase
 {
     /**
@@ -108,5 +110,18 @@ class FractalTest extends TestCase
             ->createData();
 
         $this->assertInstanceOf(\League\Fractal\Scope::class, $resource);
+    }
+
+    /**
+     * @test
+     */
+    public function it_can_be_handled_by_response_without_using_a_transformer_to_array()
+    {
+        $json = $this->fractal->collection($this->testBooks, new TestTransformer());
+        $response = new JsonResponse($json);
+
+        $expectedJson = '{"data":[{"id":1,"author":"Philip K Dick"},{"id":2,"author":"George R. R. Satan"}]}';
+
+        $this->assertEquals($expectedJson, $response->getContent());
     }
 }
