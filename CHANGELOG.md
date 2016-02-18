@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.7.5 - 2016-02-18
+
+- The `Fractal`-class now implements the `JsonSerializable`-interface
+
 ## 1.7.4 - 2015-12-16
 - Fixed a bug when passing a null value to parseIncludes
 
