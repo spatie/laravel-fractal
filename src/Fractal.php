@@ -22,7 +22,7 @@ class Fractal implements JsonSerializable
     protected $serializer;
 
     /**
-     * @var \League\Fractal\TransformerAbstract|Callable
+     * @var \League\Fractal\TransformerAbstract|callable
      */
     protected $transformer;
 
@@ -68,7 +68,7 @@ class Fractal implements JsonSerializable
      * Set the collection data that must be transformed.
      *
      * @param mixed                                             $data
-     * @param \League\Fractal\TransformerAbstract|Callable|null $transformer
+     * @param \League\Fractal\TransformerAbstract|callable|null $transformer
      * @param string|null                                       $resourceName
      *
      * @return $this
@@ -84,7 +84,7 @@ class Fractal implements JsonSerializable
      * Set the item data that must be transformed.
      *
      * @param mixed                                             $data
-     * @param \League\Fractal\TransformerAbstract|Callable|null $transformer
+     * @param \League\Fractal\TransformerAbstract|callable|null $transformer
      * @param string|null                                       $resourceName
      *
      * @return $this
@@ -101,7 +101,7 @@ class Fractal implements JsonSerializable
      *
      * @param string                                            $dataType
      * @param mixed                                             $data
-     * @param \League\Fractal\TransformerAbstract|Callable|null $transformer
+     * @param \League\Fractal\TransformerAbstract|callable|null $transformer
      *
      * @return $this
      */
@@ -121,7 +121,7 @@ class Fractal implements JsonSerializable
     /**
      * Set the class or function that will perform the transform.
      *
-     * @param \League\Fractal\TransformerAbstract|Callable $transformer
+     * @param \League\Fractal\TransformerAbstract|callable $transformer
      *
      * @return $this
      */
@@ -161,7 +161,7 @@ class Fractal implements JsonSerializable
             },  explode(',', $includes));
         }
 
-        $this->includes = array_merge($this->includes, (array)$includes);
+        $this->includes = array_merge($this->includes, (array) $includes);
 
         return $this;
     }
