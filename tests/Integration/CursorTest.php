@@ -2,8 +2,8 @@
 
 namespace Spatie\Fractal\Test\Integration;
 
+use League\Fractal\Pagination\Cursor;
 use League\Fractal\Serializer\JsonApiSerializer;
-use \League\Fractal\Pagination\Cursor;
 
 class CursorTest extends TestCase
 {

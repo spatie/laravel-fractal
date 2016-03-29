@@ -3,9 +3,9 @@
 namespace Spatie\Fractal\Test;
 
 use League\Fractal\Manager;
+use League\Fractal\Pagination\Cursor;
 use Spatie\Fractal\ArraySerializer;
 use Spatie\Fractal\Fractal;
-use \League\Fractal\Pagination\Cursor;
 
 class FractalTest extends \PHPUnit_Framework_TestCase
 {
