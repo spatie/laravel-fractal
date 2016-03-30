@@ -258,6 +258,25 @@ fractal()
     ->toArray();
 ```
 
+## Using Cursor
+
+Fractal provides a simple cursor class, `League\Fractal\Pagination\Cursor`. You can use any other cursor class as long as it implements the `League\Fractal\Pagination\CursorInterface` interface. When using it, the cursor information will be automatically included in the result metadata:
+
+```php
+$books = $paginator->getCollection();
+
+$currentCursor = 0;
+$previousCursor = null;
+$count = count($books);
+$newCursor = $currentCursor + $count;
+
+fractal()
+  ->collection($books, new TestTransformer())
+  ->serializeWith(new JsonApiSerializer())
+  ->withCursor(new Cursor($currentCursor, $previousCursor, $newCursor, $count))
+  ->toArray();
+```
+
 ## Setting a custom resource name
 
 Certain serializers wrap the array output with a `data` element. The name of this element can be customized:

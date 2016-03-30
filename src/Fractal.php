@@ -4,6 +4,7 @@ namespace Spatie\Fractal;
 
 use JsonSerializable;
 use League\Fractal\Manager;
+use League\Fractal\Pagination\CursorInterface;
 use League\Fractal\Pagination\PaginatorInterface;
 use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractal\Exceptions\InvalidTransformation;
@@ -30,6 +31,11 @@ class Fractal implements JsonSerializable
      * @var \League\Fractal\Pagination\PaginatorInterface
      */
     protected $paginator;
+
+    /**
+     * @var \League\Fractal\Pagination\CursorInterface
+     */
+    protected $cursor;
 
     /**
      * @var array
@@ -147,6 +153,20 @@ class Fractal implements JsonSerializable
     }
 
     /**
+     * Set a Fractal cursor for the data
+     *
+     * @param  League\Fractal\Pagination\CursorInterface $cursor
+     *
+     * @return $this
+     */
+    public function withCursor(CursorInterface $cursor)
+    {
+        $this->cursor = $cursor;
+
+        return $this;
+    }
+
+    /**
      * Specify the includes.
      *
      * @param array|string $includes Array or csv string of resources to include
@@ -157,8 +177,8 @@ class Fractal implements JsonSerializable
     {
         if (is_string($includes)) {
             $includes = array_map(function ($value) {
-               return trim($value);
-            },  explode(',', $includes));
+                return trim($value);
+            }, explode(',', $includes));
         }
 
         $this->includes = array_merge($this->includes, (array) $includes);
@@ -177,7 +197,7 @@ class Fractal implements JsonSerializable
     public function __call($name, array $arguments)
     {
         if (!starts_with($name, 'include')) {
-            trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
+            trigger_error('Call to undefined method ' . __CLASS__ . '::' . $name . '()', E_USER_ERROR);
         }
 
         $includeName = lcfirst(substr($name, strlen('include')));
@@ -304,7 +324,7 @@ class Fractal implements JsonSerializable
      */
     public function getResource()
     {
-        $resourceClass = 'League\\Fractal\\Resource\\'.ucfirst($this->dataType);
+        $resourceClass = 'League\\Fractal\\Resource\\' . ucfirst($this->dataType);
 
         if (!class_exists($resourceClass)) {
             throw new InvalidTransformation();
@@ -316,6 +336,10 @@ class Fractal implements JsonSerializable
 
         if (!is_null($this->paginator)) {
             $resource->setPaginator($this->paginator);
+        }
+
+        if (!is_null($this->cursor)) {
+            $resource->setCursor($this->cursor);
         }
 
         return $resource;

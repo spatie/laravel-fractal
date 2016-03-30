@@ -3,6 +3,7 @@
 namespace Spatie\Fractal\Test;
 
 use League\Fractal\Manager;
+use League\Fractal\Pagination\Cursor;
 use Spatie\Fractal\ArraySerializer;
 use Spatie\Fractal\Fractal;
 
@@ -27,6 +28,9 @@ class FractalTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->collection([]));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->transformWith(function () {}));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->serializeWith(new ArraySerializer()));
+        $this->assertInstanceOf(get_class($this->fractal), $this->fractal->withCursor(
+            new Cursor(0, null, 10, 10)
+        ));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->addMeta([]));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->paginateWith(
             $this->getMock('League\Fractal\Pagination\PaginatorInterface')
