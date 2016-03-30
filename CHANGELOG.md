@@ -2,7 +2,7 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
-## 1.8.0 - 2016-03-30
+## 1.9.0 - 2016-03-30
 
 - Added support for cursors
 
