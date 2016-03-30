@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 1.8.0 - 2016-03-30
+
+- Added support for cursors
+
 ## 1.8.0 - 2016-02-18
 
 - The `Fractal`-class now implements the `JsonSerializable`-interface
