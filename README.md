@@ -258,7 +258,7 @@ fractal()
     ->toArray();
 ```
 
-## Using Cursor
+## Using a cursor
 
 Fractal provides a simple cursor class, `League\Fractal\Pagination\Cursor`. You can use any other cursor class as long as it implements the `League\Fractal\Pagination\CursorInterface` interface. When using it, the cursor information will be automatically included in the result metadata:
 
