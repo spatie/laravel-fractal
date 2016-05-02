@@ -284,7 +284,7 @@ Certain serializers wrap the array output with a `data` element. The name of thi
 ```php
 fractal()
     ->collection($this->testBooks, new TestTransformer())
-    ->serializeWith(new JsonApiSerializer())
+    ->serializeWith(new ArraySerializer())
     ->resourceName('books')
     ->toArray();
 ```
@@ -292,7 +292,7 @@ fractal()
 ```php
 fractal()
     ->item($this->testBooks[0], new TestTransformer(), 'book')
-    ->serializeWith(new JsonApiSerializer())
+    ->serializeWith(new ArraySerializer())
     ->toArray();
 ```
 
