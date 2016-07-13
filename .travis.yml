@@ -6,14 +6,8 @@ php:
   - 7.0
   - hhvm
 
-matrix:
-  include:
-    - php: 5.5
-      env: 'COMPOSER_FLAGS="--prefer-stable --prefer-lowest"'
-
 before_script:
   - travis_retry composer self-update
-  - travis_wait composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
 
 script:
   - phpunit --coverage-text --coverage-clover=coverage.clover
