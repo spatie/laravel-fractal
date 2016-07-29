@@ -2,7 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/spatie/laravel-fractal/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-fractal)
 [![SensioLabsInsight](https://img.shields.io/sensiolabs/i/9f30e70e-f9d4-4ba2-940e-843788650850?style=flat-square)](https://insight.sensiolabs.com/projects/9f30e70e-f9d4-4ba2-940e-843788650850)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-fractal.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-fractal)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
