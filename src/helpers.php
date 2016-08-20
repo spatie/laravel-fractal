@@ -1,7 +1,7 @@
 <?php
 
 
-if (!function_exists('fractal')) {
+if (! function_exists('fractal')) {
 
     /**
      * @return \Spatie\Fractal\Fractal

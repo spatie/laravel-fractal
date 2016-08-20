@@ -15,6 +15,7 @@ class ExceptionTest extends TestCase
 
         $this->fractal->toJson();
     }
+
     /**
      * @test
      */
