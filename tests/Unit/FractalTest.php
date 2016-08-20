@@ -26,7 +26,8 @@ class FractalTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->item('test'));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->collection([]));
-        $this->assertInstanceOf(get_class($this->fractal), $this->fractal->transformWith(function () {}));
+        $this->assertInstanceOf(get_class($this->fractal), $this->fractal->transformWith(function () {
+        }));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->serializeWith(new ArraySerializer()));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->withCursor(
             new Cursor(0, null, 10, 10)
