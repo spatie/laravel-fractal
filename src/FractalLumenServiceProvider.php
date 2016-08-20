@@ -23,14 +23,13 @@ class FractalLumenServiceProvider extends ServiceProvider
         $this->app->configure('laravel-fractal');
 
         $this->app->bind(Fractal::class, function () {
-
             $manager = new Manager();
 
             $fractal = new Fractal($manager);
 
             $config = $this->app['config']->get('laravel-fractal');
 
-            if (!empty($config['default_serializer'])) {
+            if (! empty($config['default_serializer'])) {
                 $fractal = $this->setDefaultSerializer($fractal, $config['default_serializer']);
             }
 

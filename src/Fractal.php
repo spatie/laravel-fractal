@@ -117,7 +117,7 @@ class Fractal implements JsonSerializable
 
         $this->data = $data;
 
-        if (!is_null($transformer)) {
+        if (! is_null($transformer)) {
             $this->transformer = $transformer;
         }
 
@@ -196,7 +196,7 @@ class Fractal implements JsonSerializable
      */
     public function __call($name, array $arguments)
     {
-        if (!starts_with($name, 'include')) {
+        if (! starts_with($name, 'include')) {
             trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
         }
 
@@ -302,11 +302,11 @@ class Fractal implements JsonSerializable
             throw new NoTransformerSpecified();
         }
 
-        if (!is_null($this->serializer)) {
+        if (! is_null($this->serializer)) {
             $this->manager->setSerializer($this->serializer);
         }
 
-        if (!is_null($this->includes)) {
+        if (! is_null($this->includes)) {
             $this->manager->parseIncludes($this->includes);
         }
 
@@ -326,7 +326,7 @@ class Fractal implements JsonSerializable
     {
         $resourceClass = 'League\\Fractal\\Resource\\'.ucfirst($this->dataType);
 
-        if (!class_exists($resourceClass)) {
+        if (! class_exists($resourceClass)) {
             throw new InvalidTransformation();
         }
 
@@ -334,11 +334,11 @@ class Fractal implements JsonSerializable
 
         $resource->setMeta($this->meta);
 
-        if (!is_null($this->paginator)) {
+        if (! is_null($this->paginator)) {
             $resource->setPaginator($this->paginator);
         }
 
-        if (!is_null($this->cursor)) {
+        if (! is_null($this->cursor)) {
             $resource->setCursor($this->cursor);
         }
 
