@@ -6,7 +6,7 @@ use League\Fractal\Serializer\JsonApiSerializer;
 
 class DefaultSerializerObjectTest extends TestCase
 {
-    public function setUp()
+    public function setUp($defaultSerializer = '')
     {
         parent::setUp(new JsonApiSerializer());
     }

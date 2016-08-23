@@ -6,7 +6,7 @@ use Spatie\Fractal\ArraySerializer;
 
 class ConfigTest extends TestCase
 {
-    public function setUp()
+    public function setUp($defaultSerializer = '')
     {
         parent::setup(ArraySerializer::class);
     }
