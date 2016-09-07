@@ -245,6 +245,7 @@ This will return the following array:
    'meta' => [
         ['key1' => 'value1'], 
         ['key2' => 'value2'],
+    ]
 ];
 ```
 
