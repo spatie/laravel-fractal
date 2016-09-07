@@ -1,5 +1,5 @@
 {
-    "name": "spatie/laravel-fractal",
+    "name": "carvinglabs/laravel-fractal",
     "description": "A Fractal service provider for Laravel 5",
     "keywords": [
         "spatie",
