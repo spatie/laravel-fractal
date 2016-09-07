@@ -22,7 +22,7 @@
     ],
     "require": {
         "php" : ">=5.5.0",
-        "league/fractal": "^0.13.0",
+        "league/fractal": "~0.13",
         "illuminate/support": "~5.1.0|~5.2.0|~5.3.0"
     },
     "require-dev": {
