@@ -14,7 +14,6 @@ class TestTransformer extends TransformerAbstract
     protected $availableIncludes = [
         'characters',
         'publisher',
-	    'revenue'
     ];
 
     /**
