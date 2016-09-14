@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: michael
- * Date: 14/09/2016
- * Time: 15.00
- */
 
 namespace Spatie\Fractal\Test\Integration;
 
