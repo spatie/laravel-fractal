@@ -14,6 +14,7 @@ class TestTransformer extends TransformerAbstract
     protected $availableIncludes = [
         'characters',
         'publisher',
+	    'revenue'
     ];
 
     /**
@@ -44,6 +45,22 @@ class TestTransformer extends TransformerAbstract
             return $character['name'];
         });
     }
+
+	/**
+	 * Include revenue.
+	 *
+	 * @param array $book
+	 *
+	 * @return \League\Fractal\ItemResource
+	 */
+	public function includeRevenue(array $book)
+	{
+		$revenue = $book['revenue'];
+
+		return $this->collection($revenue, function ($revenue) {
+			return $revenue;
+		});
+	}
 
     /**
      * Include characters.
