@@ -9,6 +9,7 @@ php:
 
 before_script:
   - travis_retry composer self-update
+  - composer install
 
 script:
   - phpunit --coverage-text --coverage-clover=coverage.clover

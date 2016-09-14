@@ -41,9 +41,8 @@ class Fractal implements JsonSerializable
      * @var array
      */
     protected $includes = [];
-
-
-	protected $excludes = [];
+    
+    protected $excludes = [];
 
     /**
      * @var string
@@ -187,22 +186,22 @@ class Fractal implements JsonSerializable
 
     public function parseExcludes($excludes)
     {
-	    $excludes = $this->normalizeExcludesOrIncludes($excludes);
+        $excludes = $this->normalizeExcludesOrIncludes($excludes);
 
-	    $this->excludes = array_merge($this->excludes, (array) $excludes);
+        $this->excludes = array_merge($this->excludes, (array) $excludes);
 
-	    return $this;
+        return $this;
     }
 
     protected function normalizeExcludesOrIncludes($includesOrExcludes)
     {
-	    if (! is_string($includesOrExcludes)) {
-		    return $includesOrExcludes;
-	    }
+        if (! is_string($includesOrExcludes)) {
+            return $includesOrExcludes;
+        }
 
-	    return array_map(function ($value) {
-		    return trim($value);
-	    }, explode(',', $includesOrExcludes));
+        return array_map(function ($value) {
+            return trim($value);
+        }, explode(',', $includesOrExcludes));
     }
 
     /**
@@ -215,18 +214,17 @@ class Fractal implements JsonSerializable
      */
     public function __call($name, array $arguments)
     {
-	    if(starts_with($name, ['include'])) {
-	        $includeName = lcfirst(substr($name, strlen('include')));
-	        return $this->parseIncludes($includeName);
+        if (starts_with($name, ['include'])) {
+            $includeName = lcfirst(substr($name, strlen('include')));
+            return $this->parseIncludes($includeName);
         }
 
-        if(starts_with($name, ['exclude'])) {
-        	$excludeName = lcfirst(substr($name, strlen('exclude')));
-	        return $this->parseExcludes($excludeName);
+        if (starts_with($name, ['exclude'])) {
+            $excludeName = lcfirst(substr($name, strlen('exclude')));
+            return $this->parseExcludes($excludeName);
         }
 
         trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
-
     }
 
     /**
@@ -335,7 +333,7 @@ class Fractal implements JsonSerializable
         }
 
         if (! is_null($this->excludes)) {
-        	$this->manager->parseExcludes($this->excludes);
+            $this->manager->parseExcludes($this->excludes);
         }
 
         return $this->manager->createData($this->getResource());
