@@ -353,8 +353,6 @@ class Fractal implements JsonSerializable
             $this->manager->parseExcludes($this->excludes);
         }
 
-
-
         return $this->manager->createData($this->getResource());
     }
 
