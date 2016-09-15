@@ -14,7 +14,7 @@ class TestTransformerWithIncludes extends TransformerAbstract
     protected $defaultIncludes = [
         'characters',
         'publisher',
-        'title'
+        'title',
     ];
 
     /**
