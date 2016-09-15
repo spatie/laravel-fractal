@@ -15,11 +15,12 @@ class PaginatorTest extends TestCase
     {
         $books = [$this->testBooks[0]];
         $array = $this->fractal
-           ->collection($books, new TestTransformer())
-           ->serializeWith(new JsonApiSerializer())
-           ->paginateWith(new IlluminatePaginatorAdapter(
+            ->collection($books, new TestTransformer())
+            ->serializeWith(new JsonApiSerializer())
+            ->paginateWith(new IlluminatePaginatorAdapter(
                 new LengthAwarePaginator($books, 2, 1)
-           ))->toArray();
+           ))
+           ->toArray();
 
         $expectedArray = [
             'data' => [
