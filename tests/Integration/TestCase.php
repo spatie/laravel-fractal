@@ -18,7 +18,7 @@ abstract class TestCase extends Orchestra
      */
     protected $testBooks;
 
-	/**
+    /**
      * @var string|\League\Fractal\Serializer\SerializerAbstract
      */
     protected $defaultSerializer;

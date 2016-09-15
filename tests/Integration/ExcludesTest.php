@@ -17,7 +17,7 @@ class ExcludesTest extends TestCase
         $expectedArray = [
             'data' => [
                 ['id' => 1, 'author' => 'Philip K Dick', 'title' => ['data' => ['Hogfather']], 'characters' => ['data' => ['Death', 'Hex']]],
-                ['id' => 2, 'author' => 'George R. R. Satan', 'title' => ['data' => ['Game Of Kill Everyone']],'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']]],
+                ['id' => 2, 'author' => 'George R. R. Satan', 'title' => ['data' => ['Game Of Kill Everyone']], 'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']]],
             ],
         ];
 
@@ -92,7 +92,7 @@ class ExcludesTest extends TestCase
             'data' => [
                 ['id' => 1, 'author' => 'Philip K Dick', 'characters' => ['data' => ['Death', 'Hex']], 'publisher' => ['data' => ['Elephant books']], 'title' => ['data' => ['Hogfather']]],
                 ['id' => 2, 'author' => 'George R. R. Satan', 'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']], 'publisher' => ['data' => ['Bloody Fantasy inc.']], 'title' => ['data' => ['Game Of Kill Everyone']]],
-            ]
+            ],
         ];
 
         $excludeWhenPassedNull = $this->fractal

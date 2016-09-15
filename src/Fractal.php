@@ -42,10 +42,10 @@ class Fractal implements JsonSerializable
      */
     protected $includes = [];
 
-	/**
-	 * @var array
-	 */
-	protected $excludes = [];
+    /**
+     * @var array
+     */
+    protected $excludes = [];
 
     /**
      * @var string
@@ -187,13 +187,13 @@ class Fractal implements JsonSerializable
         return $this;
     }
 
-	/**
-	 * Specify the excludes
-	 *
-	 * @param $excludes
-	 * @return $this
-	 */
-	public function parseExcludes($excludes)
+    /**
+     * Specify the excludes.
+     *
+     * @param $excludes
+     * @return $this
+     */
+    public function parseExcludes($excludes)
     {
         $excludes = $this->normalizeExcludesOrIncludes($excludes);
 
@@ -202,13 +202,13 @@ class Fractal implements JsonSerializable
         return $this;
     }
 
-	/**
-	 * Normalize the includes an excludes
-	 *
-	 * @param $includesOrExcludes
-	 * @return array
-	 */
-	protected function normalizeExcludesOrIncludes($includesOrExcludes)
+    /**
+     * Normalize the includes an excludes.
+     *
+     * @param $includesOrExcludes
+     * @return array
+     */
+    protected function normalizeExcludesOrIncludes($includesOrExcludes)
     {
         if (! is_string($includesOrExcludes)) {
             return $includesOrExcludes;
@@ -231,11 +231,13 @@ class Fractal implements JsonSerializable
     {
         if (starts_with($name, ['include'])) {
             $includeName = lcfirst(substr($name, strlen('include')));
+
             return $this->parseIncludes($includeName);
         }
 
         if (starts_with($name, ['exclude'])) {
             $excludeName = lcfirst(substr($name, strlen('exclude')));
+
             return $this->parseExcludes($excludeName);
         }
 

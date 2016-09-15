@@ -41,11 +41,11 @@ class PaginatorTest extends TestCase
                     'total_pages' => 2,
                 ],
             ],
-            "links" => [
-                "self" => "/?page=1",
-                "first" => "/?page=1",
-                "next" => "/?page=2",
-                "last" => "/?page=2",
+            'links' => [
+                'self' => '/?page=1',
+                'first' => '/?page=1',
+                'next' => '/?page=2',
+                'last' => '/?page=2',
             ],
         ];
 
