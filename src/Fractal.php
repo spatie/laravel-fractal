@@ -41,8 +41,11 @@ class Fractal implements JsonSerializable
      * @var array
      */
     protected $includes = [];
-    
-    protected $excludes = [];
+
+	/**
+	 * @var array
+	 */
+	protected $excludes = [];
 
     /**
      * @var string
@@ -184,7 +187,13 @@ class Fractal implements JsonSerializable
         return $this;
     }
 
-    public function parseExcludes($excludes)
+	/**
+	 * Specify the excludes
+	 *
+	 * @param $excludes
+	 * @return $this
+	 */
+	public function parseExcludes($excludes)
     {
         $excludes = $this->normalizeExcludesOrIncludes($excludes);
 
@@ -193,7 +202,13 @@ class Fractal implements JsonSerializable
         return $this;
     }
 
-    protected function normalizeExcludesOrIncludes($includesOrExcludes)
+	/**
+	 * Normalize the includes an excludes
+	 *
+	 * @param $includesOrExcludes
+	 * @return array
+	 */
+	protected function normalizeExcludesOrIncludes($includesOrExcludes)
     {
         if (! is_string($includesOrExcludes)) {
             return $includesOrExcludes;
@@ -335,6 +350,8 @@ class Fractal implements JsonSerializable
         if (! is_null($this->excludes)) {
             $this->manager->parseExcludes($this->excludes);
         }
+
+
 
         return $this->manager->createData($this->getResource());
     }

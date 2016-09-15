@@ -29,7 +29,7 @@
         "phpunit/phpunit" : "^4.0",
         "scrutinizer/ocular": "^1.1",
         "orchestra/testbench": "3.3.x-dev|3.2.x-dev",
-        "orchestra/database": "3.3.x-dev|3.2.x-dev"
+        "orchestra/database": "3.2.x-dev|3.3.x-dev"
     },
     "autoload": {
         "psr-4": {

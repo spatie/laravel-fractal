@@ -4,117 +4,109 @@ namespace Spatie\Fractal\Test\Integration;
 
 class ExcludesTest extends TestCase
 {
-	/**
-	 * @test
-	 */
-	public function it_can_parse_excludes()
-	{
-		$array = $this->fractal
-			->collection($this->testPosts, new TestPostsTransformer())
-			->parseExcludes('author')
-			->toArray();
+    /**
+     * @test
+     */
+    public function it_can_parse_excludes()
+    {
+        $array = $this->fractal
+            ->collection($this->testBooks, new TestTransformerWithIncludes())
+            ->parseExcludes('publisher')
+            ->toArray();
 
-		$expectedArray = [
-			'data' => [
-				['id' => 1, 'title' => 'Hogfather', 'characters' => ['data' => ['Death', 'Hex']]],
-				[
-					'id' => 2,
-					'title' => 'Game Of Kill Everyone',
-					'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']],
-				],
-			],
-		];
+        $expectedArray = [
+            'data' => [
+                ['id' => 1, 'author' => 'Philip K Dick', 'title' => ['data' => ['Hogfather']], 'characters' => ['data' => ['Death', 'Hex']]],
+                ['id' => 2, 'author' => 'George R. R. Satan', 'title' => ['data' => ['Game Of Kill Everyone']],'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']]],
+            ],
+        ];
 
-		$this->assertEquals($expectedArray, $array);
-	}
+        $this->assertEquals($expectedArray, $array);
+    }
 
-	/**
-	 * @test
-	 */
-	public function it_provides_a_convenience_method_to_exclude_excludes()
-	{
-		$resultWithParseIncludes = fractal()
-			->collection($this->testPosts, new TestPostsTransformer())
-			->parseExcludes('author')
-			->toArray();
+    /**
+     * @test
+     */
+    public function it_provides_a_convenience_method_to_exclude_excludes()
+    {
+        $resultWithParseExcludes = fractal()
+            ->collection($this->testBooks, new TestTransformerWithIncludes())
+            ->parseExcludes('publisher')
+            ->toArray();
 
-		$resultWithParseCharacters = fractal()
-			->collection($this->testPosts, new TestPostsTransformer())
-			->excludeAuthor()
-			->toArray();
+        $resultWithParseExcludesAsaMethod = fractal()
+            ->collection($this->testBooks, new TestTransformerWithIncludes())
+            ->excludePublisher()
+            ->toArray();
 
-		$this->assertEquals($resultWithParseIncludes, $resultWithParseCharacters);
-	}
+        $this->assertEquals($resultWithParseExcludes, $resultWithParseExcludesAsaMethod);
+    }
 
-	/**
-	 * @test
-	 */
-	public function it_can_handle_multiple_excludes()
-	{
-		$array = $this->fractal
-			->collection($this->testBooks, new TestPostsTransformer())
-			->excludeAuthor()
-			->excludeCharacters()
-			->toArray();
+    /**
+     * @test
+     */
+    public function it_can_handle_multiple_excludes()
+    {
+        $array = $this->fractal
+            ->collection($this->testBooks, new TestTransformerWithIncludes())
+            ->excludePublisher()
+            ->excludeCharacters()
+            ->toArray();
 
-		$expectedArray = [
-			'data' => [
-				['id' => 1, 'title' => 'Hogfather'],
-				['id' => 2, 'title' => 'Game Of Kill Everyone'],
-			],
-		];
+        $expectedArray = [
+            'data' => [
+                ['id' => 1, 'author' => 'Philip K Dick', 'title' => ['data' => ['Hogfather']]],
+                ['id' => 2, 'author' => 'George R. R. Satan', 'title' => ['data' => ['Game Of Kill Everyone']]],
+            ],
+        ];
 
-		$this->assertEquals($expectedArray, $array);
-	}
+        $this->assertEquals($expectedArray, $array);
+    }
 
-	/**
-	 * @test
-	 */
-	public function it_can_handle_multiple_includes_at_once()
-	{
-		$array = $this->fractal
-			->collection($this->testPosts, new TestPostsTransformer())
-			->parseExcludes('characters, author')
-			->toArray();
+    /**
+     * @test
+     */
+    public function it_can_handle_multiple_excludes_at_once()
+    {
+        $array = $this->fractal
+            ->collection($this->testBooks, new TestTransformerWithIncludes())
+            ->parseExcludes('characters, title')
+            ->toArray();
 
-		$expectedArray = [
-			'data' => [
-				['id' => 1, 'title' => 'Hogfather'],
-				['id' => 2, 'title' => 'Game Of Kill Everyone'],
-			],
-		];
+        $expectedArray = [
+            'data' => [
+                ['id' => 1, 'author' => 'Philip K Dick', 'publisher' => ['data' => ['Elephant books']]],
+                ['id' => 2, 'author' => 'George R. R. Satan', 'publisher' => ['data' => ['Bloody Fantasy inc.']]],
+            ],
+        ];
 
-		$this->assertEquals($expectedArray, $array);
-	}
+        $this->assertEquals($expectedArray, $array);
+    }
 
-	/**
-	 * @test
-	 */
-	public function it_knows_to_ignore_invalid_includes_param()
-	{
-		$excludeWhenPassedNull = $this->fractal
-			->collection($this->testPosts, new TestPostsTransformer())
-			->parseExcludes(null)
-			->toArray();
+    /**
+     * @test
+     */
+    public function it_knows_to_ignore_invalid_excludes_param()
+    {
+        $expectedArray = [
+            'data' => [
+                ['id' => 1, 'author' => 'Philip K Dick', 'characters' => ['data' => ['Death', 'Hex']], 'publisher' => ['data' => ['Elephant books']], 'title' => ['data' => ['Hogfather']]],
+                ['id' => 2, 'author' => 'George R. R. Satan', 'characters' => ['data' => ['Ned Stark', 'Tywin Lannister']], 'publisher' => ['data' => ['Bloody Fantasy inc.']], 'title' => ['data' => ['Game Of Kill Everyone']]],
+            ]
+        ];
 
-		$excludeWhenPassedEmptyArray = $this->fractal
-			->collection($this->testPosts, new TestPostsTransformer())
-			->parseExcludes([])
-			->toArray();
+        $excludeWhenPassedNull = $this->fractal
+            ->collection($this->testBooks, new TestTransformerWithIncludes())
+            ->parseExcludes(null)
+            ->toArray();
 
-		$expectedArray = ["data" => [
-			[
-				"id" => 1, "title" => "Hogfather",
-					"author" => ["data" => ["George R. R. Satan", "george@example.org"]],
-					"characters" => ["data" => ["Death", "Hex"]]],
-				["id" => 2, "title" => "Game Of Kill Everyone",
-					"author" => ["data" => ["George R. R. Satan", "george@example.org",]],
-					"characters" => ["data" => ["Ned Stark", "Tywin Lannister",]]
-				],
-			],
-		];
+        $this->assertEquals($expectedArray, $excludeWhenPassedNull);
 
-		$this->assertEquals($expectedArray, $excludeWhenPassedEmptyArray);
-		$this->assertEquals($expectedArray, $excludeWhenPassedNull);
-	}
+        $excludeWhenPassedEmptyArray = $this->fractal
+            ->collection($this->testBooks, new TestTransformerWithIncludes())
+            ->parseExcludes([])
+            ->toArray();
+
+        $this->assertEquals($expectedArray, $excludeWhenPassedEmptyArray);
+    }
 }
