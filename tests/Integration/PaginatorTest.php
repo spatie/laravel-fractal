@@ -19,8 +19,8 @@ class PaginatorTest extends TestCase
             ->serializeWith(new JsonApiSerializer())
             ->paginateWith(new IlluminatePaginatorAdapter(
                 new LengthAwarePaginator($books, 2, 1)
-           ))
-           ->toArray();
+            ))
+            ->toArray();
 
         $expectedArray = [
             'data' => [
