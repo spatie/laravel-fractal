@@ -92,7 +92,7 @@ class Fractal implements JsonSerializable
      *
      * @return $this
      */
-    public function data(string $dataType, $data, $transformer = null)
+    public function data($dataType, $data, $transformer = null)
     {
         $this->dataType = $dataType;
 
