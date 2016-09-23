@@ -25,11 +25,11 @@ class FractalFunctionHelperTest extends TestCase
     public function it_tests()
     {
         $transformedData = fractal(['item1', 'item2'], function ($item) {
-            return $item . '-transformed';
+            return $item.'-transformed';
         })->toArray();
 
         $this->assertEquals([
-            'data' => ['item1-transformed', 'item2-transformed']
+            'data' => ['item1-transformed', 'item2-transformed'],
         ], $transformedData);
     }
 }
