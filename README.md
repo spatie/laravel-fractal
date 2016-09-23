@@ -326,6 +326,11 @@ fractal(['item1', 'item2'], function ($item) {
 })->toArray();
 ```
 
+## Upgrading from v1 to v2
+
+In most cases you can just upgrade to `v2` without making any changes to your code.
+
+The only reason why `v2` of this package was tagged is because v0.14 of the underlying [Fractal](http://fractal.thephpleague.com/) by the League contains breaking change. If you use the `League\Fractal\Serializer\JsonApiSerializer` in v2 the `links` key will contain `self`, `first`, `next` and `last`.
 
 ## Change log
 
