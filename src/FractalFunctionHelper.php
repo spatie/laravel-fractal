@@ -88,7 +88,7 @@ class FractalFunctionHelper
         }
 
         if (! $transformer instanceof TransformerAbstract) {
-            throw new Exception('Second argument should be a callable or a transformer');
+            throw InvalidUseOfFractalHelper::invalidTransformer();
         }
 
         $this->fractal->transformWith($transformer);
