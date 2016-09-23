@@ -2,7 +2,7 @@
 
 use Spatie\Fractal\FractalFunctionHelper;
 
-if (!function_exists('fractal')) {
+if (! function_exists('fractal')) {
 
     /** @return \Spatie\Fractal\Fractal */
     function fractal()
