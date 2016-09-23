@@ -21,6 +21,8 @@ class CallbackTransformer extends TransformerAbstract
      */
     public function transform($item)
     {
-        return ($this->callable)($item);
+        $callable = $this->callable;
+
+        return $callable($item);
     }
 }
