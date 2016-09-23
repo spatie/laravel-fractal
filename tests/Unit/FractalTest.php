@@ -9,9 +9,7 @@ use Spatie\Fractal\Fractal;
 
 class FractalTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @var \Spatie\Fractal\Fractal
-     */
+    /** @var \Spatie\Fractal\Fractal */
     protected $fractal;
 
     public function setUp()
@@ -19,9 +17,7 @@ class FractalTest extends \PHPUnit_Framework_TestCase
         $this->fractal = new Fractal(new Manager());
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_provides_chainable_methods()
     {
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->item('test'));

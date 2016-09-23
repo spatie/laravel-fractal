@@ -12,39 +12,25 @@ use Spatie\Fractal\Exceptions\NoTransformerSpecified;
 
 class Fractal implements JsonSerializable
 {
-    /**
-     * @var \League\Fractal\Manager
-     */
+    /** @var \League\Fractal\Manager */
     protected $manager;
 
-    /**
-     * @var \League\Fractal\Serializer\SerializerAbstract
-     */
+    /** @var \League\Fractal\Serializer\SerializerAbstract */
     protected $serializer;
 
-    /**
-     * @var \League\Fractal\TransformerAbstract|callable
-     */
+    /** @var \League\Fractal\TransformerAbstract|callable */
     protected $transformer;
 
-    /**
-     * @var \League\Fractal\Pagination\PaginatorInterface
-     */
+    /** @var \League\Fractal\Pagination\PaginatorInterface */
     protected $paginator;
 
-    /**
-     * @var \League\Fractal\Pagination\CursorInterface
-     */
+    /** @var \League\Fractal\Pagination\CursorInterface */
     protected $cursor;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $includes = [];
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $excludes = [];
 
     /**
@@ -57,19 +43,13 @@ class Fractal implements JsonSerializable
      */
     protected $data;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $resourceName;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $meta = [];
 
-    /**
-     * @param \League\Fractal\Manager $manager
-     */
+    /** @param \League\Fractal\Manager $manager */
     public function __construct(Manager $manager)
     {
         $this->manager = $manager;
@@ -116,7 +96,7 @@ class Fractal implements JsonSerializable
      *
      * @return $this
      */
-    protected function data($dataType, $data, $transformer = null)
+    protected function data(string $dataType, $data, $transformer = null)
     {
         $this->dataType = $dataType;
 
@@ -174,13 +154,13 @@ class Fractal implements JsonSerializable
     /**
      * Specify the includes.
      *
-     * @param array|string $includes Array or csv string of resources to include
+     * @param array|string $includes Array or string of resources to include.
      *
      * @return $this
      */
     public function parseIncludes($includes)
     {
-        $includes = $this->normalizeExcludesOrIncludes($includes);
+        $includes = $this->normalizeIncludesOrExcludes($includes);
 
         $this->includes = array_merge($this->includes, (array) $includes);
 
@@ -190,12 +170,12 @@ class Fractal implements JsonSerializable
     /**
      * Specify the excludes.
      *
-     * @param $excludes
+     * @param array|string $excludes Array or string of resources to exclude.
      * @return $this
      */
     public function parseExcludes($excludes)
     {
-        $excludes = $this->normalizeExcludesOrIncludes($excludes);
+        $excludes = $this->normalizeIncludesOrExcludes($excludes);
 
         $this->excludes = array_merge($this->excludes, (array) $excludes);
 
@@ -205,10 +185,11 @@ class Fractal implements JsonSerializable
     /**
      * Normalize the includes an excludes.
      *
-     * @param $includesOrExcludes
-     * @return array
+     * @param array|string $includesOrExcludes
+     *
+     * @return array|string
      */
-    protected function normalizeExcludesOrIncludes($includesOrExcludes)
+    protected function normalizeIncludesOrExcludes($includesOrExcludes = '')
     {
         if (! is_string($includesOrExcludes)) {
             return $includesOrExcludes;
@@ -388,10 +369,8 @@ class Fractal implements JsonSerializable
 
     /**
      * Convert the object into something JSON serializable.
-     *
-     * @return array
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }

@@ -8,9 +8,7 @@ use League\Fractal\Serializer\JsonApiSerializer;
 
 class PaginatorTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_generates_paginated_data()
     {
         $books = [$this->testBooks[0]];

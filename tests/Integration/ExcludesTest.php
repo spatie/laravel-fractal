@@ -4,9 +4,7 @@ namespace Spatie\Fractal\Test\Integration;
 
 class ExcludesTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_parse_excludes()
     {
         $array = $this->fractal

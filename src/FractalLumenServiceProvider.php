@@ -49,7 +49,7 @@ class FractalLumenServiceProvider extends ServiceProvider
      *
      * @return mixed
      */
-    protected function setDefaultSerializer($fractal, $serializer)
+    protected function setDefaultSerializer(Fractal $fractal, $serializer)
     {
         if ($serializer instanceof SerializerAbstract) {
             return $fractal->serializeWith($serializer);

@@ -6,9 +6,7 @@ use League\Fractal\Serializer\JsonApiSerializer;
 
 class ResourceNameTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_uses_a_custom_resource_name_when_creating_a_collection()
     {
         $array = $this->fractal
@@ -38,9 +36,7 @@ class ResourceNameTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_uses_a_custom_resource_name_when_using_setter()
     {
         $array = $this->fractal
@@ -71,9 +67,7 @@ class ResourceNameTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_uses_a_custom_resource_name_for_an_item()
     {
         $array = $this->fractal
@@ -95,9 +89,7 @@ class ResourceNameTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_uses_null_as_resource_name_when_not_set()
     {
         $array = $this->fractal

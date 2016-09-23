@@ -8,19 +8,13 @@ use Spatie\Fractal\FractalServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    /**
-     * @var \Spatie\Fractal\Fractal
-     */
+    /** @var \Spatie\Fractal\Fractal */
     protected $fractal;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     protected $testBooks;
 
-    /**
-     * @var string|\League\Fractal\Serializer\SerializerAbstract
-     */
+    /** @var string|\League\Fractal\Serializer\SerializerAbstract */
     protected $defaultSerializer;
 
     public function setUp($defaultSerializer = '')
@@ -53,11 +47,6 @@ abstract class TestCase extends Orchestra
         ];
     }
 
-    /**
-     * @param \Illuminate\Foundation\Application $app
-     *
-     * @return array
-     */
     protected function getPackageProviders($app)
     {
         return [FractalServiceProvider::class];
@@ -70,11 +59,6 @@ abstract class TestCase extends Orchestra
         ];
     }
 
-    /**
-     * Define environment setup.
-     *
-     * @param \Illuminate\Foundation\Application $app
-     */
     protected function getEnvironmentSetUp($app)
     {
         if ($this->defaultSerializer != '') {

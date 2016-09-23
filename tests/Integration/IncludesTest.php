@@ -4,9 +4,7 @@ namespace Spatie\Fractal\Test\Integration;
 
 class IncludesTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_parse_includes()
     {
         $array = $this->fractal
@@ -22,9 +20,7 @@ class IncludesTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_provides_a_convenience_method_to_include_includes()
     {
         $resultWithParseIncludes = fractal()
@@ -40,9 +36,7 @@ class IncludesTest extends TestCase
         $this->assertEquals($resultWithParseIncludes, $resultWithParseCharacters);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_handle_multiple_includes()
     {
         $array = $this->fractal
@@ -59,9 +53,7 @@ class IncludesTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_handle_multiple_includes_at_once()
     {
         $array = $this->fractal
@@ -83,9 +75,7 @@ class IncludesTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_knows_to_ignore_invalid_includes_param()
     {
         $array = $this->fractal

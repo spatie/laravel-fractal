@@ -6,9 +6,7 @@ use Spatie\Fractal\ArraySerializer;
 
 class SerializerTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_does_not_generate_a_data_key_for_a_collection()
     {
         $array = $this->fractal
@@ -24,9 +22,7 @@ class SerializerTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_does_not_generate_a_data_key_for_an_item()
     {
         $array = $this->fractal
