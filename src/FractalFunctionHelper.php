@@ -24,7 +24,7 @@ class FractalFunctionHelper
 
     /**
      * @return \Spatie\Fractal\Fractal
-     * 
+     *
      * @throws \Spatie\Fractal\Exceptions\InvalidUseOfFractalHelper
      */
     public function getFractalInstance()
@@ -36,7 +36,7 @@ class FractalFunctionHelper
         if (count($this->arguments) >= 2) {
             $this->setData($this->arguments[0]);
 
-            $this->setTransfomer($this->arguments[1]);
+            $this->setTransformer($this->arguments[1]);
         }
 
         return $this->fractal;

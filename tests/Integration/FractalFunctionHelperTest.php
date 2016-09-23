@@ -20,4 +20,16 @@ class FractalFunctionHelperTest extends TestCase
 
         fractal([]);
     }
+
+    /** @test */
+    public function it_tests()
+    {
+        $transformedData = fractal(['item1', 'item2'], function ($item) {
+            return $item . '-transformed';
+        })->toArray();
+
+        $this->assertEquals([
+            'data' => ['item1-transformed', 'item2-transformed']
+        ], $transformedData);
+    }
 }
