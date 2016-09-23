@@ -2,6 +2,7 @@
 
 namespace Spatie\Fractal;
 
+use League\Fractal\Serializer\SerializerAbstract;
 use League\Fractal\TransformerAbstract;
 use Spatie\Fractal\Exceptions\InvalidUseOfFractalHelper;
 use Traversable;
@@ -36,6 +37,14 @@ class FractalFunctionHelper
             $this->setData($this->arguments[0]);
 
             $this->setTransformer($this->arguments[1]);
+        }
+
+        if (count($this->arguments) >= 3) {
+            $this->setSerializer($this->arguments[2]);
+        }
+
+        if (count($this->arguments) > 3) {
+            throw InvalidUseOfFractalHelper::tooManyArguments($this->arguments);
         }
 
         return $this->fractal;
@@ -83,5 +92,10 @@ class FractalFunctionHelper
         }
 
         $this->fractal->transformWith($transformer);
+    }
+
+    protected function setSerializer(SerializerAbstract $serializer)
+    {
+        $this->fractal->serializeWith($serializer);
     }
 }

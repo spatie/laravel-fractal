@@ -45,6 +45,12 @@ Lovers of facades will be glad to know that a facade is provided:
 Fractal::collection($books)->transformWith(new BookTransformer())->toArray();
 ```
 
+There's also a very short syntax available to quickly transform data:
+
+```php
+fractal($books, new BookTransformer())->toArray();
+```
+
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all 
 our open source projects [on our website](https://spatie.be/opensource).
 
@@ -169,7 +175,7 @@ A single item can also be transformed:
 fractal()->item($books[0], new BookTransformer())->toArray();
 ```
 
-##Using a serializer
+## Using a serializer
 
 Let's take a look again a the output of the first example:
 
@@ -303,6 +309,23 @@ fractal()
     ->serializeWith(new ArraySerializer())
     ->toArray();
 ```
+
+## Quickly transform data with the short function syntax
+
+You can also pass arguments to the `fractal`-function itself. The first arguments should be the data you which to transform. The second one should be a transformer or a `closure` that will be used to transform the data. The third one should be a serializer.
+
+Here are some examples
+
+```php
+fractal($books, new BookTransformer())->toArray();
+
+fractal($books, new BookTransformer(), new ArraySerializer())->toArray();
+
+fractal(['item1', 'item2'], function ($item) {
+   return $item . '-transformed';
+})->toArray();
+```
+
 
 ## Change log
 
