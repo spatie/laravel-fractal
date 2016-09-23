@@ -22,7 +22,7 @@ class FractalFunctionHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_tests()
+    public function it_can_transform_the_given_array_with_the_given_callable()
     {
         $transformedData = fractal(['item1', 'item2'], function ($item) {
             return $item . '-transformed';
