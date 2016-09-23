@@ -32,4 +32,17 @@ class FractalFunctionHelperTest extends TestCase
             'data' => ['item1-transformed', 'item2-transformed'],
         ], $transformedData);
     }
+
+    /** @test */
+    public function it_can_transform_the_given_array_with_the_given_transformer()
+    {
+        $transformedData = fractal($this->testBooks, new TestTransformer())->toArray();
+
+        $expectedArray = ['data' => [
+            ['id' => 1, 'author' => 'Philip K Dick'],
+            ['id' => 2, 'author' => 'George R. R. Satan'],
+        ]];
+
+        $this->assertEquals($expectedArray, $transformedData);
+    }
 }
