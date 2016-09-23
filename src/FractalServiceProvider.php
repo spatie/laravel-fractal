@@ -50,7 +50,7 @@ class FractalServiceProvider extends ServiceProvider
      * @param \Spatie\Fractal\Fractal                              $fractal
      * @param string|\League\Fractal\Serializer\SerializerAbstract $serializer
      *
-     * @return mixed
+     * @return \Spatie\Fractal\Fractal
      */
     protected function setDefaultSerializer($fractal, $serializer)
     {
