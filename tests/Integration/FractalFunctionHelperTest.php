@@ -26,7 +26,7 @@ class FractalFunctionHelperTest extends TestCase
     public function it_can_transform_the_given_array_with_the_given_closure()
     {
         $transformedData = fractal(['item1', 'item2'], function ($item) {
-            return $item . '-transformed';
+            return $item.'-transformed';
         })->toArray();
 
         $this->assertEquals([
@@ -45,7 +45,7 @@ class FractalFunctionHelperTest extends TestCase
         })->toArray();
 
         $this->assertEquals([
-            'data' => ['item1-transformed']
+            'data' => ['item1-transformed'],
         ], $transformedData);
     }
 
