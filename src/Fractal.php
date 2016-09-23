@@ -33,14 +33,10 @@ class Fractal implements JsonSerializable
     /** @var array */
     protected $excludes = [];
 
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $dataType;
 
-    /**
-     * @var mixed
-     */
+    /** @var mixed */
     protected $data;
 
     /** @var string */
@@ -96,7 +92,7 @@ class Fractal implements JsonSerializable
      *
      * @return $this
      */
-    protected function data(string $dataType, $data, $transformer = null)
+    public function data(string $dataType, $data, $transformer = null)
     {
         $this->dataType = $dataType;
 
