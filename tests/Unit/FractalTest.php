@@ -34,7 +34,7 @@ class FractalTest extends \PHPUnit_Framework_TestCase
         ));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->addMeta([]));
         $this->assertInstanceOf(get_class($this->fractal), $this->fractal->paginateWith(
-            $this->getMock('League\Fractal\Pagination\PaginatorInterface')
+            $this->createMock('League\Fractal\Pagination\PaginatorInterface')
         ));
     }
 }
