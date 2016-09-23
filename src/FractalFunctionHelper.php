@@ -19,7 +19,6 @@ class FractalFunctionHelper
         $this->fractal = app(Fractal::class);
 
         $this->arguments = $arguments;
-
     }
 
     /**
@@ -76,14 +75,13 @@ class FractalFunctionHelper
     protected function setTransformer($transformer)
     {
         if (is_callable($transformer)) {
-            $transformer =  new CallbackTransformer($transformer);
+            $transformer = new CallbackTransformer($transformer);
         }
 
-        if (! $transformer instanceof TransformerAbstract)
-        throw new Exception("Second argument should be a callable or a transformer");
+        if (! $transformer instanceof TransformerAbstract) {
+            throw new Exception('Second argument should be a callable or a transformer');
+        }
 
         $this->fractal->transformWith($transformer);
     }
-
-
 }
