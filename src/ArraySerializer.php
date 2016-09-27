@@ -7,7 +7,7 @@ use League\Fractal\Serializer\ArraySerializer as BaseArraySerializer;
 class ArraySerializer extends BaseArraySerializer
 {
     /**
-     * Serialize a collection.
+     * Serialize a collection to a plain array.
      *
      * @param string $resourceKey
      * @param array  $data

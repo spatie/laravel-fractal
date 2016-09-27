@@ -41,7 +41,7 @@ class ResourceNameTest extends TestCase
     {
         $array = $this->fractal
             ->collection($this->testBooks, new TestTransformer())
-            ->resourceName('books')
+            ->withResourceName('books')
             ->serializeWith(new JsonApiSerializer())
             ->toArray();
 
@@ -72,7 +72,7 @@ class ResourceNameTest extends TestCase
     {
         $array = $this->fractal
             ->item($this->testBooks[0], new TestTransformer())
-            ->resourceName('book')
+            ->withResourceName('book')
             ->serializeWith(new JsonApiSerializer())
             ->toArray();
 

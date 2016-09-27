@@ -2,9 +2,9 @@
 
 namespace Spatie\Fractal\Exceptions;
 
-use Exception;
+use InvalidArgumentException;
 
-class InvalidUseOfFractalHelper extends Exception
+class InvalidFractalHelperArgument extends InvalidArgumentException
 {
     public static function secondArgumentMissing()
     {

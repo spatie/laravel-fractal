@@ -120,6 +120,20 @@ class Fractal implements JsonSerializable
     }
 
     /**
+     * Set the serializer to be used.
+     *
+     * @param \League\Fractal\Serializer\SerializerAbstract $serializer
+     *
+     * @return $this
+     */
+    public function serializeWith(SerializerAbstract $serializer)
+    {
+        $this->serializer = $serializer;
+
+        return $this;
+    }
+
+    /**
      * Set a Fractal paginator for the data.
      *
      * @param \League\Fractal\Pagination\PaginatorInterface $paginator
@@ -197,45 +211,6 @@ class Fractal implements JsonSerializable
     }
 
     /**
-     * Support for magic methods to included data.
-     *
-     * @param string $name
-     * @param array  $arguments
-     *
-     * @return $this
-     */
-    public function __call($name, array $arguments)
-    {
-        if (starts_with($name, ['include'])) {
-            $includeName = lcfirst(substr($name, strlen('include')));
-
-            return $this->parseIncludes($includeName);
-        }
-
-        if (starts_with($name, ['exclude'])) {
-            $excludeName = lcfirst(substr($name, strlen('exclude')));
-
-            return $this->parseExcludes($excludeName);
-        }
-
-        trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
-    }
-
-    /**
-     * Set the serializer to be used.
-     *
-     * @param \League\Fractal\Serializer\SerializerAbstract $serializer
-     *
-     * @return $this
-     */
-    public function serializeWith(SerializerAbstract $serializer)
-    {
-        $this->serializer = $serializer;
-
-        return $this;
-    }
-
-    /**
      * Set the meta data.
      *
      * @param $array,...
@@ -260,7 +235,7 @@ class Fractal implements JsonSerializable
      *
      * @return $this
      */
-    public function resourceName($resourceName)
+    public function withResourceName($resourceName)
     {
         $this->resourceName = $resourceName;
 
@@ -274,7 +249,7 @@ class Fractal implements JsonSerializable
      */
     public function toJson()
     {
-        return $this->transform('toJson');
+        return $this->createData()->toJson();
     }
 
     /**
@@ -284,24 +259,7 @@ class Fractal implements JsonSerializable
      */
     public function toArray()
     {
-        return $this->transform('toArray');
-    }
-
-    /**
-     *  Perform the transformation.
-     *
-     * @param string $conversionMethod
-     *
-     * @return string|array
-     *
-     * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
-     * @throws \Spatie\Fractal\Exceptions\NoTransformerSpecified
-     */
-    protected function transform($conversionMethod)
-    {
-        $fractalData = $this->createData();
-
-        return $fractalData->$conversionMethod();
+        return $this->createData()->toArray();
     }
 
     /**
@@ -369,5 +327,30 @@ class Fractal implements JsonSerializable
     public function jsonSerialize()
     {
         return $this->toArray();
+    }
+
+    /**
+     * Support for magic methods to included data.
+     *
+     * @param string $name
+     * @param array  $arguments
+     *
+     * @return $this
+     */
+    public function __call($name, array $arguments)
+    {
+        if (starts_with($name, ['include'])) {
+            $includeName = lcfirst(substr($name, strlen('include')));
+
+            return $this->parseIncludes($includeName);
+        }
+
+        if (starts_with($name, ['exclude'])) {
+            $excludeName = lcfirst(substr($name, strlen('exclude')));
+
+            return $this->parseExcludes($excludeName);
+        }
+
+        trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
     }
 }

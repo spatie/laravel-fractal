@@ -40,8 +40,6 @@ class FractalServiceProvider extends ServiceProvider
         });
 
         $this->app->alias(Fractal::class, 'laravel-fractal');
-
-        include __DIR__.'/helpers.php';
     }
 
     /**

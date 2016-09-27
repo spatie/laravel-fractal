@@ -3,7 +3,7 @@
 namespace Spatie\Fractal\Test\Integration;
 
 use Spatie\Fractal\ArraySerializer;
-use Spatie\Fractal\Exceptions\InvalidUseOfFractalHelper;
+use Spatie\Fractal\Exceptions\InvalidFractalHelperArgument;
 use Spatie\Fractal\Fractal;
 
 class FractalFunctionHelperTest extends TestCase
@@ -17,7 +17,7 @@ class FractalFunctionHelperTest extends TestCase
     /** @test */
     public function it_throws_an_exception_when_passing_one_argument()
     {
-        $this->expectException(InvalidUseOfFractalHelper::class);
+        $this->expectException(InvalidFractalHelperArgument::class);
 
         fractal([]);
     }
@@ -95,7 +95,7 @@ class FractalFunctionHelperTest extends TestCase
     /** @test */
     public function it_will_thrown_an_exception_when_passing_too_many_arguments()
     {
-        $this->expectException(InvalidUseOfFractalHelper::class);
+        $this->expectException(InvalidFractalHelperArgument::class);
 
         fractal(
             collect($this->testBooks),

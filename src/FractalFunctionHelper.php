@@ -3,7 +3,7 @@
 namespace Spatie\Fractal;
 
 use League\Fractal\Serializer\SerializerAbstract;
-use Spatie\Fractal\Exceptions\InvalidUseOfFractalHelper;
+use Spatie\Fractal\Exceptions\InvalidFractalHelperArgument;
 use Traversable;
 
 class FractalFunctionHelper
@@ -14,7 +14,7 @@ class FractalFunctionHelper
     /** @var array */
     protected $arguments;
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         $this->fractal = app(Fractal::class);
 
@@ -24,12 +24,12 @@ class FractalFunctionHelper
     /**
      * @return \Spatie\Fractal\Fractal
      *
-     * @throws \Spatie\Fractal\Exceptions\InvalidUseOfFractalHelper
+     * @throws \Spatie\Fractal\Exceptions\InvalidFractalHelperArgument
      */
     public function getFractalInstance()
     {
         if (count($this->arguments) === 1) {
-            throw InvalidUseOfFractalHelper::secondArgumentMissing();
+            throw InvalidFractalHelperArgument::secondArgumentMissing();
         }
 
         if (count($this->arguments) >= 2) {
@@ -43,7 +43,7 @@ class FractalFunctionHelper
         }
 
         if (count($this->arguments) > 3) {
-            throw InvalidUseOfFractalHelper::tooManyArguments($this->arguments);
+            throw InvalidFractalHelperArgument::tooManyArguments($this->arguments);
         }
 
         return $this->fractal;
@@ -85,6 +85,9 @@ class FractalFunctionHelper
         $this->fractal->transformWith($transformer);
     }
 
+    /**
+     * @param \League\Fractal\Serializer\SerializerAbstract $serializer
+     */
     protected function setSerializer(SerializerAbstract $serializer)
     {
         $this->fractal->serializeWith($serializer);
