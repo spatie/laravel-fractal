@@ -3,7 +3,6 @@
 namespace Spatie\Fractal;
 
 use League\Fractal\Serializer\SerializerAbstract;
-use League\Fractal\TransformerAbstract;
 use Spatie\Fractal\Exceptions\InvalidUseOfFractalHelper;
 use Traversable;
 
