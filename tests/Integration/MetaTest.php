@@ -4,9 +4,7 @@ namespace Spatie\Fractal\Test\Integration;
 
 class MetaTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_add_meta()
     {
         $array = $this->fractal
@@ -23,9 +21,7 @@ class MetaTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_handle_multiple_meta()
     {
         $array = $this->fractal

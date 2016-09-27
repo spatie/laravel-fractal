@@ -9,13 +9,6 @@ use League\Fractal\Serializer\SerializerAbstract;
 class FractalLumenServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
-     */
-    public function boot()
-    {
-    }
-
-    /**
      * Register the application services.
      */
     public function register()
@@ -37,8 +30,6 @@ class FractalLumenServiceProvider extends ServiceProvider
         });
 
         $this->app->alias(Fractal::class, 'laravel-fractal');
-
-        include __DIR__.'/helpers.php';
     }
 
     /**
@@ -49,7 +40,7 @@ class FractalLumenServiceProvider extends ServiceProvider
      *
      * @return mixed
      */
-    protected function setDefaultSerializer($fractal, $serializer)
+    protected function setDefaultSerializer(Fractal $fractal, $serializer)
     {
         if ($serializer instanceof SerializerAbstract) {
             return $fractal->serializeWith($serializer);

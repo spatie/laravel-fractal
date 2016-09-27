@@ -6,9 +6,7 @@ use Illuminate\Http\JsonResponse;
 
 class FractalTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_transform_multiple_items_using_a_transformer_to_json()
     {
         $json = $this->fractal
@@ -20,9 +18,7 @@ class FractalTest extends TestCase
         $this->assertEquals($expectedJson, $json);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_transform_multiple_items_using_a_transformer_to_an_array()
     {
         $array = $this->fractal
@@ -37,9 +33,7 @@ class FractalTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_transform_a_collection_using_a_callback()
     {
         $array = $this->fractal
@@ -55,9 +49,7 @@ class FractalTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_provides_a_method_to_specify_the_transformer()
     {
         $array = $this->fractal
@@ -73,9 +65,7 @@ class FractalTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_perform_a_single_item()
     {
         $array = $this->fractal
@@ -88,9 +78,7 @@ class FractalTest extends TestCase
         $this->assertEquals($expectedArray, $array);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_create_a_resource()
     {
         $resource = $this->fractal
@@ -100,9 +88,7 @@ class FractalTest extends TestCase
         $this->assertInstanceOf(\League\Fractal\Resource\ResourceInterface::class, $resource);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_create_fractal_data()
     {
         $resource = $this->fractal
@@ -112,9 +98,7 @@ class FractalTest extends TestCase
         $this->assertInstanceOf(\League\Fractal\Scope::class, $resource);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_be_handled_by_response_without_using_a_transformer_to_array()
     {
         $json = $this->fractal->collection($this->testBooks, new TestTransformer());

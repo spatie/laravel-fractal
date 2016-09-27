@@ -7,9 +7,7 @@ use League\Fractal\Serializer\JsonApiSerializer;
 
 class CursorTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_gerenates_data_with_cursor()
     {
         $books = [$this->testBooks[0]];

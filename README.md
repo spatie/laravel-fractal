@@ -2,6 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://travis-ci.org/spatie/laravel-fractal.svg?branch=master)](https://travis-ci.org/spatie/laravel-fractal)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-fractal.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-fractal)
 [![StyleCI](https://styleci.io/repos/43743138/shield)](https://styleci.io/repos/43743138)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
@@ -43,6 +44,12 @@ fractal()
 Lovers of facades will be glad to know that a facade is provided:
 ```php
 Fractal::collection($books)->transformWith(new BookTransformer())->toArray();
+```
+
+There's also a very short syntax available to quickly transform data:
+
+```php
+fractal($books, new BookTransformer())->toArray();
 ```
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all 
@@ -169,7 +176,7 @@ A single item can also be transformed:
 fractal()->item($books[0], new BookTransformer())->toArray();
 ```
 
-##Using a serializer
+## Using a serializer
 
 Let's take a look again a the output of the first example:
 
@@ -293,7 +300,7 @@ Certain serializers wrap the array output with a `data` element. The name of thi
 fractal()
     ->collection($this->testBooks, new TestTransformer())
     ->serializeWith(new ArraySerializer())
-    ->resourceName('books')
+    ->withResourceName('books')
     ->toArray();
 ```
 
@@ -303,6 +310,30 @@ fractal()
     ->serializeWith(new ArraySerializer())
     ->toArray();
 ```
+
+## Quickly transform data with the short function syntax
+
+You can also pass arguments to the `fractal`-function itself. The first arguments should be the data you which to transform. The second one should be a transformer or a `closure` that will be used to transform the data. The third one should be a serializer.
+
+Here are some examples
+
+```php
+fractal($books, new BookTransformer())->toArray();
+
+fractal($books, new BookTransformer(), new ArraySerializer())->toArray();
+
+fractal(['item1', 'item2'], function ($item) {
+   return $item . '-transformed';
+})->toArray();
+```
+
+## Upgrading from v1 to v2
+
+In most cases you can just upgrade to `v2` with making none or only minor changes to your code:
+
+- `resourceName` has been renamed to `withResourceName`.
+
+The main reason why `v2` of this package was tagged is because v0.14 of the underlying [Fractal](http://fractal.thephpleague.com/) by the League contains breaking change. If you use the `League\Fractal\Serializer\JsonApiSerializer` in v2 the `links` key will contain `self`, `first`, `next` and `last`.
 
 ## Change log
 

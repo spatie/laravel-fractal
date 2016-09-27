@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-fractal",
-    "description": "A Fractal service provider for Laravel 5",
+    "description": "A Fractal service provider for Laravel",
     "keywords": [
         "spatie",
         "laravel-fractal",
@@ -21,20 +21,22 @@
         }
     ],
     "require": {
-        "php" : ">=5.5.0",
-        "league/fractal": "^0.13.0",
-        "illuminate/support": "~5.1.0|~5.2.0|~5.3.0"
+        "php" : "^5.6|^7.0",
+        "illuminate/support": "~5.1.0|~5.2.0|~5.3.0",
+        "league/fractal": "^0.14.0"
     },
     "require-dev": {
-        "phpunit/phpunit" : "^4.0",
-        "scrutinizer/ocular": "^1.1",
-        "orchestra/testbench": "3.3.x-dev",
-        "orchestra/database": "3.3.x-dev"
+        "orchestra/testbench": "3.2.*|3.3.*",
+        "phpunit/phpunit" : "^5.5",
+        "scrutinizer/ocular": "^1.1"
     },
     "autoload": {
         "psr-4": {
             "Spatie\\Fractal\\": "src"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -43,5 +45,8 @@
     },
     "scripts": {
         "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
     }
 }

@@ -11,9 +11,7 @@ class DefaultSerializerObjectTest extends TestCase
         parent::setUp(new JsonApiSerializer());
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_can_use_an_instantiated_serializer_as_a_default()
     {
         $array = $this->fractal

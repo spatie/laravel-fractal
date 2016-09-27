@@ -11,9 +11,7 @@ class ConfigTest extends TestCase
         parent::setup(ArraySerializer::class);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_uses_the_default_transformer_when_it_is_specified()
     {
         $array = $this->fractal

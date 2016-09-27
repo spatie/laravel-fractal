@@ -2,6 +2,12 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 2.0.0 - 2016-09-27
+
+- made compatible with fractal `0.14`
+- improvements to the `fractal`-helper function.
+- added excludes
+
 ## 1.9.1 - 2016-08-23
 
 - Added L5.3 compatibility

@@ -40,8 +40,6 @@ class FractalServiceProvider extends ServiceProvider
         });
 
         $this->app->alias(Fractal::class, 'laravel-fractal');
-
-        include __DIR__.'/helpers.php';
     }
 
     /**
@@ -50,7 +48,7 @@ class FractalServiceProvider extends ServiceProvider
      * @param \Spatie\Fractal\Fractal                              $fractal
      * @param string|\League\Fractal\Serializer\SerializerAbstract $serializer
      *
-     * @return mixed
+     * @return \Spatie\Fractal\Fractal
      */
     protected function setDefaultSerializer($fractal, $serializer)
     {
