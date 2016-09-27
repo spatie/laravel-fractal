@@ -83,14 +83,6 @@ class FractalFunctionHelper
      */
     protected function setTransformer($transformer)
     {
-        if (is_callable($transformer)) {
-            $transformer = new CallbackTransformer($transformer);
-        }
-
-        if (! $transformer instanceof TransformerAbstract) {
-            throw InvalidUseOfFractalHelper::invalidTransformer();
-        }
-
         $this->fractal->transformWith($transformer);
     }
 
