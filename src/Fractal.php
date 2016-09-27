@@ -260,7 +260,7 @@ class Fractal implements JsonSerializable
      *
      * @return $this
      */
-    public function resourceName($resourceName)
+    public function withResourceName($resourceName)
     {
         $this->resourceName = $resourceName;
 
