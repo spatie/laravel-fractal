@@ -300,7 +300,7 @@ Certain serializers wrap the array output with a `data` element. The name of thi
 fractal()
     ->collection($this->testBooks, new TestTransformer())
     ->serializeWith(new ArraySerializer())
-    ->resourceName('books')
+    ->withResourceName('books')
     ->toArray();
 ```
 
@@ -329,9 +329,11 @@ fractal(['item1', 'item2'], function ($item) {
 
 ## Upgrading from v1 to v2
 
-In most cases you can just upgrade to `v2` without making any changes to your code.
+In most cases you can just upgrade to `v2` with making none or only minor changes to your code:
 
-The only reason why `v2` of this package was tagged is because v0.14 of the underlying [Fractal](http://fractal.thephpleague.com/) by the League contains breaking change. If you use the `League\Fractal\Serializer\JsonApiSerializer` in v2 the `links` key will contain `self`, `first`, `next` and `last`.
+- `resourceName` has been renamed to `withResourceName`.
+
+The main reason why `v2` of this package was tagged is because v0.14 of the underlying [Fractal](http://fractal.thephpleague.com/) by the League contains breaking change. If you use the `League\Fractal\Serializer\JsonApiSerializer` in v2 the `links` key will contain `self`, `first`, `next` and `last`.
 
 ## Change log
 
