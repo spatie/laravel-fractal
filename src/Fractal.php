@@ -120,6 +120,20 @@ class Fractal implements JsonSerializable
     }
 
     /**
+     * Set the serializer to be used.
+     *
+     * @param \League\Fractal\Serializer\SerializerAbstract $serializer
+     *
+     * @return $this
+     */
+    public function serializeWith(SerializerAbstract $serializer)
+    {
+        $this->serializer = $serializer;
+
+        return $this;
+    }
+
+    /**
      * Set a Fractal paginator for the data.
      *
      * @param \League\Fractal\Pagination\PaginatorInterface $paginator
@@ -194,45 +208,6 @@ class Fractal implements JsonSerializable
         return array_map(function ($value) {
             return trim($value);
         }, explode(',', $includesOrExcludes));
-    }
-
-    /**
-     * Support for magic methods to included data.
-     *
-     * @param string $name
-     * @param array  $arguments
-     *
-     * @return $this
-     */
-    public function __call($name, array $arguments)
-    {
-        if (starts_with($name, ['include'])) {
-            $includeName = lcfirst(substr($name, strlen('include')));
-
-            return $this->parseIncludes($includeName);
-        }
-
-        if (starts_with($name, ['exclude'])) {
-            $excludeName = lcfirst(substr($name, strlen('exclude')));
-
-            return $this->parseExcludes($excludeName);
-        }
-
-        trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
-    }
-
-    /**
-     * Set the serializer to be used.
-     *
-     * @param \League\Fractal\Serializer\SerializerAbstract $serializer
-     *
-     * @return $this
-     */
-    public function serializeWith(SerializerAbstract $serializer)
-    {
-        $this->serializer = $serializer;
-
-        return $this;
     }
 
     /**
@@ -352,5 +327,30 @@ class Fractal implements JsonSerializable
     public function jsonSerialize()
     {
         return $this->toArray();
+    }
+
+    /**
+     * Support for magic methods to included data.
+     *
+     * @param string $name
+     * @param array  $arguments
+     *
+     * @return $this
+     */
+    public function __call($name, array $arguments)
+    {
+        if (starts_with($name, ['include'])) {
+            $includeName = lcfirst(substr($name, strlen('include')));
+
+            return $this->parseIncludes($includeName);
+        }
+
+        if (starts_with($name, ['exclude'])) {
+            $excludeName = lcfirst(substr($name, strlen('exclude')));
+
+            return $this->parseExcludes($excludeName);
+        }
+
+        trigger_error('Call to undefined method '.__CLASS__.'::'.$name.'()', E_USER_ERROR);
     }
 }
