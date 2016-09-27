@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-fractal",
-    "description": "A Fractal service provider for Laravel 5",
+    "description": "A Fractal service provider for Laravel",
     "keywords": [
         "spatie",
         "laravel-fractal",
