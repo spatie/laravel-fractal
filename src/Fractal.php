@@ -274,7 +274,7 @@ class Fractal implements JsonSerializable
      */
     public function toJson()
     {
-        return $this->transform('toJson');
+        return $this->createData()->toJson();
     }
 
     /**
@@ -284,24 +284,7 @@ class Fractal implements JsonSerializable
      */
     public function toArray()
     {
-        return $this->transform('toArray');
-    }
-
-    /**
-     *  Perform the transformation.
-     *
-     * @param string $conversionMethod
-     *
-     * @return string|array
-     *
-     * @throws \Spatie\Fractal\Exceptions\InvalidTransformation
-     * @throws \Spatie\Fractal\Exceptions\NoTransformerSpecified
-     */
-    protected function transform($conversionMethod)
-    {
-        $fractalData = $this->createData();
-
-        return $fractalData->$conversionMethod();
+        return $this->createData()->toArray();
     }
 
     /**

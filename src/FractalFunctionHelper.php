@@ -14,7 +14,7 @@ class FractalFunctionHelper
     /** @var array */
     protected $arguments;
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         $this->fractal = app(Fractal::class);
 
@@ -85,6 +85,9 @@ class FractalFunctionHelper
         $this->fractal->transformWith($transformer);
     }
 
+    /**
+     * @param \League\Fractal\Serializer\SerializerAbstract $serializer
+     */
     protected function setSerializer(SerializerAbstract $serializer)
     {
         $this->fractal->serializeWith($serializer);
