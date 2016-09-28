@@ -218,7 +218,7 @@ fractal()
    ->toArray();
 ```
 
-To improve readablity you can also a function named `include` followed by the name
+To improve readablity you can also use a function named `include` followed by the name
 of the include you want to... include:
 
 ```php
@@ -226,6 +226,29 @@ fractal()
    ->collection($this->testBooks, new TestTransformer())
    ->includeCharacters()
    ->includePublisher()
+   ->toArray();
+```
+
+## Using excludes
+
+Similar to includes Fractal also provides support for [optionally excluding data](http://fractal.thephpleague.com/transformers/) on the relationships for
+the data you're exporting. You can use Fractal's `parseExcludes` which accepts a string or an array:
+
+```php
+fractal()
+   ->collection($this->testBooks, new TestTransformer())
+   ->parseExcludes(['characters', 'publisher'])
+   ->toArray();
+```
+
+To improve readablity you can also use a function named `exclude` followed by the name
+of the include you want to... exclude:
+
+```php
+fractal()
+   ->collection($this->testBooks, new TestTransformer())
+   ->excludeCharacters()
+   ->excludePublisher()
    ->toArray();
 ```
 
