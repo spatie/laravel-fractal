@@ -4,7 +4,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://travis-ci.org/spatie/laravel-fractal.svg?branch=master)](https://travis-ci.org/spatie/laravel-fractal)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-fractal.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-fractal)
-[![StyleCI](https://styleci.io/repos/43743138/shield)](https://styleci.io/repos/43743138)
+[![StyleCI](https://styleci.io/repos/43743138/shield?branch=master)](https://styleci.io/repos/43743138)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 
 The package provides a nice and easy integration with [Fractal](http://fractal.thephpleague.com/)
