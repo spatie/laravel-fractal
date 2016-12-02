@@ -2,6 +2,10 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 2.1.0 - 2016-12-02
+
+- add `make:transformer` artisan command.
+
 ## 2.0.0 - 2016-09-27
 
 - made compatible with fractal `0.14`

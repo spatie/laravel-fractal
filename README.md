@@ -350,6 +350,10 @@ fractal(['item1', 'item2'], function ($item) {
 })->toArray();
 ```
 
+## Quickly creating a transformer
+
+You can run the `make:tranformer` command to quickly generate a dummy transformer. By default it will be stored in the `app\Transformers` directory.
+
 ## Upgrading from v1 to v2
 
 In most cases you can just upgrade to `v2` with making none or only minor changes to your code:
