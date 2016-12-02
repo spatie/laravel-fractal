@@ -5,6 +5,7 @@ namespace Spatie\Fractal;
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Manager;
 use League\Fractal\Serializer\SerializerAbstract;
+use Spatie\Fractal\Console\Commands\TransformerMakeCommand;
 
 class FractalServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,12 @@ class FractalServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../resources/config/laravel-fractal.php' => config_path('laravel-fractal.php'),
         ], 'config');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                TransformerMakeCommand::class,
+            ]);
+        }
     }
 
     /**
