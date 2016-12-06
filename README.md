@@ -352,7 +352,7 @@ fractal(['item1', 'item2'], function ($item) {
 
 ## Quickly creating a transformer
 
-You can run the `make:tranformer` command to quickly generate a dummy transformer. By default it will be stored in the `app\Transformers` directory.
+You can run the `make:transformer` command to quickly generate a dummy transformer. By default it will be stored in the `app\Transformers` directory.
 
 ## Upgrading from v1 to v2
 
