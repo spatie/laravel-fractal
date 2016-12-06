@@ -2,9 +2,9 @@
 
 namespace Spatie\Fractal;
 
+use Traversable;
 use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractal\Exceptions\InvalidFractalHelperArgument;
-use Traversable;
 
 class FractalFunctionHelper
 {

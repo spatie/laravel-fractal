@@ -2,9 +2,9 @@
 
 namespace Spatie\Fractal\Test\Integration;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Fractal\Fractal;
 use Spatie\Fractal\FractalServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {

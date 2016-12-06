@@ -2,9 +2,9 @@
 
 namespace Spatie\Fractal\Test\Integration;
 
+use Spatie\Fractal\Fractal;
 use Spatie\Fractal\ArraySerializer;
 use Spatie\Fractal\Exceptions\InvalidFractalHelperArgument;
-use Spatie\Fractal\Fractal;
 
 class FractalFunctionHelperTest extends TestCase
 {
