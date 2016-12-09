@@ -6,6 +6,7 @@ use League\Fractal\Manager;
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractal\Console\Commands\TransformerMakeCommand;
+use Spatie\Fractalistic\Fractal;
 
 class FractalServiceProvider extends ServiceProvider
 {

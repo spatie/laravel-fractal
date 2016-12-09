@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Fractal\Test\Integration;
+namespace Spatie\Fractal\Test;
 
 use Spatie\Fractal\Fractal;
 use Spatie\Fractal\FractalServiceProvider;
@@ -23,7 +23,7 @@ abstract class TestCase extends Orchestra
 
         parent::setUp();
 
-        $this->fractal = $this->app->make(Fractal::class);
+        $this->fractal = fractal();
 
         $this->testBooks = [
             [

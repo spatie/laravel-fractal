@@ -1,20 +1,19 @@
 <?php
 
-namespace Spatie\Fractal\Test\Integration;
+namespace Spatie\Fractal\Test;
 
 use League\Fractal\TransformerAbstract;
 
-class TestTransformerWithIncludes extends TransformerAbstract
+class TestTransformer extends TransformerAbstract
 {
     /**
-     * List of resources default includes.
+     * List of resources possible to include.
      *
      * @var array
      */
-    protected $defaultIncludes = [
+    protected $availableIncludes = [
         'characters',
         'publisher',
-        'title',
     ];
 
     /**
@@ -56,22 +55,6 @@ class TestTransformerWithIncludes extends TransformerAbstract
     public function includePublisher(array $book)
     {
         $publisher = $book['publisher'];
-
-        return $this->item([$publisher], function ($publisher) {
-            return $publisher;
-        });
-    }
-
-    /**
-     * Include title.
-     *
-     * @param array $book
-     *
-     * @return \League\Fractal\ItemResource
-     */
-    public function includeTitle(array $book)
-    {
-        $publisher = $book['title'];
 
         return $this->item([$publisher], function ($publisher) {
             return $publisher;
