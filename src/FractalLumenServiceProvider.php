@@ -3,9 +3,9 @@
 namespace Spatie\Fractal;
 
 use League\Fractal\Manager;
+use Spatie\Fractalistic\Fractal;
 use Illuminate\Support\ServiceProvider;
 use League\Fractal\Serializer\SerializerAbstract;
-use Spatie\Fractalistic\Fractal;
 
 class FractalLumenServiceProvider extends ServiceProvider
 {
