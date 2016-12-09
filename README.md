@@ -138,7 +138,7 @@ You can run the `make:transformer` command to quickly generate a dummy transform
 
 ### From v3 to v2
 
-`v3` was introduced to swap out the `league/fractal` with `spatie/fractalistic`. You should be able to upgrade from `v2` to `v3` without any code changes.
+`v3` was introduced to swap out the `league/fractal` with `spatie/fractalistic`. Support for Lumen was dropped. You should be able to upgrade a Laravel application from `v2` to `v3` without any code changes.
 ### From v1 to v2
 
 In most cases you can just upgrade to `v2` with making none or only minor changes to your code:
