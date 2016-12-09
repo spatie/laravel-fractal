@@ -1,25 +1,16 @@
 <?php
 
-namespace Spatie\Fractal\Test\Integration;
+namespace Spatie\Fractal\Test;
 
-use Spatie\Fractal\Fractal;
-use Spatie\Fractal\ArraySerializer;
-use Spatie\Fractal\Exceptions\InvalidFractalHelperArgument;
+use Spatie\Fractalistic\Fractal;
+use Spatie\Fractalistic\ArraySerializer;
 
-class FractalFunctionHelperTest extends TestCase
+class FractalFunctionTest extends TestCase
 {
     /** @test */
     public function it_returns_an_instance_of_fractal_when_passing_no_arguments()
     {
         $this->assertInstanceOf(Fractal::class, fractal());
-    }
-
-    /** @test */
-    public function it_throws_an_exception_when_passing_one_argument()
-    {
-        $this->expectException(InvalidFractalHelperArgument::class);
-
-        fractal([]);
     }
 
     /** @test */
@@ -63,23 +54,10 @@ class FractalFunctionHelperTest extends TestCase
     }
 
     /** @test */
-    public function it_can_transform_the_given_traversable_with_the_given_transformer()
-    {
-        $transformedData = fractal(collect($this->testBooks), new TestTransformer())->toArray();
-
-        $expectedArray = ['data' => [
-            ['id' => 1, 'author' => 'Philip K Dick'],
-            ['id' => 2, 'author' => 'George R. R. Satan'],
-        ]];
-
-        $this->assertEquals($expectedArray, $transformedData);
-    }
-
-    /** @test */
     public function it_perform_a_transformation_with_the_given_serializer()
     {
         $transformedData = fractal(
-            collect($this->testBooks),
+            $this->testBooks,
             new TestTransformer(),
             new ArraySerializer()
         )->toArray();
@@ -90,18 +68,5 @@ class FractalFunctionHelperTest extends TestCase
         ];
 
         $this->assertEquals($expectedArray, $transformedData);
-    }
-
-    /** @test */
-    public function it_will_thrown_an_exception_when_passing_too_many_arguments()
-    {
-        $this->expectException(InvalidFractalHelperArgument::class);
-
-        fractal(
-            collect($this->testBooks),
-            new TestTransformer(),
-            new ArraySerializer(),
-            'extra argument'
-        )->toArray();
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Spatie\Fractal\Test\Integration;
+namespace Spatie\Fractal\Test;
 
-use Spatie\Fractal\ArraySerializer;
+use Spatie\Fractalistic\ArraySerializer;
 
 class ConfigTest extends TestCase
 {

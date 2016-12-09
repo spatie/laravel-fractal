@@ -1,6 +1,7 @@
 <?php
 
-use Spatie\Fractal\FractalFunctionHelper;
+use Spatie\Fractalistic\Fractal;
+use League\Fractal\Serializer\SerializerAbstract;
 
 if (! function_exists('fractal')) {
     /**
@@ -8,12 +9,22 @@ if (! function_exists('fractal')) {
      * @param null|callable|\League\Fractal\TransformerAbstract $transformer
      * @param null|\League\Fractal\Serializer\SerializerAbstract $serializer
      *
-     * @return \Spatie\Fractal\Fractal
+     * @return \Spatie\Fractalistic\Fractal
      */
-    function fractal()
+    function fractal($data = null, $transformer = null, $serializer = null)
     {
-        $fractalFunctionHelper = new FractalFunctionHelper(func_get_args());
+        $fractal = Fractal::create($data, $transformer, $serializer);
 
-        return $fractalFunctionHelper->getFractalInstance();
+        $serializer = config('laravel-fractal.default_serializer');
+
+        if (! empty($serializer)) {
+            if ($serializer instanceof SerializerAbstract) {
+                $fractal->serializeWith($serializer);
+            } else {
+                $fractal->serializeWith(new $serializer());
+            }
+        }
+
+        return $fractal;
     }
 }
