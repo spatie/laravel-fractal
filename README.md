@@ -73,19 +73,12 @@ $ composer require spatie/laravel-fractal
 Next up, the service provider must be registered:
 
 ```php
-// Laravel5: config/app.php
+// config/app.php
 'providers' => [
     ...
     Spatie\Fractal\FractalServiceProvider::class,
 
 ];
-```
-
-or, if you are using Lumen:
-
-```php
-// Lumen: bootstrap/app.php
-$app->register(Spatie\Fractal\FractalLumenServiceProvider::class);
 ```
 
 If you want to make use of the facade you must install it as well:
@@ -128,7 +121,9 @@ return [
 
 ## Usage
 
-Refer to the documentation of `spatie/fractalistic` to learn all the methods this package provides.
+Refer to [the documentation of `spatie/fractalistic`](https://github.com/spatie/fractalistic) to learn all the methods this package provides.
+
+In all code examples you may use `fractal` instead of `Fractal::create()`.
 
 ## Quickly creating a transformer
 
