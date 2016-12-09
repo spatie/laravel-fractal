@@ -1,7 +1,7 @@
 <?php
 
-use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractalistic\Fractal;
+use League\Fractal\Serializer\SerializerAbstract;
 
 if (! function_exists('fractal')) {
     /**
@@ -20,8 +20,7 @@ if (! function_exists('fractal')) {
         if (! empty($serializer)) {
             if ($serializer instanceof SerializerAbstract) {
                 $fractal->serializeWith($serializer);
-            }
-            else {
+            } else {
                 $fractal->serializeWith(new $serializer());
             }
         }
