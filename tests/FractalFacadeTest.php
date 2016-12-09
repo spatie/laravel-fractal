@@ -2,8 +2,8 @@
 
 namespace Spatie\Fractal\Test;
 
-use Spatie\Fractalistic\Fractal;
 use Fractal as FractalFacade;
+use Spatie\Fractalistic\Fractal;
 
 class FractalFacadeTest extends TestCase
 {
