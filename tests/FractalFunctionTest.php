@@ -5,7 +5,7 @@ namespace Spatie\Fractal\Test;
 use Spatie\Fractalistic\Fractal;
 use Spatie\Fractalistic\ArraySerializer;
 
-class FractalFunctionHelperTest extends TestCase
+class FractalFunctionTest extends TestCase
 {
     /** @test */
     public function it_returns_an_instance_of_fractal_when_passing_no_arguments()
@@ -52,7 +52,6 @@ class FractalFunctionHelperTest extends TestCase
 
         $this->assertEquals($expectedArray, $transformedData);
     }
-
 
     /** @test */
     public function it_perform_a_transformation_with_the_given_serializer()
