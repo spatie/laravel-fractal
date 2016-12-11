@@ -2,6 +2,15 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+
+## 3.0.1 - 2016-12-09
+
+- fix dependencies in `composer.json`
+
+## 3.0.0 - 2016-12-09
+
+- make use of `spatie/fractalistic`
+
 ## 2.1.0 - 2016-12-02
 
 - add `make:transformer` artisan command.
