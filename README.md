@@ -123,7 +123,7 @@ return [
 
 Refer to [the documentation of `spatie/fractalistic`](https://github.com/spatie/fractalistic) to learn all the methods this package provides.
 
-In all code examples you may use `fractal` instead of `Fractal::create()`.
+In all code examples you may use `fractal()` instead of `Fractal::create()`.
 
 ## Quickly creating a transformer
 
