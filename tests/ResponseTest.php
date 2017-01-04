@@ -41,14 +41,7 @@ class ResponseTest extends TestCase
             })
             ->respond(404, ['test' => 'test-value']);
 
-        $found = false;
-        foreach ($response->headers->all() as $key => $value) {
-            if ($key === 'test' && $value[0] === 'test-value') {
-                $found = true;
-            }
-        }
-
-        $this->assertTrue($found);
+        $this->assertArraySubset(['test' => ['test-value']], $response->headers->all());
     }
 
     /** @test */
