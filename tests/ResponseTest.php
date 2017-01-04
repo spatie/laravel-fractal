@@ -31,4 +31,23 @@ class ResponseTest extends TestCase
 
         $this->assertEquals(404, $response->status());
     }
+
+    /** @test */
+    public function it_sets_headers_provided_as_a_parameter() {
+        $response = fractal()
+            ->collection(['item', 'item2'])
+            ->transformWith(function ($item) {
+                return $item.'-transformed';
+            })
+            ->respond(404, ['test' => 'test-value']);
+
+        $found = false;
+        foreach ($response->headers->all() as $key => $value) {
+            if ($key === 'test' && $value[0] === 'test-value') {
+                $found = true;
+            }
+        }
+
+        $this->assertTrue($found);
+    }
 }
