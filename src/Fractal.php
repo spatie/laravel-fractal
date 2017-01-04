@@ -2,6 +2,7 @@
 
 namespace Spatie\Fractal;
 
+use Illuminate\Http\JsonResponse;
 use League\Fractal\Manager;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 
@@ -24,6 +25,6 @@ class Fractal extends Fractalistic
             $this->response->code($callbackOrStatusCode);
         }
 
-        return response()->json($this->createData()->toArray(), $this->response->statusCode(), $headers);
+        return new JsonResponse($this->createData()->toArray(), $this->response->statusCode(), $headers);
     }
 }
