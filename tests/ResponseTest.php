@@ -18,6 +18,7 @@ class ResponseTest extends TestCase
 
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertEquals('{"data":["item-transformed","item2-transformed"]}', json_encode($response->getData()));
+        $this->assertEquals(200, $response->status());
     }
 
     /** @test */
