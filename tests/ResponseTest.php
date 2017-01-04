@@ -64,4 +64,18 @@ class ResponseTest extends TestCase
 
         $this->assertEquals(404, $response->status());
     }
+
+    /** @test */
+    public function headers_can_be_provided_in_the_closure() {
+        $response = fractal()
+            ->collection(['item', 'item2'])
+            ->transformWith(function ($item) {
+                return $item.'-transformed';
+            })
+            ->respond(function ($response) {
+                $response->header('test', 'test-value');
+            });
+
+        $this->assertArraySubset(['test' => ['test-value']], $response->headers->all());
+    }
 }

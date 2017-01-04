@@ -23,8 +23,9 @@ class Fractal extends Fractalistic
             $callbackOrStatusCode($this->response);
         } else {
             $this->response->code($callbackOrStatusCode);
+            $this->response->headers($headers);
         }
 
-        return new JsonResponse($this->createData()->toArray(), $this->response->statusCode(), $headers);
+        return new JsonResponse($this->createData()->toArray(), $this->response->statusCode(), $this->response->getHeaders());
     }
 }
