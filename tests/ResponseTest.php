@@ -39,9 +39,12 @@ class ResponseTest extends TestCase
             ->transformWith(function ($item) {
                 return $item.'-transformed';
             })
-            ->respond(404, ['test' => 'test-value']);
+            ->respond(404, ['test' => 'test-value', 'test2' => 'test2-value']);
 
-        $this->assertArraySubset(['test' => ['test-value']], $response->headers->all());
+        $this->assertArraySubset([
+            'test' => ['test-value'],
+            'test2' => ['test2-value'],
+        ], $response->headers->all());
     }
 
     /** @test */
