@@ -50,4 +50,18 @@ class ResponseTest extends TestCase
 
         $this->assertTrue($found);
     }
+
+    /** @test */
+    public function status_code_can_be_provided_in_the_closure() {
+        $response = fractal()
+            ->collection(['item', 'item2'])
+            ->transformWith(function ($item) {
+                return $item.'-transformed';
+            })
+            ->respond(function ($response) {
+                $response->code(404);
+            });
+
+        $this->assertEquals(404, $response->status());
+    }
 }

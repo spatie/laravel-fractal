@@ -2,12 +2,28 @@
 
 namespace Spatie\Fractal;
 
+use League\Fractal\Manager;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 
 class Fractal extends Fractalistic
 {
-    public function respond($statusCode = 200, $headers = [])
+    protected $response;
+
+    public function __construct(Manager $manager)
     {
-        return response()->json($this->createData()->toArray(), $statusCode, $headers);
+        parent::__construct($manager);
+
+        $this->response = new Response;
+    }
+
+    public function respond($callbackOrStatusCode = 200, $headers = [])
+    {
+        if (is_callable($callbackOrStatusCode)) {
+            $callbackOrStatusCode($this->response);
+        } else {
+            $this->response->code($callbackOrStatusCode);
+        }
+
+        return response()->json($this->createData()->toArray(), $this->response->statusCode(), $headers);
     }
 }
