@@ -71,4 +71,32 @@ class ResponseTest extends TestCase
 
         $this->assertArraySubset(['test' => ['test-value']], $response->headers->all());
     }
+
+    /** @test */
+    public function callback_allows_chaining() {
+        $response = fractal()
+            ->collection(['item', 'item2'])
+            ->transformWith(function ($item) {
+                return $item.'-transformed';
+            })
+            ->respond(function ($response) {
+                $response
+                    ->header('test', 'test-value')
+                    ->code(404)
+                    ->headers([
+                        'test3' => 'test3-value',
+                        'test4' => 'test4-value',
+                    ])
+                    ->header('test2', 'test2-value');
+            });
+
+        $this->assertArraySubset([
+            'test' => ['test-value'],
+            'test2' => ['test2-value'],
+            'test3' => ['test3-value'],
+            'test4' => ['test4-value'],
+        ], $response->headers->all());
+
+        $this->assertEquals(404, $response->status());
+    }
 }

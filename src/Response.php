@@ -15,6 +15,8 @@ class Response
     public function code($statusCode)
     {
         $this->statusCode = $statusCode;
+
+        return $this;
     }
 
     public function getHeaders()
@@ -25,6 +27,8 @@ class Response
     public function header($key, $value)
     {
         $this->headers[$key] = $value;
+
+        return $this;
     }
 
     public function headers($headers)
@@ -32,5 +36,7 @@ class Response
         foreach ($headers as $key => $value) {
             $this->header($key, $value);
         }
+
+        return $this;
     }
 }
