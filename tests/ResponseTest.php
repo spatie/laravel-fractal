@@ -7,6 +7,7 @@ use Spatie\Fractal\Fractal;
 
 class ResponseTest extends TestCase
 {
+    /** Set-up a new Fractal instance using fractal() helper method */
     public function fractal()
     {
         return fractal()
