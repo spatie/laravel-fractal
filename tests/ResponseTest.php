@@ -19,4 +19,16 @@ class ResponseTest extends TestCase
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertEquals('{"data":["item-transformed","item2-transformed"]}', json_encode($response->getData()));
     }
+
+    /** @test */
+    public function it_sets_a_status_code_provided_as_a_parameter() {
+        $response = fractal()
+            ->collection(['item', 'item2'])
+            ->transformWith(function ($item) {
+                return $item.'-transformed';
+            })
+            ->respond(404);
+
+        $this->assertEquals(404, $response->status());
+    }
 }
