@@ -71,9 +71,13 @@ class ResponseTest extends TestCase
             })
             ->respond(function ($response) {
                 $response->header('test', 'test-value');
+                $response->headers(['test2' => 'test2-value']);
             });
 
-        $this->assertArraySubset(['test' => ['test-value']], $response->headers->all());
+        $this->assertArraySubset([
+            'test' => ['test-value'],
+            'test2' => ['test2-value'],
+        ], $response->headers->all());
     }
 
     /** @test */
