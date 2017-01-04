@@ -4,7 +4,7 @@ namespace Spatie\Fractal;
 
 class Response
 {
-    protected $statusCode;
+    protected $statusCode = 200;
     protected $headers = [];
 
     public function statusCode()
