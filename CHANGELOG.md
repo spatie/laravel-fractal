@@ -2,6 +2,9 @@
 
 All Notable changes to `laravel-fractal` will be documented in this file
 
+## 3.1.0 - 2017-01-05
+
+- add `respond` method
 
 ## 3.0.1 - 2016-12-09
 
