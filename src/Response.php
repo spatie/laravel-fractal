@@ -6,22 +6,6 @@ use Illuminate\Http\JsonResponse;
 
 class Response extends JsonResponse
 {
-    /** @var int */
-    protected $statusCode = 200;
-
-    /** @var array */
-    public $headers = [];
-
-    /**
-     * Return HTTP headers.
-     *
-     * @return array
-     */
-    public function getHeaders()
-    {
-        return $this->headers;
-    }
-
     /**
      * Set multiple headers at once.
      *
