@@ -16,7 +16,7 @@ class ResponseTest extends TestCase
 
         $this->fractal = fractal()
             ->collection(['item', 'item2'])
-            ->transformWith(function (string $item) {
+            ->transformWith(function ($item) {
                 return $item.'-transformed';
             });
     }
