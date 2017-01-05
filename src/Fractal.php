@@ -17,7 +17,7 @@ class Fractal extends Fractalistic
      * Return a new JSON response.
      *
      * @param  callable|int $statusCode
-     * @param  callabel|array $headers
+     * @param  callable|array $headers
      *
      * @return \Illuminate\Http\JsonResponse
      */
