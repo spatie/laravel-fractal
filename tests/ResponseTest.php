@@ -2,8 +2,8 @@
 
 namespace Spatie\Fractal\Test;
 
-use Spatie\Fractal\Fractal;
 use Illuminate\Http\JsonResponse;
+use Spatie\Fractal\Response;
 
 class ResponseTest extends TestCase
 {
@@ -22,7 +22,7 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function it_makes_a_json_response()
+    public function it_can_return_a_json_response()
     {
         $response = $this->fractal->respond();
 
@@ -32,7 +32,7 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function it_sets_a_status_code_provided_as_a_parameter()
+    public function it_uses_the_given_response_code()
     {
         $response = $this->fractal->respond(404);
 
@@ -40,10 +40,13 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function it_sets_headers_provided_as_a_parameter()
+    public function it_uses_the_given_headers()
     {
         $response = $this->fractal
-            ->respond(404, ['test' => 'test-value', 'test2' => 'test2-value']);
+            ->respond(404, [
+                'test' => 'test-value',
+                'test2' => 'test2-value'
+            ]);
 
         $this->assertArraySubset([
             'test' => ['test-value'],
@@ -52,7 +55,7 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function status_code_can_be_provided_in_the_closure()
+    public function it_accepts_a_status_code_in_the_given_closure()
     {
         $response = $this->fractal
             ->respond(function ($response) {
@@ -63,7 +66,7 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function headers_can_be_provided_in_the_closure()
+    public function it_accepts_a_headers_in_the_given_closure()
     {
         $response = $this->fractal
             ->respond(function ($response) {
@@ -78,7 +81,7 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function the_code_can_be_allowed_along_with_the_callback()
+    public function it_accept_a_response_code_and_a_callback()
     {
         $response = $this->fractal
             ->respond(404, function ($response) {
@@ -92,7 +95,7 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function callback_allows_chaining()
+    public function all_allowed_methods_in_the_callback_are_chainable()
     {
         $response = $this->fractal
             ->respond(function ($response) {
@@ -114,5 +117,15 @@ class ResponseTest extends TestCase
         ], $response->headers->all());
 
         $this->assertEquals(404, $response->status());
+    }
+
+    /** @test */
+    public function the_status_code_set_in_the_closure_will_be_used_event_when_passing_a_status_code_to_the_respond_method()
+    {
+        $response = $this->fractal->respond(200, function(Response $response) {
+            $response->code(300);
+        });
+
+        $this->assertEquals(200, $response->getStatusCode());
     }
 }
