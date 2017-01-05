@@ -2,8 +2,8 @@
 
 namespace Spatie\Fractal\Test;
 
-use Illuminate\Http\JsonResponse;
 use Spatie\Fractal\Response;
+use Illuminate\Http\JsonResponse;
 
 class ResponseTest extends TestCase
 {
@@ -45,7 +45,7 @@ class ResponseTest extends TestCase
         $response = $this->fractal
             ->respond(404, [
                 'test' => 'test-value',
-                'test2' => 'test2-value'
+                'test2' => 'test2-value',
             ]);
 
         $this->assertArraySubset([
@@ -122,7 +122,7 @@ class ResponseTest extends TestCase
     /** @test */
     public function the_status_code_set_in_the_closure_will_be_used_event_when_passing_a_status_code_to_the_respond_method()
     {
-        $response = $this->fractal->respond(200, function(Response $response) {
+        $response = $this->fractal->respond(200, function (Response $response) {
             $response->setStatusCode(300);
         });
 
