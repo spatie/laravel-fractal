@@ -2,13 +2,15 @@
 
 namespace Spatie\Fractal;
 
-class Response
+use Illuminate\Http\JsonResponse;
+
+class Response extends JsonResponse
 {
     /** @var int */
     protected $statusCode = 200;
 
     /** @var array */
-    protected $headers = [];
+    public $headers = [];
 
     /**
      * Get the status code.
@@ -42,21 +44,6 @@ class Response
     public function getHeaders()
     {
         return $this->headers;
-    }
-
-    /**
-     * Set one HTTP header.
-     *
-     * @param  string $key
-     * @param  string $value
-     *
-     * @return self
-     */
-    public function header($key, $value)
-    {
-        $this->headers[$key] = $value;
-
-        return $this;
     }
 
     /**
