@@ -6,7 +6,6 @@ use Spatie\Fractalistic\ArraySerializer;
 
 class ClosureDefaultSerializerTest extends TestCase
 {
-
     public function setUp($defaultSerializer = '')
     {
         parent::setup(function () {
@@ -26,5 +25,4 @@ class ClosureDefaultSerializerTest extends TestCase
 
         $this->assertEquals($expectedArray, $array);
     }
-
 }
