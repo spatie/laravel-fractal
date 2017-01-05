@@ -130,7 +130,6 @@ In all code examples you may use `fractal()` instead of `Fractal::create()`.
 To return a response with json data you can to this in a Laravel app.
 
 ```php
-
 $books = fractal($books, new BookTransformer())->toArray();
 
 return response()->json($books);
