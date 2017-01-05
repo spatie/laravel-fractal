@@ -155,7 +155,7 @@ You can also set the status code and the headers useing a callback:
 ```php
 return fractal($books, new BookTransformer())->respond(function(Reponse $response) {
     $response
-        ->setStatusCode(433)
+        ->setStatusCode(403)
         ->header('a-header', 'a value')
         ->headers([
             'another-header' => 'another value',
