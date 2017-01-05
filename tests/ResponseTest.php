@@ -16,7 +16,7 @@ class ResponseTest extends TestCase
 
         $this->fractal = fractal()
             ->collection(['item', 'item2'])
-            ->transformWith(function ($item) {
+            ->transformWith(function (string $item) {
                 return $item.'-transformed';
             });
     }
@@ -58,7 +58,7 @@ class ResponseTest extends TestCase
     public function it_accepts_a_status_code_in_the_given_closure()
     {
         $response = $this->fractal
-            ->respond(function ($response) {
+            ->respond(function (Response $response) {
                 $response->setStatusCode(404);
             });
 
@@ -69,7 +69,7 @@ class ResponseTest extends TestCase
     public function it_accepts_a_headers_in_the_given_closure()
     {
         $response = $this->fractal
-            ->respond(function ($response) {
+            ->respond(function (Response $response) {
                 $response->header('test', 'test-value');
                 $response->headers(['test2' => 'test2-value']);
             });
@@ -84,7 +84,7 @@ class ResponseTest extends TestCase
     public function it_accept_a_response_code_and_a_callback()
     {
         $response = $this->fractal
-            ->respond(404, function ($response) {
+            ->respond(404, function (Response $response) {
                 $response->header('test', 'test-value');
             });
 
@@ -98,7 +98,7 @@ class ResponseTest extends TestCase
     public function all_allowed_methods_in_the_callback_are_chainable()
     {
         $response = $this->fractal
-            ->respond(function ($response) {
+            ->respond(function (Response $response) {
                 $response
                     ->header('test', 'test-value')
                     ->setStatusCode(404)
