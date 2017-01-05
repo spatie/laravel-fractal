@@ -59,7 +59,7 @@ class ResponseTest extends TestCase
     {
         $response = $this->fractal
             ->respond(function ($response) {
-                $response->code(404);
+                $response->setStatusCode(404);
             });
 
         $this->assertEquals(404, $response->status());
@@ -101,7 +101,7 @@ class ResponseTest extends TestCase
             ->respond(function ($response) {
                 $response
                     ->header('test', 'test-value')
-                    ->code(404)
+                    ->setStatusCode(404)
                     ->headers([
                         'test3' => 'test3-value',
                         'test4' => 'test4-value',
@@ -123,7 +123,7 @@ class ResponseTest extends TestCase
     public function the_status_code_set_in_the_closure_will_be_used_event_when_passing_a_status_code_to_the_respond_method()
     {
         $response = $this->fractal->respond(200, function(Response $response) {
-            $response->code(300);
+            $response->setStatusCode(300);
         });
 
         $this->assertEquals(300, $response->getStatusCode());

@@ -13,30 +13,6 @@ class Response extends JsonResponse
     public $headers = [];
 
     /**
-     * Get the status code.
-     *
-     * @return int
-     */
-    public function statusCode()
-    {
-        return $this->statusCode;
-    }
-
-    /**
-     * Set the status code.
-     *
-     * @param  int $statusCode
-     *
-     * @return self
-     */
-    public function code($statusCode)
-    {
-        $this->statusCode = $statusCode;
-
-        return $this;
-    }
-
-    /**
      * Return HTTP headers.
      *
      * @return array
