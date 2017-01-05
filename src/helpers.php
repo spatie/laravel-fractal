@@ -20,6 +20,8 @@ if (! function_exists('fractal')) {
         if (! empty($serializer)) {
             if ($serializer instanceof SerializerAbstract) {
                 $fractal->serializeWith($serializer);
+            } else if ($serializer instanceof Closure) {
+                $fractal->serializeWith($serializer());
             } else {
                 $fractal->serializeWith(new $serializer());
             }
