@@ -9,7 +9,7 @@ class ClosureDefaultSerializerTest extends TestCase
 
     public function setUp($defaultSerializer = '')
     {
-        parent::setup(function() {
+        parent::setup(function () {
             return new ArraySerializer();
         });
     }
