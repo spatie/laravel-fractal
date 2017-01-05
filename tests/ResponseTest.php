@@ -126,6 +126,6 @@ class ResponseTest extends TestCase
             $response->code(300);
         });
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals(300, $response->getStatusCode());
     }
 }
