@@ -4,7 +4,7 @@ namespace Spatie\Fractal;
 
 class Response
 {
-    /** @var integer */
+    /** @var int */
     protected $statusCode = 200;
 
     /** @var array */

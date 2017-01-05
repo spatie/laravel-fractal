@@ -2,8 +2,8 @@
 
 namespace Spatie\Fractal;
 
-use Illuminate\Http\JsonResponse;
 use League\Fractal\Manager;
+use Illuminate\Http\JsonResponse;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 
 class Fractal extends Fractalistic
@@ -22,8 +22,8 @@ class Fractal extends Fractalistic
     /**
      * Return a new JSON response.
      *
-     * @param  callable|integer $callbackOrStatusCode
-     * @param  array            $headers
+     * @param  callable|int $callbackOrStatusCode
+     * @param  array        $headers
      *
      * @return \Illuminate\Http\JsonResponse
      */

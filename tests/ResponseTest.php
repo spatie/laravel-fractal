@@ -2,8 +2,8 @@
 
 namespace Spatie\Fractal\Test;
 
-use Illuminate\Http\JsonResponse;
 use Spatie\Fractal\Fractal;
+use Illuminate\Http\JsonResponse;
 
 class ResponseTest extends TestCase
 {
@@ -18,7 +18,8 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function it_makes_a_json_response() {
+    public function it_makes_a_json_response()
+    {
         $response = $this->fractal()->respond();
 
         $this->assertInstanceOf(JsonResponse::class, $response);
@@ -27,14 +28,16 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function it_sets_a_status_code_provided_as_a_parameter() {
+    public function it_sets_a_status_code_provided_as_a_parameter()
+    {
         $response = $this->fractal()->respond(404);
 
         $this->assertEquals(404, $response->status());
     }
 
     /** @test */
-    public function it_sets_headers_provided_as_a_parameter() {
+    public function it_sets_headers_provided_as_a_parameter()
+    {
         $response = $this->fractal()
             ->respond(404, ['test' => 'test-value', 'test2' => 'test2-value']);
 
@@ -45,7 +48,8 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function status_code_can_be_provided_in_the_closure() {
+    public function status_code_can_be_provided_in_the_closure()
+    {
         $response = $this->fractal()
             ->respond(function ($response) {
                 $response->code(404);
@@ -55,7 +59,8 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function headers_can_be_provided_in_the_closure() {
+    public function headers_can_be_provided_in_the_closure()
+    {
         $response = $this->fractal()
             ->respond(function ($response) {
                 $response->header('test', 'test-value');
@@ -69,7 +74,8 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
-    public function callback_allows_chaining() {
+    public function callback_allows_chaining()
+    {
         $response = $this->fractal()
             ->respond(function ($response) {
                 $response
