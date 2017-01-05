@@ -146,7 +146,7 @@ You can pass a response code as the first parameter and optional some headers as
 ```php
 return fractal($books, new BookTransformer())->respond(403, [
     'a-header' => 'a value',
-    'another-header => 'another value',
+    'another-header' => 'another value',
 ]);
 ```
 
@@ -158,8 +158,8 @@ return fractal($books, new BookTransformer())->respond(function(Reponse $respons
         ->setStatusCode(433)
         ->header('a-header', 'a value')
         ->headers([
-            'another-header => 'another value',
-            'yet-another-header => 'yet another value',
+            'another-header' => 'another value',
+            'yet-another-header' => 'yet another value',
         ]);
 });
 ```
