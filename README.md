@@ -135,13 +135,13 @@ $books = fractal($books, new BookTransformer())->toArray();
 return response()->json($books);
 ```
 
-The `response()` method on the Fractal class can make this process a bit more streamlined.
+The `respond()` method on the Fractal class can make this process a bit more streamlined.
 
 ```php
 return fractal($books, new BookTransformer())->respond();
 ```
 
-You can pass a response code as the first parameter and optional some headers as the second
+You can pass a response code as the first parameter and optionally some headers as the second
 
 ```php
 return fractal($books, new BookTransformer())->respond(403, [
@@ -150,7 +150,7 @@ return fractal($books, new BookTransformer())->respond(403, [
 ]);
 ```
 
-You can also set the status code and the headers useing a callback:
+You can also set the status code and the headers using a callback:
 
 ```php
 return fractal($books, new BookTransformer())->respond(function(Reponse $response) {
