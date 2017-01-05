@@ -74,6 +74,20 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
+    public function the_code_can_be_allowed_along_with_the_callback()
+    {
+        $response = $this->fractal()
+            ->respond(404, function ($response) {
+                $response->header('test', 'test-value');
+            });
+
+        $this->assertEquals(404, $response->status());
+        $this->assertArraySubset([
+            'test' => ['test-value'],
+        ], $response->headers->all());
+    }
+
+    /** @test */
     public function callback_allows_chaining()
     {
         $response = $this->fractal()

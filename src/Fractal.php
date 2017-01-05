@@ -27,13 +27,18 @@ class Fractal extends Fractalistic
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function respond($callbackOrStatusCode = 200, $headers = [])
+    public function respond($callbackOrStatusCode = 200, $callbackOrHeaders = [])
     {
         if (is_callable($callbackOrStatusCode)) {
             $callbackOrStatusCode($this->response);
         } else {
             $this->response->code($callbackOrStatusCode);
-            $this->response->headers($headers);
+
+            if (is_callable($callbackOrHeaders)) {
+                $callbackOrHeaders($this->response);
+            } else {
+                $this->response->headers($callbackOrHeaders);
+            }
         }
 
         return new JsonResponse($this->createData()->toArray(), $this->response->statusCode(), $this->response->getHeaders());
