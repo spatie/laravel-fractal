@@ -18,7 +18,7 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 
 $books = [
-   ['id'=>1, 'title'=>'Hogfather', 'characters' => [...]], 
+   ['id'=>1, 'title'=>'Hogfather', 'characters' => [...]],
    ['id'=>2, 'title'=>'Game Of Kill Everyone', 'characters' => [...]]
 ];
 
@@ -52,7 +52,7 @@ There's also a very short syntax available to quickly transform data:
 fractal($books, new BookTransformer())->toArray();
 ```
 
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all 
+Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all
 our open source projects [on our website](https://spatie.be/opensource).
 
 ## Postcardware
@@ -91,7 +91,7 @@ If you want to make use of the facade you must install it as well:
 ];
 ```
 
-If you want to [change the default serializer](https://github.com/spatie/laravel-fractal#changing-the-default-serializer), 
+If you want to [change the default serializer](https://github.com/spatie/laravel-fractal#changing-the-default-serializer),
 you must publish the config file:
 
 ```bash
@@ -124,6 +124,46 @@ return [
 Refer to [the documentation of `spatie/fractalistic`](https://github.com/spatie/fractalistic) to learn all the methods this package provides.
 
 In all code examples you may use `fractal()` instead of `Fractal::create()`.
+
+## Send a response with transformed data
+
+To return a response with json data you can to this in a Laravel app.
+
+```php
+
+$books = fractal($books, new BookTransformer())->toArray();
+
+return response()->json($books);
+```
+
+The `response()` method on the Fractal class can make this process a bit more streamlined.
+
+```php
+return fractal($books, new BookTransformer())->respond();
+```
+
+You can pass a response code as the first parameter and optional some headers as the second
+
+```php
+return fractal($books, new BookTransformer())->respond(403, [
+    'a-header' => 'a value',
+    'another-header => 'another value',
+]);
+```
+
+You can also set the status code and the headers useing a callback:
+
+```php
+return fractal($books, new BookTransformer())->respond(function(Reponse $response) {
+    $response
+        ->setStatusCode(433)
+        ->header('a-header', 'a value')
+        ->headers([
+            'another-header => 'another value',
+            'yet-another-header => 'yet another value',
+        ]);
+});
+```
 
 ## Quickly creating a transformer
 
