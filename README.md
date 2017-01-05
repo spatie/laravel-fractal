@@ -18,7 +18,7 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 
 $books = [
-   ['id'=>1, 'title'=>'Hogfather', 'characters' => [...]], 
+   ['id'=>1, 'title'=>'Hogfather', 'characters' => [...]],
    ['id'=>2, 'title'=>'Game Of Kill Everyone', 'characters' => [...]]
 ];
 
@@ -52,7 +52,7 @@ There's also a very short syntax available to quickly transform data:
 fractal($books, new BookTransformer())->toArray();
 ```
 
-Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all 
+Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all
 our open source projects [on our website](https://spatie.be/opensource).
 
 ## Postcardware
@@ -91,7 +91,7 @@ If you want to make use of the facade you must install it as well:
 ];
 ```
 
-If you want to [change the default serializer](https://github.com/spatie/laravel-fractal#changing-the-default-serializer), 
+If you want to [change the default serializer](https://github.com/spatie/laravel-fractal#changing-the-default-serializer),
 you must publish the config file:
 
 ```bash
@@ -124,6 +124,45 @@ return [
 Refer to [the documentation of `spatie/fractalistic`](https://github.com/spatie/fractalistic) to learn all the methods this package provides.
 
 In all code examples you may use `fractal()` instead of `Fractal::create()`.
+
+## Attaching a status code and headers
+
+Now you can easily create fractal responses with status codes and headers.
+
+Previously what you might have done is this ugly JSON response just to attach a response code or headers:
+```php
+return response()->json(
+    fractal()
+        ->item('These credentials do not match our records.')
+        ->transformWith(new ErrorTransformer)
+        ->serializeWith(new ArraySerializer)
+        ->toArray()
+, 433, $headers);
+```
+now, you can easily chain on the status code inside the `respond()` method:
+```php
+return fractal()
+    ->item('These credentials do not match our records.')
+    ->transformWith(new ErrorTransformer)
+    ->serializeWith(new ArraySerializer)
+    ->respond(433, $headers);
+```
+
+If you have some complicated headers' or status code's connected logic, you can do it in a callback like so:
+```php
+return fractal()
+    ->item('These credentials do not match our records.')
+    ->transformWith(new ErrorTransformer)
+    ->serializeWith(new ArraySerializer)
+    ->respond(function ($response) {
+        $response->code(433)
+            ->header('test-header', 'test-value')
+            ->headers([
+                'test2-header' => 'test2-value',
+            ]);
+    });
+```
+
 
 ## Quickly creating a transformer
 
