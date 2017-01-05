@@ -2,7 +2,6 @@
 
 namespace Spatie\Fractal\Test;
 
-use Spatie\Fractal\Fractal;
 use Spatie\Fractal\FractalServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 

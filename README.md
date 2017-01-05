@@ -125,44 +125,45 @@ Refer to [the documentation of `spatie/fractalistic`](https://github.com/spatie/
 
 In all code examples you may use `fractal()` instead of `Fractal::create()`.
 
-## Attaching a status code and headers
+## Send a response with transformed data
 
-Now you can easily create fractal responses with status codes and headers.
+To return a response with json data you can to this in a Laravel app.
 
-Previously what you might have done is this ugly JSON response just to attach a response code or headers:
 ```php
-return response()->json(
-    fractal()
-        ->item('These credentials do not match our records.')
-        ->transformWith(new ErrorTransformer)
-        ->serializeWith(new ArraySerializer)
-        ->toArray()
-, 433, $headers);
-```
-now, you can easily chain on the status code inside the `respond()` method:
-```php
-return fractal()
-    ->item('These credentials do not match our records.')
-    ->transformWith(new ErrorTransformer)
-    ->serializeWith(new ArraySerializer)
-    ->respond(433, $headers);
+
+$books = fractal($books, new BookTransformer())->toArray();
+
+return response()->json($books);
 ```
 
-If you have some complicated headers' or status code's connected logic, you can do it in a callback like so:
+The `response()` method on the Fractal class can make this process a bit more streamlined.
+
 ```php
-return fractal()
-    ->item('These credentials do not match our records.')
-    ->transformWith(new ErrorTransformer)
-    ->serializeWith(new ArraySerializer)
-    ->respond(function ($response) {
-        $response->code(433)
-            ->header('test-header', 'test-value')
-            ->headers([
-                'test2-header' => 'test2-value',
-            ]);
-    });
+return fractal($books, new BookTransformer())->respond();
 ```
 
+You can pass a response code as the first parameter and optional some headers as the second
+
+```php
+return fractal($books, new BookTransformer())->respond(403, [
+    'a-header' => 'a value',
+    'another-header => 'another value',
+]);
+```
+
+You can also set the status code and the headers useing a callback:
+
+```php
+return fractal($books, new BookTransformer())->respond(function(Reponse $response) {
+    $response
+        ->setStatusCode(433)
+        ->header('a-header', 'a value')
+        ->headers([
+            'another-header => 'another value',
+            'yet-another-header => 'yet another value',
+        ]);
+});
+```
 
 ## Quickly creating a transformer
 
