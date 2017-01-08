@@ -2,7 +2,6 @@
 
 namespace Spatie\Fractal\Test;
 
-use Spatie\Fractal\Response;
 use Illuminate\Http\JsonResponse;
 
 class ResponseTest extends TestCase
