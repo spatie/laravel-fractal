@@ -153,11 +153,13 @@ return fractal($books, new BookTransformer())->respond(403, [
 You can also set the status code and the headers using a callback:
 
 ```php
-return fractal($books, new BookTransformer())->respond(function(Reponse $response) {
+use Illuminate\Http\JsonResponse;
+
+return fractal($books, new BookTransformer())->respond(function(JsonResponse $response) {
     $response
         ->setStatusCode(403)
         ->header('a-header', 'a value')
-        ->headers([
+        ->withHeaders([
             'another-header' => 'another value',
             'yet-another-header' => 'yet another value',
         ]);

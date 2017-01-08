@@ -58,7 +58,7 @@ class ResponseTest extends TestCase
     public function it_accepts_a_status_code_in_the_given_closure()
     {
         $response = $this->fractal
-            ->respond(function (Response $response) {
+            ->respond(function (JsonResponse $response) {
                 $response->setStatusCode(404);
             });
 
@@ -69,9 +69,9 @@ class ResponseTest extends TestCase
     public function it_accepts_a_headers_in_the_given_closure()
     {
         $response = $this->fractal
-            ->respond(function (Response $response) {
+            ->respond(function (JsonResponse $response) {
                 $response->header('test', 'test-value');
-                $response->headers(['test2' => 'test2-value']);
+                $response->withHeaders(['test2' => 'test2-value']);
             });
 
         $this->assertArraySubset([
@@ -84,7 +84,7 @@ class ResponseTest extends TestCase
     public function it_accept_a_response_code_and_a_callback()
     {
         $response = $this->fractal
-            ->respond(404, function (Response $response) {
+            ->respond(404, function (JsonResponse $response) {
                 $response->header('test', 'test-value');
             });
 
@@ -98,11 +98,11 @@ class ResponseTest extends TestCase
     public function all_allowed_methods_in_the_callback_are_chainable()
     {
         $response = $this->fractal
-            ->respond(function (Response $response) {
+            ->respond(function (JsonResponse $response) {
                 $response
                     ->header('test', 'test-value')
                     ->setStatusCode(404)
-                    ->headers([
+                    ->withHeaders([
                         'test3' => 'test3-value',
                         'test4' => 'test4-value',
                     ])
@@ -122,7 +122,7 @@ class ResponseTest extends TestCase
     /** @test */
     public function the_status_code_set_in_the_closure_will_be_used_event_when_passing_a_status_code_to_the_respond_method()
     {
-        $response = $this->fractal->respond(200, function (Response $response) {
+        $response = $this->fractal->respond(200, function (JsonResponse $response) {
             $response->setStatusCode(300);
         });
 

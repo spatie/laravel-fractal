@@ -2,6 +2,7 @@
 
 namespace Spatie\Fractal;
 
+use Illuminate\Http\JsonResponse;
 use League\Fractal\Manager;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 
@@ -23,19 +24,19 @@ class Fractal extends Fractalistic
      */
     public function respond($statusCode = 200, $headers = [])
     {
-        $response = new Response();
+        $response = new JsonResponse();
 
         $response->setData($this->createData()->toArray());
 
         if (is_int($statusCode)) {
-            $statusCode = function (Response $response) use ($statusCode) {
+            $statusCode = function (JsonResponse $response) use ($statusCode) {
                 return $response->setStatusCode($statusCode);
             };
         }
 
         if (is_array($headers)) {
-            $headers = function (Response $response) use ($headers) {
-                return $response->headers($headers);
+            $headers = function (JsonResponse $response) use ($headers) {
+                return $response->withHeaders($headers);
             };
         }
 
