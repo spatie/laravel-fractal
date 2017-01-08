@@ -6,7 +6,7 @@ All Notable changes to `laravel-fractal` will be documented in this file
 
 - fix wrong implementation of the `respond` method.
 
-If you encounter errors when upgrading from `3.1.0` to this version, replace all usagse of `Spatie\Fractal\Response` by `Illuminate\Http\JsonResponse`. All calls to the `headers` method on that class should be replaced by `withHeaders`.
+If you encounter errors when upgrading from `3.1.0` to this version, replace all usages of `Spatie\Fractal\Response` by `Illuminate\Http\JsonResponse`. All calls to the `headers` method on that class should be replaced by `withHeaders`.
 
 ## 3.1.0 - 2017-01-05
 
