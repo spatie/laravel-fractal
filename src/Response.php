@@ -13,11 +13,9 @@ class Response extends JsonResponse
      *
      * @return self
      */
-    public function headers($headers)
+    public function headers(array $headers)
     {
-        foreach ($headers as $key => $value) {
-            $this->header($key, $value);
-        }
+        $this->withHeaders($headers);
 
         return $this;
     }
