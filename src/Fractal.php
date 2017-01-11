@@ -74,6 +74,4 @@ class Fractal extends Fractalistic
 
         return $response;
     }
-
-
 }
