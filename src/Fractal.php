@@ -4,6 +4,7 @@ namespace Spatie\Fractal;
 
 use League\Fractal\Manager;
 use Illuminate\Http\JsonResponse;
+use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 
 class Fractal extends Fractalistic

@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 3.1.3 - 2017-01-17
+
+- fixed missing namespace import in Fractal
+
 ## 3.1.2 - 2017-01-17
 
 - the facade will now use the configured serializer
