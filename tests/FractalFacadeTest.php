@@ -3,8 +3,8 @@
 namespace Spatie\Fractal\Test;
 
 use Fractal as FractalFacade;
-use Spatie\Fractalistic\ArraySerializer;
 use Spatie\Fractalistic\Fractal;
+use Spatie\Fractalistic\ArraySerializer;
 
 class FractalFacadeTest extends TestCase
 {
