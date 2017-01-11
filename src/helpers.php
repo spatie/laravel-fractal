@@ -1,7 +1,6 @@
 <?php
 
 use Spatie\Fractal\Fractal;
-use League\Fractal\Serializer\SerializerAbstract;
 
 if (! function_exists('fractal')) {
     /**
