@@ -35,21 +35,4 @@ class FractalServiceProvider extends ServiceProvider
             return fractal(...$arguments);
         });
     }
-
-    /**
-     * Set the default serializer.
-     *
-     * @param \Spatie\Fractal\Fractal                              $fractal
-     * @param string|\League\Fractal\Serializer\SerializerAbstract $serializer
-     *
-     * @return \Spatie\Fractal\Fractal
-     */
-    protected function setDefaultSerializer($fractal, $serializer)
-    {
-        if ($serializer instanceof SerializerAbstract) {
-            return $fractal->serializeWith($serializer);
-        }
-
-        return $fractal->serializeWith(new $serializer());
-    }
 }
