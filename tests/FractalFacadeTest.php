@@ -3,8 +3,8 @@
 namespace Spatie\Fractal\Test;
 
 use Fractal as FractalFacade;
-use Spatie\Fractalistic\ArraySerializer;
 use Spatie\Fractalistic\Fractal;
+use Spatie\Fractalistic\ArraySerializer;
 
 class FractalFacadeTest extends TestCase
 {
@@ -31,7 +31,7 @@ class FractalFacadeTest extends TestCase
     {
         $this->app['config']->set('laravel-fractal.default_serializer', ArraySerializer::class);
 
-       $response = FractalFacade::create()
+        $response = FractalFacade::create()
             ->item($this->testBooks[0])
             ->transformWith(new TestTransformer())
             ->respond(200);

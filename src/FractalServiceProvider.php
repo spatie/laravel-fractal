@@ -3,7 +3,6 @@
 namespace Spatie\Fractal;
 
 use Illuminate\Support\ServiceProvider;
-use League\Fractal\Serializer\SerializerAbstract;
 use Spatie\Fractal\Console\Commands\TransformerMakeCommand;
 
 class FractalServiceProvider extends ServiceProvider
