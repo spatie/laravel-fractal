@@ -1,6 +1,10 @@
 # Changelog
 
-All Notable changes to `laravel-fractal` will be documented in this file
+All notable changes to `laravel-fractal` will be documented in this file
+
+## 3.1.2 - 2017-01-17
+
+- the facade will now use the configured serializer
 
 ## 3.1.1 - 2017-01-08
 
