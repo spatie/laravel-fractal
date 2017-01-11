@@ -91,7 +91,7 @@ If you want to make use of the facade you must install it as well:
 ];
 ```
 
-If you want to [change the default serializer](https://github.com/spatie/laravel-fractal#changing-the-default-serializer),
+If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer),
 you must publish the config file:
 
 ```bash
