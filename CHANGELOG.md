@@ -1,7 +1,24 @@
 # Changelog
 
-All Notable changes to `laravel-fractal` will be documented in this file
+All notable changes to `laravel-fractal` will be documented in this file
 
+## 3.1.3 - 2017-01-17
+
+- fixed missing namespace import in Fractal
+
+## 3.1.2 - 2017-01-17
+
+- the facade will now use the configured serializer
+
+## 3.1.1 - 2017-01-08
+
+- fix wrong implementation of the `respond` method.
+
+If you encounter errors when upgrading from `3.1.0` to this version, replace all usages of `Spatie\Fractal\Response` by `Illuminate\Http\JsonResponse`. All calls to the `headers` method on that class should be replaced by `withHeaders`.
+
+## 3.1.0 - 2017-01-05
+
+- add `respond` method
 
 ## 3.0.1 - 2016-12-09
 

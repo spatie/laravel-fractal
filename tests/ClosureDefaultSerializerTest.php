@@ -14,7 +14,7 @@ class ClosureDefaultSerializerTest extends TestCase
     }
 
     /** @test */
-    public function it_uses_the_default_transformer_when_it_is_specified()
+    public function it_uses_configured_transformer_when_toarray_is_used()
     {
         $array = $this->fractal
             ->item($this->testBooks[0])
@@ -24,5 +24,16 @@ class ClosureDefaultSerializerTest extends TestCase
         $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
 
         $this->assertEquals($expectedArray, $array);
+    }
+
+    /** @test */
+    public function it_uses_configured_transformer_when_response_is_used()
+    {
+        $response = $this->fractal
+            ->item($this->testBooks[0])
+            ->transformWith(new TestTransformer())
+            ->respond();
+
+        $this->assertEquals('{"id":1,"author":"Philip K Dick"}', json_encode($response->getData()));
     }
 }

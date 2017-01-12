@@ -5,7 +5,7 @@ namespace Spatie\Fractal;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Spatie\Fractal\Fratal
+ * @see \Spatie\Fractal\Fractal
  */
 class FractalFacade extends Facade
 {
