@@ -35,7 +35,9 @@ class Fractal extends Fractalistic
 
         if ($serializer instanceof SerializerAbstract) {
             return $fractal->serializeWith($serializer);
-        } elseif ($serializer instanceof Closure) {
+        }
+
+        if ($serializer instanceof Closure) {
             return $fractal->serializeWith($serializer());
         }
 
