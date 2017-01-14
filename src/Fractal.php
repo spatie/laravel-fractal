@@ -2,6 +2,7 @@
 
 namespace Spatie\Fractal;
 
+use Closure;
 use League\Fractal\Manager;
 use Illuminate\Http\JsonResponse;
 use League\Fractal\Serializer\SerializerAbstract;
@@ -34,6 +35,8 @@ class Fractal extends Fractalistic
 
         if ($serializer instanceof SerializerAbstract) {
             return $fractal->serializeWith($serializer);
+        } elseif ($serializer instanceof Closure) {
+            return $fractal->serializeWith($serializer());
         }
 
         return $fractal->serializeWith(new $serializer());
