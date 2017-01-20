@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+
+## 3.2.1 - 2017-01-20
+
+- improve descriptions of generator command
+
 ## 3.2.0 - 2017-01-14
 
 - allow closures to be used as serializers
