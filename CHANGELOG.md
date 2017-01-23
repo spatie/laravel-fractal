@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 3.3.0 - 2017-01-23
+
+- add support for Laravel 5.4
 
 ## 3.2.1 - 2017-01-20
 
