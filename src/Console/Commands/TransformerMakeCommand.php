@@ -45,6 +45,6 @@ class TransformerMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Transformers';
+        return $rootNamespace.config('laravel-fractal.namespace');
     }
 }

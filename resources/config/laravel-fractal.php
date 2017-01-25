@@ -15,4 +15,15 @@ return [
 
     'default_serializer' => '',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Default Namespace
+    |--------------------------------------------------------------------------
+    |
+    | The default namespace to be used when create a new transform class.
+    |
+    */
+
+    'namespace' => '\Transformers',
+
 ];
