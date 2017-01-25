@@ -20,7 +20,7 @@ return [
     | Default Namespace
     |--------------------------------------------------------------------------
     |
-    | The default namespace to be used when create a new transform class.
+    | The default namespace to be used when creating a new transformer class.
     |
     */
 
