@@ -33,5 +33,7 @@ class FractalServiceProvider extends ServiceProvider
         $this->app->bind('laravel-fractal', function (...$arguments) {
             return fractal(...$arguments);
         });
+        
+        $this->app->alias('laravel-fractal', Fractal::class);
     }
 }
