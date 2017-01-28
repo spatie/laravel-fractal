@@ -18,7 +18,7 @@ class TransformerMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $description = 'Makes a Fractal transformer.';
+    protected $description = 'Create a new Fractal transformer class';
 
     /**
      * The type of class being generated.

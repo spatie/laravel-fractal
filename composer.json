@@ -22,12 +22,13 @@
     ],
     "require": {
         "php" : "^5.6|^7.0",
-        "illuminate/support": "~5.1.0|~5.2.0|~5.3.0",
+        "illuminate/contracts": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
+        "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
         "spatie/fractalistic": "^1.0"
     },
     "require-dev": {
-        "orchestra/testbench": "3.2.*|3.3.*",
-        "phpunit/phpunit" : "^5.7"
+        "orchestra/testbench": "~3.2.0|3.3.0|~3.4.0",
+        "phpunit/phpunit" : "^5.7.5"
     },
     "autoload": {
         "psr-4": {

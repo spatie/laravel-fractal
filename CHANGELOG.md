@@ -2,9 +2,17 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
-## 3.2.1 - 2017-01-27
+## 3.3.1 - 2017-01-27
 
 - bind `laravel-fractal` as a singleton
+
+## 3.3.0 - 2017-01-23
+
+- add support for Laravel 5.4
+
+## 3.2.1 - 2017-01-20
+
+- improve descriptions of generator command
 
 ## 3.2.0 - 2017-01-14
 
