@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 3.2.1 - 2017-01-27
+
+- bind `laravel-fractal` as a singleton
+
 ## 3.2.0 - 2017-01-14
 
 - allow closures to be used as serializers
