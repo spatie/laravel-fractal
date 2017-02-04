@@ -2,6 +2,7 @@
 
 namespace Spatie\Fractal\Test;
 
+use Illuminate\Pagination\LengthAwarePaginator;
 use Spatie\Fractalistic\Fractal;
 use Spatie\Fractalistic\ArraySerializer;
 
@@ -65,6 +66,40 @@ class FractalFunctionTest extends TestCase
         $expectedArray = [
             ['id' => 1, 'author' => 'Philip K Dick'],
             ['id' => 2, 'author' => 'George R. R. Satan'],
+        ];
+
+        $this->assertEquals($expectedArray, $transformedData);
+    }
+
+    /** @test */
+    public function it_perform_a_transformation_with_the_given_paginator()
+    {
+        $paginator = new LengthAwarePaginator(
+            $this->testBooks,
+            count($this->testBooks),
+            2
+        );
+
+        $transformedData = fractal(
+            $paginator,
+            new TestTransformer()
+        )->toArray();
+
+        $expectedArray = [
+            'data' => [
+                ['id' => 1, 'author' => 'Philip K Dick'],
+                ['id' => 2, 'author' => 'George R. R. Satan'],
+            ],
+            'meta' => [
+                'pagination' => [
+                    'total' => 2,
+                    'count' => 2,
+                    'per_page' => 2,
+                    'current_page' => 1,
+                    'total_pages' => 1,
+                    'links' => []
+                ]
+            ]
         ];
 
         $this->assertEquals($expectedArray, $transformedData);

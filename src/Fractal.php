@@ -5,6 +5,8 @@ namespace Spatie\Fractal;
 use Closure;
 use League\Fractal\Manager;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 use League\Fractal\Serializer\SerializerAbstract;
 
@@ -28,6 +30,10 @@ class Fractal extends Fractalistic
         $fractal = parent::create($data, $transformer, $serializer);
 
         $serializer = config('laravel-fractal.default_serializer');
+
+        if($data instanceof LengthAwarePaginator) {
+            $fractal->paginateWith(new IlluminatePaginatorAdapter($data));
+        }
 
         if (empty($serializer)) {
             return $fractal;
