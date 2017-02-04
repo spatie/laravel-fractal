@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 3.4.0 - 2017-02-04
+
+- add support for passing paginators to the `data` argument of `fractal()`
+
 ## 3.3.1 - 2017-01-27
 
 - bind `laravel-fractal` as a singleton
