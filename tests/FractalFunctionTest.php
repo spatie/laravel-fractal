@@ -2,9 +2,9 @@
 
 namespace Spatie\Fractal\Test;
 
-use Illuminate\Pagination\LengthAwarePaginator;
 use Spatie\Fractalistic\Fractal;
 use Spatie\Fractalistic\ArraySerializer;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class FractalFunctionTest extends TestCase
 {
@@ -97,9 +97,9 @@ class FractalFunctionTest extends TestCase
                     'per_page' => 2,
                     'current_page' => 1,
                     'total_pages' => 1,
-                    'links' => []
-                ]
-            ]
+                    'links' => [],
+                ],
+            ],
         ];
 
         $this->assertEquals($expectedArray, $transformedData);
