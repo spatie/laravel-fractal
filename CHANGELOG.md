@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 3.4.1 - 2017-02-07
+
+- fix resolving `Fractal::class` out of the container
+
 ## 3.4.0 - 2017-02-04
 
 - add support for passing paginators to the `data` argument of `fractal()`

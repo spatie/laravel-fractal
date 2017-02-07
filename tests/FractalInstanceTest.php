@@ -14,7 +14,7 @@ class FractalInstanceTest extends TestCase
         $this->fractal = $this->app->make(Fractal::class);
     }
     /** @test */
-    public function it_returns_an_instance_of_fractal_when_using_app_make()
+    public function it_returns_an_configured_instance_when_resolving_fractal_using_the_container()
     {
         $this->assertInstanceOf(Fractal::class, $this->app->make(Fractal::class));
     }
