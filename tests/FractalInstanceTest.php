@@ -2,8 +2,8 @@
 
 namespace Spatie\Fractal\Test;
 
-use Spatie\Fractalistic\ArraySerializer;
 use Spatie\Fractal\Fractal;
+use Spatie\Fractalistic\ArraySerializer;
 
 class FractalInstanceTest extends TestCase
 {
@@ -13,6 +13,7 @@ class FractalInstanceTest extends TestCase
 
         $this->fractal = $this->app->make(Fractal::class);
     }
+
     /** @test */
     public function it_returns_an_instance_of_fractal_when_using_app_make()
     {
@@ -28,7 +29,7 @@ class FractalInstanceTest extends TestCase
             ->toArray();
 
         $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
-        
+
         $this->assertEquals($expectedArray, $array);
     }
 }
