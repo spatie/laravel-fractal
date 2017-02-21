@@ -43,7 +43,6 @@ class FractalServiceProvider extends ServiceProvider
             $this->publishes([$source => config_path('laravel-fractal.php')]);
         } elseif ($this->app instanceof LumenApplication) {
             $this->app->configure('laravel-fractal');
-
         }
 
         $this->mergeConfigFrom($source, 'laravel-fractal');
