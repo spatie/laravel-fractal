@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 3.5.0 - 2017-02-22
+
+- add compatiblity with Lumen
+
 ## 3.4.1 - 2017-02-07
 
 - fix resolving `Fractal::class` out of the container
