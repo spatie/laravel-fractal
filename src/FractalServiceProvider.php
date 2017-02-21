@@ -2,10 +2,10 @@
 
 namespace Spatie\Fractal;
 
-use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
 use Spatie\Fractal\Console\Commands\TransformerMakeCommand;
+use Illuminate\Foundation\Application as LaravelApplication;
 
 class FractalServiceProvider extends ServiceProvider
 {
