@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-fractal",
-    "description": "A Fractal service provider for Laravel and Lumen",
+    "description": "An easy to use Fractal integration for Laravel applications",
     "keywords": [
         "spatie",
         "laravel-fractal",
