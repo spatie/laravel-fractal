@@ -1,4 +1,4 @@
-# A Fractal service provider for Laravel and Lumen
+# An easy to use Fractal integration for Laravel applications
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -61,7 +61,7 @@ You're free to use this package (it's [MIT-licensed](LICENSE.md)), but if it mak
 
 Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
 
-The best postcards will get published on the open source page on our website.
+All received postcards are publish [on our company website](https://spatie.be/en/opensource/postcards).
 
 ## Install
 
