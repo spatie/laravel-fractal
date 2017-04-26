@@ -41,7 +41,7 @@ class TestTransformer extends TransformerAbstract
         $characters = $book['characters'];
 
         return $this->collection($characters, function ($character) {
-            return $character['name'];
+            return ['name' => $character['name']];
         });
     }
 
