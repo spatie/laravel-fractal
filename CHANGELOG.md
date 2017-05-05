@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 4.0.1 - 2017-05-05
+
+- fixes bug where a passed serializer wouldn't be used
+
 ## 4.0.0 - 2017-04-26
 
 - add compatiblity with fractal 0.16 through fractalistic 2.0
