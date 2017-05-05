@@ -18,11 +18,11 @@ class FractalFunctionTest extends TestCase
     public function it_can_transform_the_given_array_with_the_given_closure()
     {
         $transformedData = fractal(['item1', 'item2'], function ($item) {
-            return $item.'-transformed';
+            return ['item' => $item.'-transformed'];
         })->toArray();
 
         $this->assertEquals([
-            'data' => ['item1-transformed', 'item2-transformed'],
+            'data' => [['item' => 'item1-transformed'], ['item' => 'item2-transformed']],
         ], $transformedData);
     }
 

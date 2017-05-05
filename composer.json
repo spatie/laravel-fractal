@@ -1,6 +1,6 @@
 {
     "name": "spatie/laravel-fractal",
-    "description": "A Fractal service provider for Laravel and Lumen",
+    "description": "An easy to use Fractal integration for Laravel applications",
     "keywords": [
         "spatie",
         "laravel-fractal",
@@ -24,7 +24,7 @@
         "php" : "^5.6|^7.0",
         "illuminate/contracts": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
         "illuminate/support": "~5.1.0|~5.2.0|~5.3.0|~5.4.0",
-        "spatie/fractalistic": "^1.0"
+        "spatie/fractalistic": "^2.0"
     },
     "require-dev": {
         "orchestra/testbench": "~3.2.0|3.3.0|~3.4.0",

@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 4.0.0 - 2017-04-26
+
+- add compatiblity with fractal 0.16 through fractalistic 2.0
+
 ## 3.5.0 - 2017-02-22
 
 - add compatiblity with Lumen

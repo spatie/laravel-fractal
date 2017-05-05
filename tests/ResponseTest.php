@@ -16,7 +16,7 @@ class ResponseTest extends TestCase
         $this->fractal = fractal()
             ->collection(['item', 'item2'])
             ->transformWith(function ($item) {
-                return $item.'-transformed';
+                return ['item' => $item.'-transformed'];
             });
     }
 
@@ -26,7 +26,7 @@ class ResponseTest extends TestCase
         $response = $this->fractal->respond();
 
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertEquals('{"data":["item-transformed","item2-transformed"]}', json_encode($response->getData()));
+        $this->assertEquals('{"data":[{"item":"item-transformed"},{"item":"item2-transformed"}]}', json_encode($response->getData()));
         $this->assertEquals(200, $response->status());
     }
 

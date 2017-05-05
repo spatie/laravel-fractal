@@ -29,7 +29,9 @@ class Fractal extends Fractalistic
     {
         $fractal = parent::create($data, $transformer, $serializer);
 
-        $serializer = config('laravel-fractal.default_serializer');
+        if (empty($serializer)) {
+            $serializer = config('laravel-fractal.default_serializer');
+        }
 
         if ($data instanceof LengthAwarePaginator) {
             $fractal->paginateWith(new IlluminatePaginatorAdapter($data));
