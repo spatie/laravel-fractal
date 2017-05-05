@@ -3,8 +3,9 @@
 namespace Spatie\Fractal\Test;
 
 use Fractal as FractalFacade;
-use Spatie\Fractalistic\Fractal;
+use League\Fractal\Serializer\DataArraySerializer;
 use Spatie\Fractalistic\ArraySerializer;
+use Spatie\Fractalistic\Fractal;
 
 class FractalFacadeTest extends TestCase
 {
@@ -37,5 +38,20 @@ class FractalFacadeTest extends TestCase
             ->respond(200);
 
         $this->assertEquals('{"id":1,"author":"Philip K Dick"}', json_encode($response->getData()));
+    }
+
+    /** @test */
+    public function it_will_use_the_provided_serializer_instead_of_the_configured_serializer()
+    {
+        $this->app['config']->set('laravel-fractal.default_serializer', DataArraySerializer::class);
+
+        $actualArray = FractalFacade::create($this->testBooks, new TestTransformer, new ArraySerializer)->toArray();
+
+        $expectedArray = [
+            ['id' => 1, 'author' => 'Philip K Dick'],
+            ['id' => 2, 'author' => 'George R. R. Satan'],
+        ];
+
+        $this->assertEquals($expectedArray, $actualArray);
     }
 }
