@@ -3,8 +3,8 @@
 namespace Spatie\Fractal;
 
 use Closure;
-use Illuminate\Http\Request;
 use League\Fractal\Manager;
+use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 use League\Fractal\Serializer\SerializerAbstract;
@@ -31,7 +31,7 @@ class Fractal extends Fractalistic
         $fractal = parent::create($data, $transformer, $serializer);
 
         $request = app(Request::class);
-        if($request->has('include')) {
+        if ($request->has('include')) {
             $fractal->parseIncludes(explode(',', $request->get('include')));
         }
 
