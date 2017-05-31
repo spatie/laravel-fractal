@@ -3,6 +3,7 @@
 namespace Spatie\Fractal;
 
 use Closure;
+use Illuminate\Http\Request;
 use League\Fractal\Manager;
 use Illuminate\Http\JsonResponse;
 use Spatie\Fractalistic\Fractal as Fractalistic;
@@ -28,6 +29,11 @@ class Fractal extends Fractalistic
     public static function create($data = null, $transformer = null, $serializer = null)
     {
         $fractal = parent::create($data, $transformer, $serializer);
+
+        $request = app(Request::class);
+        if($request->has('include')) {
+            $fractal->parseIncludes(explode(',', $request->get('include')));
+        }
 
         if (empty($serializer)) {
             $serializer = config('laravel-fractal.default_serializer');
