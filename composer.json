@@ -48,5 +48,15 @@
     },
     "config": {
         "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spatie\\Fractal\\FractalServiceProvider"
+            ],
+            "aliases": {
+                "Fractal": "Spatie\\Fractal\\FractalFacade"
+            }
+        }
     }
 }
