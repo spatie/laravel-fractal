@@ -30,9 +30,12 @@ class Fractal extends Fractalistic
     {
         $fractal = parent::create($data, $transformer, $serializer);
 
-        $request = app(Request::class);
-        if ($request->has('include')) {
-            $fractal->parseIncludes(explode(',', $request->get('include')));
+        if (config('laravel-fractal.auto_includes.enabled')) {
+            $requestKey = config('laravel-fractal.auto_includes.request_key');
+
+            if (request()->has($requestKey)) {
+                $fractal->parseIncludes(explode(',', request()->get($requestKey)));
+            }
         }
 
         if (empty($serializer)) {
