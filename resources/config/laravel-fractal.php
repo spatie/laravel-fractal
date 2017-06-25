@@ -9,7 +9,6 @@ return [
 
     'default_serializer' => '',
 
-
     'auto_includes' => [
 
         /*
@@ -22,6 +21,6 @@ return [
          * The name of key in the request to where we should look for the includes to include.
          */
         'request_key' => 'include',
-    ]
+    ],
 
 ];
