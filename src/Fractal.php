@@ -50,13 +50,13 @@ class Fractal extends Fractalistic
             return $fractal->serializeWith($serializer());
         }
 
-        if ($serializer instanceof JsonApiSerializer) {
+        if ($serializer == 'League\Fractal\Serializer\JsonApiSerializer') {
             $baseUrl = config('laravel-fractal.base_url');
 
             return $fractal->serializeWith(new $serializer($baseUrl));
         }
 
-        return $fractal->serializeWith(new $serializer());
+        return $fractal->serializeWith(new $serializer);
     }
 
     /**
