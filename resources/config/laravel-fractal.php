@@ -15,4 +15,6 @@ return [
 
     'default_serializer' => '',
 
+    'base_url' => null,
+
 ];

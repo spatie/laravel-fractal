@@ -5,6 +5,7 @@ namespace Spatie\Fractal;
 use Closure;
 use League\Fractal\Manager;
 use Illuminate\Http\JsonResponse;
+use League\Fractal\Serializer\JsonApiSerializer;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 use League\Fractal\Serializer\SerializerAbstract;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -47,6 +48,12 @@ class Fractal extends Fractalistic
 
         if ($serializer instanceof Closure) {
             return $fractal->serializeWith($serializer());
+        }
+
+        if ($serializer instanceof JsonApiSerializer) {
+            $baseUrl = config('laravel-fractal.base_url');
+
+            return $fractal->serializeWith(new $serializer($baseUrl));
         }
 
         return $fractal->serializeWith(new $serializer());
