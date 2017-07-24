@@ -55,6 +55,16 @@ class FractalFunctionTest extends TestCase
     }
 
     /** @test */
+    public function it_can_transform_the_given_empty_array_with_the_given_transformer()
+    {
+        $transformedData = fractal([], new TestTransformer())->toArray();
+
+        $expectedArray = ['data' => []];
+
+        $this->assertEquals($expectedArray, $transformedData);
+    }
+
+    /** @test */
     public function it_perform_a_transformation_with_the_given_serializer()
     {
         $transformedData = fractal(
