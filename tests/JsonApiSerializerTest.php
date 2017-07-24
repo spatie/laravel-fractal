@@ -32,7 +32,7 @@ class JsonApiSerializerTest extends TestCase
             ->transformWith(function ($item) {
                 return [
                     'id' => $item['id'],
-                    'title' => $item['title'] . '-transformed',
+                    'title' => $item['title'].'-transformed',
                 ];
             })
             ->withResourceName('articles')
