@@ -114,6 +114,17 @@ return [
     */
 
     'default_serializer' => '',
+    
+    /*
+    |--------------------------------------------------------------------------
+    | JsonApiSerializer links support
+    |--------------------------------------------------------------------------
+    |
+    | Enables links support for League\Fractal\Serializer\JsonApiSerializer.
+    | It automatically generates links for transformable entities.
+    |
+    */
+    'base_url' => null,
 
 ];
 ```
