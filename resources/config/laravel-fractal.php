@@ -20,8 +20,8 @@ return [
     | JsonApiSerializer links support
     |--------------------------------------------------------------------------
     |
-    | Enables links support for League\Fractal\Serializer\JsonApiSerializer.
-    | It automatically generates links for transformable entities.
+    | League\Fractal\Serializer\JsonApiSerializer will use this value to
+    | as a prefix for generated links. Set to `null` to disable this.
     |
     */
     'base_url' => null,
