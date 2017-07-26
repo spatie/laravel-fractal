@@ -3,7 +3,7 @@
 All notable changes to `laravel-fractal` will be documented in this file
 
 ## 4.3.0 - 2017-07-26
-- Add baseUrl support for JsonApi serializer
+- Add baseUrl support for the JsonApi serializer
 
 ## 4.2.0 - 2017-07-18
 - Nothing changed! Something went wrong with tagging the last version so we had to bump the version a bit?
