@@ -31,7 +31,7 @@ class Fractal extends Fractalistic
         $fractal = parent::create($data, $transformer, $serializer);
 
         if (empty($serializer)) {
-            $serializer = config('laravel-fractal.default_serializer');
+            $serializer = config('fractal.default_serializer');
         }
 
         if ($data instanceof LengthAwarePaginator) {
@@ -51,7 +51,7 @@ class Fractal extends Fractalistic
         }
 
         if ($serializer == JsonApiSerializer::class) {
-            $baseUrl = config('laravel-fractal.base_url');
+            $baseUrl = config('fractal.base_url');
 
             return $fractal->serializeWith(new $serializer($baseUrl));
         }

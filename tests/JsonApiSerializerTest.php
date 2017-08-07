@@ -10,13 +10,13 @@ class JsonApiSerializerTest extends TestCase
     {
         parent::setUp();
 
-        app('config')->set('laravel-fractal.default_serializer', JsonApiSerializer::class);
+        app('config')->set('fractal.default_serializer', JsonApiSerializer::class);
     }
 
     /** @test */
     public function it_will_not_generate_links_when_the_base_url_is_null()
     {
-        app('config')->set('laravel-fractal.base_url', null);
+        app('config')->set('fractal.base_url', null);
 
         $fractal = fractal()
             ->collection([
@@ -45,7 +45,7 @@ class JsonApiSerializerTest extends TestCase
     /** @test */
     public function it_will_generate_relative_links_when_json_api_has_empty_string_base_url()
     {
-        app('config')->set('laravel-fractal.base_url', '');
+        app('config')->set('fractal.base_url', '');
 
         $fractal = fractal()
             ->collection([
@@ -74,7 +74,7 @@ class JsonApiSerializerTest extends TestCase
     /** @test */
     public function it_will_generate_fully_qualified_links_when_json_api_has_base_url()
     {
-        app('config')->set('laravel-fractal.base_url', 'http://example.com');
+        app('config')->set('fractal.base_url', 'http://example.com');
 
         $fractal = fractal()
             ->collection([

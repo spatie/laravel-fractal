@@ -61,7 +61,7 @@ abstract class TestCase extends Orchestra
     protected function getEnvironmentSetUp($app)
     {
         if ($this->defaultSerializer != '') {
-            $app['config']->set('laravel-fractal.default_serializer', $this->defaultSerializer);
+            $app['config']->set('fractal.default_serializer', $this->defaultSerializer);
         }
     }
 }
