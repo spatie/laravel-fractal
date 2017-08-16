@@ -4,6 +4,7 @@ namespace Spatie\Fractal;
 
 use Closure;
 use League\Fractal\Manager;
+use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use League\Fractal\Serializer\JsonApiSerializer;
 use Spatie\Fractalistic\Fractal as Fractalistic;
@@ -29,6 +30,14 @@ class Fractal extends Fractalistic
     public static function create($data = null, $transformer = null, $serializer = null)
     {
         $fractal = parent::create($data, $transformer, $serializer);
+
+        if (config('fractal.auto_includes.enabled')) {
+            $requestKey = config('fractal.auto_includes.request_key');
+
+            if (request()->query($requestKey)) {
+                $fractal->parseIncludes(explode(',', request()->query($requestKey)));
+            }
+        }
 
         if (empty($serializer)) {
             $serializer = config('fractal.default_serializer');

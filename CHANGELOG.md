@@ -6,6 +6,7 @@ All notable changes to `laravel-fractal` will be documented in this file
 
 - Laravel 5.5 support, dropped support for all older versions
 - renamed config file from `laravel-fractal` to `fractal`
+- added auto-includes
 
 ## 4.3.0 - 2017-07-26
 - Add baseUrl support for the JsonApi serializer
