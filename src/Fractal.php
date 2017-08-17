@@ -32,10 +32,16 @@ class Fractal extends Fractalistic
         $fractal = parent::create($data, $transformer, $serializer);
 
         if (config('fractal.auto_includes.enabled')) {
-            $requestKey = config('fractal.auto_includes.request_key');
+            $includeKey = config('fractal.auto_includes.request_key');
 
-            if (request()->query($requestKey)) {
-                $fractal->parseIncludes(explode(',', request()->query($requestKey)));
+            if (request()->query($includeKey)) {
+                $fractal->parseIncludes(request()->query($includeKey));
+            }
+
+            $excludeKey = config('fractal.auto_excludes.request_key');
+
+            if (request()->query($excludeKey)) {
+                $fractal->parseExcludes(request()->query($excludeKey));
             }
         }
 
