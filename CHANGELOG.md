@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 4.3.1 - 2017-08-20
+- add `fractal_class` to config file.
+
 ## 4.3.0 - 2017-07-26
 - Add baseUrl support for the JsonApi serializer
 
