@@ -19,7 +19,8 @@ class FractalInstanceTest extends TestCase
     {
         $this->assertInstanceOf(Fractal::class, $this->app->make(Fractal::class));
     }
-        /** @test */
+
+    /** @test */
     public function it_returns_a_configured_instance_when_resolving_fractal_using_the_container()
     {
         app('config')->set('laravel-fractal.fractal_class', FractalExtensionClass::class);
