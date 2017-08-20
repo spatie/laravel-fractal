@@ -90,7 +90,7 @@ If you want to make use of the facade you must install it as well:
 ];
 ```
 
-If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer),
+If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer), or the default fractal class `Spatie\Fractal\Fractal`
 you must publish the config file:
 
 ```bash
@@ -125,6 +125,17 @@ return [
     |
     */
     'base_url' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Fractal Class
+    |--------------------------------------------------------------------------
+    |
+    | If you wish to override or extend the default Spatie\Fractal\Fractal
+    | instance provide the name of the class you want to use.
+    |
+    */
+    'fractal_class' => 'Spatie\Fractal\Fractal',
 
 ];
 ```
