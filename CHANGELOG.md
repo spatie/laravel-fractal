@@ -8,6 +8,9 @@ All notable changes to `laravel-fractal` will be documented in this file
 - renamed config file from `laravel-fractal` to `fractal`
 - added auto-includes
 
+## 4.4.0 - 2017-08-20
+- add `fractal_class` to config file
+
 ## 4.3.0 - 2017-07-26
 - Add baseUrl support for the JsonApi serializer
 

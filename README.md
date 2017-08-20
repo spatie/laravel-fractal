@@ -90,7 +90,7 @@ If you want to make use of the facade you must install it as well:
 ];
 ```
 
-If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer),
+If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer), or the default fractal class `Spatie\Fractal\Fractal`
 you must publish the config file:
 
 ```bash
@@ -106,19 +106,19 @@ return [
      * may be left empty to use Fractal's default one. This can either be a
      * string or a League\Fractal\Serializer\SerializerAbstract subclass.
      */
-
     'default_serializer' => '',
-    
+
     /*
-    |--------------------------------------------------------------------------
-    | JsonApiSerializer links support
-    |--------------------------------------------------------------------------
-    |
-    | League\Fractal\Serializer\JsonApiSerializer will use this value to 
-    | as a prefix for generated links. Set to `null` to disable this.
-    |
-    */
+     * League\Fractal\Serializer\JsonApiSerializer will use this value to
+     * as a prefix for generated links. Set to `null` to disable this.
+     */
     'base_url' => null,
+
+    /*
+     * If you wish to override or extend the default Spatie\Fractal\Fractal
+     * instance provide the name of the class you want to use.
+     */
+    'fractal_class' => Spatie\Fractal\Fractal::class,
 
     'auto_includes' => [
 
@@ -126,14 +126,13 @@ return [
          * If enabled Fractal will automatically add the includes who's
          * names are present in the `include` request parameter.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /*
          * The name of key in the request to where we should look for the includes to include.
          */
         'request_key' => 'include',
-    ]
-
+    ],
 ];
 ```
 

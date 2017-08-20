@@ -15,9 +15,19 @@ class FractalInstanceTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_an_configured_instance_when_resolving_fractal_using_the_container()
+    public function it_returns_a_default_instance_when_resolving_fractal_using_the_container()
     {
         $this->assertInstanceOf(Fractal::class, $this->app->make(Fractal::class));
+    }
+
+    /** @test */
+    public function it_returns_a_configured_instance_when_resolving_fractal_using_the_container()
+    {
+        $this->app->forgetInstance('fractal');
+
+        app('config')->set('fractal.fractal_class', FractalExtensionClass::class);
+
+        $this->assertInstanceOf(FractalExtensionClass::class, $this->app->make(Fractal::class));
     }
 
     /** @test */

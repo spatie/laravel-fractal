@@ -9,15 +9,16 @@ return [
     'default_serializer' => '',
 
     /*
-    |--------------------------------------------------------------------------
-    | JsonApiSerializer links support
-    |--------------------------------------------------------------------------
-    |
-    | League\Fractal\Serializer\JsonApiSerializer will use this value to
-    | as a prefix for generated links. Set to `null` to disable this.
-    |
-    */
+     * League\Fractal\Serializer\JsonApiSerializer will use this value to
+     * as a prefix for generated links. Set to `null` to disable this.
+     */
     'base_url' => null,
+
+    /*
+     * If you wish to override or extend the default Spatie\Fractal\Fractal
+     * instance provide the name of the class you want to use.
+     */
+    'fractal_class' => Spatie\Fractal\Fractal::class,
 
     'auto_includes' => [
 
@@ -31,5 +32,5 @@ return [
          * The name of key in the request to where we should look for the includes to include.
          */
         'request_key' => 'include',
-    ]
+    ],
 ];
