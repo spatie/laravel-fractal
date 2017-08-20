@@ -35,6 +35,6 @@ return [
     | instance provide the name of the class you want to use.
     |
     */
-    'fractal_class' => 'Spatie\Fractal\Fractal',
+    'fractal_class' => Spatie\Fractal\Fractal::class,
 
 ];

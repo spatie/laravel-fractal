@@ -23,12 +23,11 @@ class FractalInstanceTest extends TestCase
     /** @test */
     public function it_returns_a_configured_instance_when_resolving_fractal_using_the_container()
     {
+        $this->app->forgetInstance('laravel-fractal');
+
         app('config')->set('laravel-fractal.fractal_class', FractalExtensionClass::class);
-        // Make container forget about the existing Fractal:class singleton instance
-        $this->app->forgetInstance('laravel-fractal');
+
         $this->assertInstanceOf(FractalExtensionClass::class, $this->app->make(Fractal::class));
-        // Make sure following tests use the default Fractal instance
-        $this->app->forgetInstance('laravel-fractal');
     }
 
     /** @test */
