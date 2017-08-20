@@ -26,4 +26,15 @@ return [
     */
     'base_url' => null,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Fractal Class
+    |--------------------------------------------------------------------------
+    |
+    | If you wish to override or extend the default Spatie\Fractal\Fractal
+    | instance provide the name of the class you want to use.
+    |
+    */
+    'fractal_class' => 'Spatie\Fractal\Fractal',
+
 ];
