@@ -2,7 +2,6 @@
 
 namespace Spatie\Fractal\Test;
 
-use League\Fractal\Pagination\PaginatorInterface;
 use Spatie\Fractal\FractalServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 

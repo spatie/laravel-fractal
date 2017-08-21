@@ -6,7 +6,6 @@ use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 
 class TestPaginator extends IlluminatePaginatorAdapter
 {
-
     /**
      * Get a fake total, for testing.
      *
@@ -16,5 +15,4 @@ class TestPaginator extends IlluminatePaginatorAdapter
     {
         return 9999;
     }
-
 }
