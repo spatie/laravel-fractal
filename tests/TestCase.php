@@ -64,11 +64,11 @@ abstract class TestCase extends Orchestra
 
     protected function getEnvironmentSetUp($app)
     {
-        if ($this->defaultSerializer !== '') {
+        if ($this->defaultSerializer != '') {
             $app['config']->set('laravel-fractal.default_serializer', $this->defaultSerializer);
         }
 
-        if ($this->defaultPaginator !== '') {
+        if ($this->defaultPaginator != '') {
             $app['config']->set('laravel-fractal.default_paginator', $this->defaultPaginator);
         }
     }
