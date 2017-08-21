@@ -2,6 +2,7 @@
 
 namespace Spatie\Fractal\Test;
 
+use League\Fractal\Pagination\PaginatorInterface;
 use Spatie\Fractal\FractalServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -16,7 +17,7 @@ abstract class TestCase extends Orchestra
     /** @var string|\League\Fractal\Serializer\SerializerAbstract */
     protected $defaultSerializer;
 
-    /** @var  @var string|\League\Fractal\Paginator\Paginator\PaginatorInterface */
+    /** @var string|\League\Fractal\Pagination\PaginatorInterface */
     protected $defaultPaginator;
 
     public function setUp($defaultSerializer = '', $defaultPaginator = '')

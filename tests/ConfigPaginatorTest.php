@@ -2,7 +2,6 @@
 
 namespace Spatie\Fractal\Test;
 
-use Spatie\Fractalistic\ArraySerializer;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class ConfigPaginatorTest extends TestCase

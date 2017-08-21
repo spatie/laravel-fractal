@@ -1,7 +1,8 @@
-<?php namespace Spatie\Fractal\Test;
+<?php
+
+namespace Spatie\Fractal\Test;
 
 use League\Fractal\Pagination\IlluminatePaginatorAdapter;
-
 
 class TestPaginator extends IlluminatePaginatorAdapter
 {
