@@ -4,11 +4,11 @@ namespace Spatie\Fractal\Test;
 
 use Spatie\Fractalistic\ArraySerializer;
 
-class ConfigTest extends TestCase
+class ConfigSerializerTest extends TestCase
 {
-    public function setUp($defaultSerializer = '')
+    public function setUp($defaultSerializer = '', $defaultPaginator = '')
     {
-        parent::setup(ArraySerializer::class);
+        parent::setUp(ArraySerializer::class);
     }
 
     /** @test */
