@@ -90,7 +90,9 @@ If you want to make use of the facade you must install it as well:
 ];
 ```
 
-If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer), or the default fractal class `Spatie\Fractal\Fractal`
+If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer), 
+the [default paginator](https://github.com/spatie/fractalistic#using-pagination),
+or the default fractal class `Spatie\Fractal\Fractal`
 you must publish the config file:
 
 ```bash
@@ -101,12 +103,17 @@ This is the contents of the published file:
 
 ```php
 return [
-    /*
+     /*
      * The default serializer to be used when performing a transformation. It
      * may be left empty to use Fractal's default one. This can either be a
      * string or a League\Fractal\Serializer\SerializerAbstract subclass.
      */
     'default_serializer' => '',
+
+    /* The default paginator to be used when performing a transformation. It
+     * may be left empty to use Fractal's default one. This can either be a
+     * string or a League\Fractal\Paginator\PaginatorInterface subclass.*/
+    'default_paginator' => '',
 
     /*
      * League\Fractal\Serializer\JsonApiSerializer will use this value to
@@ -133,7 +140,6 @@ return [
          */
         'request_key' => 'include',
     ],
-];
 ```
 
 ## Usage

@@ -9,7 +9,7 @@ class ResponseTest extends TestCase
     /** @var \Spatie\Fractal\Fractal */
     protected $fractal;
 
-    public function setUp($defaultSerializer = '')
+    public function setUp($defaultSerializer = '', $defaultPaginator = '')
     {
         parent::setUp();
 

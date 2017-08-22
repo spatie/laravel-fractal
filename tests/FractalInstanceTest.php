@@ -7,9 +7,9 @@ use Spatie\Fractalistic\ArraySerializer;
 
 class FractalInstanceTest extends TestCase
 {
-    public function setUp($defaultSerializer = '')
+    public function setUp($defaultSerializer = '', $defaultPaginator = '')
     {
-        parent::setup(ArraySerializer::class);
+        parent::setUp(ArraySerializer::class);
 
         $this->fractal = $this->app->make(Fractal::class);
     }
