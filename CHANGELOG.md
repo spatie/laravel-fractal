@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 4.5.0 - 2017-08-20
+- add `default_paginator` to config file
+
 ## 4.4.0 - 2017-08-20
 - add `fractal_class` to config file
 
