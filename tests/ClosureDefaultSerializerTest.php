@@ -6,9 +6,9 @@ use Spatie\Fractalistic\ArraySerializer;
 
 class ClosureDefaultSerializerTest extends TestCase
 {
-    public function setUp($defaultSerializer = '')
+    public function setUp($defaultSerializer = '', $defaultPaginator = '')
     {
-        parent::setup(function () {
+        parent::setUp(function () {
             return new ArraySerializer();
         });
     }

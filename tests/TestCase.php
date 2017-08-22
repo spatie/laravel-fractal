@@ -16,9 +16,13 @@ abstract class TestCase extends Orchestra
     /** @var string|\League\Fractal\Serializer\SerializerAbstract */
     protected $defaultSerializer;
 
-    public function setUp($defaultSerializer = '')
+    /** @var string|\League\Fractal\Pagination\PaginatorInterface */
+    protected $defaultPaginator;
+
+    public function setUp($defaultSerializer = '', $defaultPaginator = '')
     {
         $this->defaultSerializer = $defaultSerializer;
+        $this->defaultPaginator = $defaultPaginator;
 
         parent::setUp();
 
@@ -62,6 +66,10 @@ abstract class TestCase extends Orchestra
     {
         if ($this->defaultSerializer != '') {
             $app['config']->set('laravel-fractal.default_serializer', $this->defaultSerializer);
+        }
+
+        if ($this->defaultPaginator != '') {
+            $app['config']->set('laravel-fractal.default_paginator', $this->defaultPaginator);
         }
     }
 }

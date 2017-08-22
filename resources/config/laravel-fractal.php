@@ -17,6 +17,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Default Paginator
+    |--------------------------------------------------------------------------
+    |
+    | The default paginator to be used when performing a transformation. It
+    | may be left empty to use Fractal's default one. This can either be a
+    | string or a League\Fractal\Paginator\PaginatorInterface subclass.
+    |
+    */
+
+    'default_paginator' => '',
+
+    /*
+    |--------------------------------------------------------------------------
     | JsonApiSerializer links support
     |--------------------------------------------------------------------------
     |

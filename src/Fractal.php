@@ -35,7 +35,12 @@ class Fractal extends Fractalistic
         }
 
         if ($data instanceof LengthAwarePaginator) {
-            $fractal->paginateWith(new IlluminatePaginatorAdapter($data));
+            $paginator = config('laravel-fractal.default_paginator');
+            if (empty($paginator)) {
+                $paginator = IlluminatePaginatorAdapter::class;
+            }
+
+            $fractal->paginateWith(new $paginator($data));
         }
 
         if (empty($serializer)) {
