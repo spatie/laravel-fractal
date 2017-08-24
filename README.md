@@ -69,16 +69,7 @@ You can pull in the package via composer:
 $ composer require spatie/laravel-fractal
 ```
 
-Next up, the service provider must be registered:
-
-```php
-// config/app.php
-'providers' => [
-    ...
-    Spatie\Fractal\FractalServiceProvider::class,
-
-];
-```
+The package will automatically register itself.
 
 If you want to make use of the facade you must install it as well:
 
