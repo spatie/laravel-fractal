@@ -2,6 +2,7 @@
 
 namespace Spatie\Fractal\Test;
 
+use Illuminate\Support\Facades\Route;
 use Spatie\Fractal\FractalServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -48,6 +49,8 @@ abstract class TestCase extends Orchestra
                 'publisher' => 'Bloody Fantasy inc.',
             ],
         ];
+
+        $this->setupRoutes();
     }
 
     protected function getPackageProviders($app)
@@ -65,11 +68,21 @@ abstract class TestCase extends Orchestra
     protected function getEnvironmentSetUp($app)
     {
         if ($this->defaultSerializer != '') {
-            $app['config']->set('laravel-fractal.default_serializer', $this->defaultSerializer);
+            $app['config']->set('fractal.default_serializer', $this->defaultSerializer);
         }
 
         if ($this->defaultPaginator != '') {
-            $app['config']->set('laravel-fractal.default_paginator', $this->defaultPaginator);
+            $app['config']->set('fractal.default_paginator', $this->defaultPaginator);
         }
+    }
+
+    protected function setupRoutes()
+    {
+        Route::get('auto-includes', function () {
+            return $this->fractal
+               ->collection($this->testBooks)
+               ->transformWith(TestTransformer::class)
+               ->toArray();
+        });
     }
 }

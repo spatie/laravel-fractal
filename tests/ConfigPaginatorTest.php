@@ -25,6 +25,7 @@ class ConfigPaginatorTest extends TestCase
             new TestTransformer()
         )->toArray();
 
+
         $expectedArray = [
             'data' => [
                 ['id' => 1, 'author' => 'Philip K Dick'],

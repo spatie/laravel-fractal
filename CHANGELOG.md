@@ -2,6 +2,12 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.0.0 - 2017-08-30
+
+- Laravel 5.5 support, dropped support for all older versions
+- renamed config file from `laravel-fractal` to `fractal`
+- added auto-includes
+
 ## 4.5.0 - 2017-08-20
 - add `default_paginator` to config file
 
