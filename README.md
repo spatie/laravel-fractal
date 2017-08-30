@@ -71,16 +71,6 @@ $ composer require spatie/laravel-fractal
 
 The package will automatically register itself.
 
-If you want to make use of the facade you must install it as well:
-
-```php
-// config/app.php
-'aliases' => [
-    ...
-    'Fractal' => Spatie\Fractal\FractalFacade::class,
-];
-```
-
 If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer), 
 the [default paginator](https://github.com/spatie/fractalistic#using-pagination),
 or the default fractal class `Spatie\Fractal\Fractal`
