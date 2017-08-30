@@ -28,23 +28,23 @@ class FractalServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('laravel-fractal', function (...$arguments) {
+        $this->app->singleton('fractal', function (...$arguments) {
             return fractal(...$arguments);
         });
 
-        $this->app->alias('laravel-fractal', Fractal::class);
+        $this->app->alias('fractal', Fractal::class);
     }
 
     protected function setupConfig()
     {
-        $source = realpath(__DIR__.'/../resources/config/laravel-fractal.php');
+        $source = realpath(__DIR__.'/../config/fractal.php');
 
         if ($this->app instanceof LaravelApplication) {
-            $this->publishes([$source => config_path('laravel-fractal.php')]);
+            $this->publishes([$source => config_path('fractal.php')]);
         } elseif ($this->app instanceof LumenApplication) {
-            $this->app->configure('laravel-fractal');
+            $this->app->configure('fractal');
         }
 
-        $this->mergeConfigFrom($source, 'laravel-fractal');
+        $this->mergeConfigFrom($source, 'fractal');
     }
 }

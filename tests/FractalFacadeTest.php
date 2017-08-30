@@ -30,7 +30,7 @@ class FractalFacadeTest extends TestCase
     /** @test */
     public function it_will_use_the_configured_serializer()
     {
-        $this->app['config']->set('laravel-fractal.default_serializer', ArraySerializer::class);
+        $this->app['config']->set('fractal.default_serializer', ArraySerializer::class);
 
         $response = FractalFacade::create()
             ->item($this->testBooks[0])
@@ -43,7 +43,7 @@ class FractalFacadeTest extends TestCase
     /** @test */
     public function it_will_use_the_provided_serializer_instead_of_the_configured_serializer()
     {
-        $this->app['config']->set('laravel-fractal.default_serializer', DataArraySerializer::class);
+        $this->app['config']->set('fractal.default_serializer', DataArraySerializer::class);
 
         $actualArray = FractalFacade::create($this->testBooks, new TestTransformer, new ArraySerializer)->toArray();
 

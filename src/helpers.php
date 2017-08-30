@@ -12,7 +12,7 @@ if (! function_exists('fractal')) {
      */
     function fractal($data = null, $transformer = null, $serializer = null)
     {
-        $fractalClass = config('laravel-fractal.fractal_class') ?: Fractal::class;
+        $fractalClass = config('fractal.fractal_class') ?? Fractal::class;
 
         return $fractalClass::create($data, $transformer, $serializer);
     }
