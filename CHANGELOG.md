@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.0.1 - 2017-08-30
+
+- Fix wrongly tagged commit
+
 ## 5.0.0 - 2017-08-30
 
 - Laravel 5.5 support, dropped support for all older versions
