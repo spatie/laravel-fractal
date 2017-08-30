@@ -186,6 +186,10 @@ You can run the `make:transformer` command to quickly generate a dummy transform
 
 ## Upgrading
 
+## From v4 to v5
+
+Rename your config file from `laravel-fractal` to `fractal`
+
 ### From v2 to v3
 
 `v3` was introduced to swap out the `league/fractal` with `spatie/fractalistic`. Support for Lumen was dropped. You should be able to upgrade a Laravel application from `v2` to `v3` without any code changes.
