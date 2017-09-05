@@ -62,11 +62,21 @@ Our address is: Spatie, Samberstraat 69D, 2060 Antwerp, Belgium.
 
 All received postcards are published [on our company website](https://spatie.be/en/opensource/postcards).
 
-## Install
+## Installation in Laravel 5.4
+
+
+You can pull in the package via composer:
+```bash
+composer require spatie/laravel-fractal ^4.0
+```
+
+And then follow [the installation instructions of the v4 branch of this package](https://github.com/spatie/laravel-fractal/tree/4.5.0#install).
+
+## Installation in Laraval 5.5 and up
 
 You can pull in the package via composer:
 ``` bash
-$ composer require spatie/laravel-fractal
+composer require spatie/laravel-fractal
 ```
 
 The package will automatically register itself.
