@@ -67,7 +67,7 @@ All received postcards are published [on our company website](https://spatie.be/
 
 You can pull in the package via composer:
 ```bash
-composer require spatie/laravel-fractal ^4.0
+composer require spatie/laravel-fractal:^4.0
 ```
 
 And then follow [the installation instructions of the v4 branch of this package](https://github.com/spatie/laravel-fractal/tree/4.5.0#install).
