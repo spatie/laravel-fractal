@@ -104,6 +104,7 @@ class Fractal extends Fractalistic
         if (is_int($options)) {
             $options = function (JsonResponse $response) use ($options) {
                 $response->setEncodingOptions($options);
+
                 return $response;
             };
         }
