@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.1.0 - 2017-09-08
+
+- allow json encoding options to be passed to the `respond` method
+
 ## 5.0.1 - 2017-08-30
 
 - Fix wrongly tagged commit

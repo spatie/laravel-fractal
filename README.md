@@ -164,6 +164,12 @@ return fractal($books, new BookTransformer())->respond(403, [
 ]);
 ```
 
+You can pass json encoding options as the third parameter:
+
+```php
+return fractal($books, new BookTransformer())->respond(200, [], JSON_PRETTY_PRINT);
+```
+
 You can also set the status code and the headers using a callback:
 
 ```php
