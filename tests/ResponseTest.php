@@ -54,6 +54,13 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
+    public function it_uses_the_given_encoding_options()
+    {
+        $response = $this->fractal->respond(200, [], JSON_PRETTY_PRINT);
+        $this->assertTrue($response->hasEncodingOption(JSON_PRETTY_PRINT));
+    }
+
+    /** @test */
     public function it_accepts_a_status_code_in_the_given_closure()
     {
         $response = $this->fractal
@@ -80,6 +87,17 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
+    public function it_accepts_encoding_options_in_the_given_closure()
+    {
+        $response = $this->fractal
+            ->respond(function (JsonResponse $response) {
+                $response->setEncodingOptions(JSON_PRETTY_PRINT);
+            });
+
+        $this->assertTrue($response->hasEncodingOption(JSON_PRETTY_PRINT));
+    }
+
+    /** @test */
     public function it_accept_a_response_code_and_a_callback()
     {
         $response = $this->fractal
@@ -94,6 +112,20 @@ class ResponseTest extends TestCase
     }
 
     /** @test */
+    public function it_accepts_a_response_code_and_headers_and_a_callback()
+    {
+        $response = $this->fractal->respond(404, ['test' => 'test-value'], function (JsonResponse $response) {
+            $response->setEncodingOptions(JSON_PRETTY_PRINT);
+        });
+
+        $this->assertEquals(404, $response->status());
+        $this->assertArraySubset([
+            'test' => ['test-value'],
+        ], $response->headers->all());
+        $this->assertTrue($response->hasEncodingOption(JSON_PRETTY_PRINT));
+    }
+
+    /** @test */
     public function all_allowed_methods_in_the_callback_are_chainable()
     {
         $response = $this->fractal
@@ -105,7 +137,8 @@ class ResponseTest extends TestCase
                         'test3' => 'test3-value',
                         'test4' => 'test4-value',
                     ])
-                    ->header('test2', 'test2-value');
+                    ->header('test2', 'test2-value')
+                    ->setEncodingOptions(JSON_PRETTY_PRINT);
             });
 
         $this->assertArraySubset([
@@ -116,6 +149,8 @@ class ResponseTest extends TestCase
         ], $response->headers->all());
 
         $this->assertEquals(404, $response->status());
+
+        $this->assertTrue($response->hasEncodingOption(JSON_PRETTY_PRINT));
     }
 
     /** @test */
@@ -126,5 +161,16 @@ class ResponseTest extends TestCase
         });
 
         $this->assertEquals(300, $response->getStatusCode());
+    }
+
+    /** @test */
+    public function the_encoding_options_set_in_the_closure_will_be_used_when_passing_encoding_options_to_the_respond_method()
+    {
+        $response = $this->fractal->respond(200, function (JsonResponse $response) {
+            $response->setEncodingOptions(JSON_UNESCAPED_SLASHES);
+        }, JSON_PRETTY_PRINT);
+
+        $this->assertTrue($response->hasEncodingOption(JSON_UNESCAPED_SLASHES));
+        $this->assertFalse($response->hasEncodingOption(JSON_PRETTY_PRINT));
     }
 }
