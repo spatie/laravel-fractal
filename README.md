@@ -72,7 +72,7 @@ composer require spatie/laravel-fractal:^4.0
 
 And then follow [the installation instructions of the v4 branch of this package](https://github.com/spatie/laravel-fractal/tree/4.5.0#install).
 
-## Installation in Laraval 5.5 and up
+## Installation in Laravel 5.5 and up
 
 You can pull in the package via composer:
 ``` bash
@@ -89,6 +89,8 @@ you must publish the config file:
 ```bash
 php artisan vendor:publish --provider="Spatie\Fractal\FractalServiceProvider"
 ```
+
+> If you're upgrading to Laravel 5.5, the existing config file should be renamed from _laravel-fractal.php_ to _fractal.php_
 
 This is the contents of the published file:
 
