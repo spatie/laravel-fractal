@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.2.0 - 2017-09-15
+
+- add compatibility with Lumen 5.5
+
 ## 5.1.0 - 2017-09-08
 
 - allow json encoding options to be passed to the `respond` method
