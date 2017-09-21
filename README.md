@@ -143,7 +143,7 @@ In all code examples you may use `fractal()` instead of `Fractal::create()`.
 
 ## Send a response with transformed data
 
-To return a response with json data you can to this in a Laravel app.
+To return a response with json data you can do this in a Laravel app.
 
 ```php
 $books = fractal($books, new BookTransformer())->toArray();
