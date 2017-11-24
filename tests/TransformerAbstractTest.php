@@ -32,7 +32,7 @@ class TransformerAbstractTest extends TestCase
     {
         $collection = (new BookTransformer)->includeMainCharacters(new Book);
 
-        $expectedCollection = new Collection((new Book)->main_characters, new mainCharacterTransformer);
+        $expectedCollection = new Collection((new Book)->main_characters, new MainCharacterTransformer);
 
         $this->assertEquals($expectedCollection, $collection);
     }
@@ -93,7 +93,7 @@ class BookTransformer extends TransformerAbstract
 {
     protected $itemIncludes = ['author' => AuthorTransformer::class];
 
-    protected $collectionIncludes = ['main_characters' => mainCharacterTransformer::class];
+    protected $collectionIncludes = ['main_characters' => MainCharacterTransformer::class];
 
     protected $availableIncludes = ['words'];
 
@@ -103,7 +103,7 @@ class BookTransformer extends TransformerAbstract
     }
 }
 
-class mainCharacterTransformer extends TransformerAbstract
+class MainCharacterTransformer extends TransformerAbstract
 {
     public function transform($resource)
     {

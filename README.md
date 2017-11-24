@@ -184,6 +184,33 @@ return fractal($books, new BookTransformer())->respond(function(JsonResponse $re
 
 You can run the `make:transformer` command to quickly generate a dummy transformer. By default it will be stored in the `app\Transformers` directory.
 
+## Including relationships in the transformer
+
+To easily add your Eloquent relations to the list of available includes, you may extend `Spatie\Fractal\TransformerAbstract` and add to the arrays `$itemIncludes` and `$collectionIncludes`.
+
+For example, given a model `Article` that has the relations `author` and `comments`:
+
+```php
+class ArticleTransformer extends Spatie\Fractal\TransformerAbstract
+{
+    protected $itemIncludes = [
+        'author' => AuthorTransformer::class,
+    ];
+    
+    protected $collectionIncludes = [
+        'comments' => CommentTransformer::class,
+    ];
+    
+    public function transform(Article $article)
+    {
+        //
+    }
+}
+``` 
+
+This makes available the methods `includeAuthor()` and `includeComments()` on the transformer class.
+
+
 ## Upgrading
 
 ## From v4 to v5
