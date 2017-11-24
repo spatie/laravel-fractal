@@ -51,6 +51,18 @@ There's also a very short syntax available to quickly transform data:
 fractal($books, new BookTransformer())->toArray();
 ```
 
+You can transform directly from a Laravel collection as well:
+
+```php
+collect($books)->transformWith(new BookTransformer());
+```
+
+Transforming right from a Laravel collection is particularly useful for Eloquent results:
+
+```php
+Users::all()->transformWith(new UserTransformer())->toArray();
+```
+
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all
 our open source projects [on our website](https://spatie.be/opensource).
 
@@ -73,7 +85,7 @@ composer require spatie/laravel-fractal
 
 The package will automatically register itself.
 
-If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer), 
+If you want to [change the default serializer](https://github.com/spatie/fractalistic#changing-the-default-serializer),
 the [default paginator](https://github.com/spatie/fractalistic#using-pagination),
 or the default fractal class `Spatie\Fractal\Fractal`
 you must publish the config file:
@@ -236,7 +248,7 @@ We publish all received postcards [on our company website](https://spatie.be/en/
 
 Spatie is a webdesign agency based in Antwerp, Belgium. You'll find an overview of all our open source projects [on our website](https://spatie.be/opensource).
 
-Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie). 
+Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/spatie).
 All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
 
 ## License

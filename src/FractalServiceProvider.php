@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
 use Spatie\Fractal\Console\Commands\TransformerMakeCommand;
 use Illuminate\Foundation\Application as LaravelApplication;
+use Illuminate\Support\Collection;
 
 class FractalServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,8 @@ class FractalServiceProvider extends ServiceProvider
                 TransformerMakeCommand::class,
             ]);
         }
+
+        $this->setupMacro();
     }
 
     /**
@@ -46,5 +49,15 @@ class FractalServiceProvider extends ServiceProvider
         }
 
         $this->mergeConfigFrom($source, 'fractal');
+    }
+
+    /**
+     * Add a 'transformWith' macro to Laravel's Collection
+     */
+    protected function setupMacro()
+    {
+        Collection::macro('transformWith', function($transformer) {
+            return fractal($this, $transformer);
+        });
     }
 }
