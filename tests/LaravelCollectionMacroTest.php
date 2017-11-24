@@ -2,9 +2,6 @@
 
 namespace Spatie\Fractal\Test;
 
-use Spatie\Fractalistic\Fractal;
-use Spatie\Fractalistic\ArraySerializer;
-use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 class LaravelCollectionMacroTest extends TestCase
