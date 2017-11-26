@@ -3,8 +3,8 @@
 namespace Spatie\Fractal\Test;
 
 use League\Fractal\Manager;
-use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
+use League\Fractal\Resource\Collection;
 use Spatie\Fractal\TransformerAbstract;
 
 class TransformerAbstractTest extends TestCase
@@ -59,30 +59,30 @@ class TransformerAbstractTest extends TestCase
         $expected = [
             'data' => [
                 [
-                    "field"           => "Transformed book",
+                    'field'           => 'Transformed book',
                     'author'          => [
-                        'data' => ["field" => "Transformed author"]
+                        'data' => ['field' => 'Transformed author'],
                     ],
-                    "main_characters" => [
-                        "data" => [
-                            ["field" => "Transformed character"],
-                            ["field" => "Transformed character"],
-                        ]
-                    ]
+                    'main_characters' => [
+                        'data' => [
+                            ['field' => 'Transformed character'],
+                            ['field' => 'Transformed character'],
+                        ],
+                    ],
                 ],
                 [
-                    "field"           => "Transformed book",
+                    'field'           => 'Transformed book',
                     'author'          => [
-                        'data' => ["field" => "Transformed author"]
+                        'data' => ['field' => 'Transformed author'],
                     ],
-                    "main_characters" => [
-                        "data" => [
-                            ["field" => "Transformed character"],
-                            ["field" => "Transformed character"],
-                        ]
-                    ]
-                ]
-            ]
+                    'main_characters' => [
+                        'data' => [
+                            ['field' => 'Transformed character'],
+                            ['field' => 'Transformed character'],
+                        ],
+                    ],
+                ],
+            ],
         ];
 
         $this->assertEquals($expected, $output);

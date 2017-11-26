@@ -3,8 +3,8 @@
 namespace Spatie\Fractal;
 
 use Illuminate\Support\Str;
-use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
+use League\Fractal\Resource\Collection;
 use League\Fractal\TransformerAbstract as FractalTransformer;
 
 abstract class TransformerAbstract extends FractalTransformer
@@ -54,6 +54,6 @@ abstract class TransformerAbstract extends FractalTransformer
                 $baseResource->{$relatedResource}, new $this->collectionIncludes[$relatedResource]);
         }
 
-        throw new \BadMethodCallException('Unknown method "' . $method . '" called on ' . static::class . '.');
+        throw new \BadMethodCallException('Unknown method "'.$method.'" called on '.static::class.'.');
     }
 }
