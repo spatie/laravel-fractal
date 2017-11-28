@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.3.0 - 2017-11-28
+
+- add `transformWith` collection macro
+
 ## 5.2.0 - 2017-09-15
 
 - add compatibility with Lumen 5.5
