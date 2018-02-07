@@ -22,8 +22,8 @@
     ],
     "require": {
         "php" : "^7.0",
-        "illuminate/contracts": "~5.5.0",
-        "illuminate/support": "~5.5.0",
+        "illuminate/contracts": "~5.5",
+        "illuminate/support": "~5.5",
         "spatie/fractalistic": "^2.5"
     },
     "require-dev": {
