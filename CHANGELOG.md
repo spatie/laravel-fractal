@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.3.1 - 2018-02-08
+
+- add support for L5.6
+
 ## 5.3.0 - 2017-11-28
 
 - add `transformWith` collection macro
