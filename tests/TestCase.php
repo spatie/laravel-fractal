@@ -79,10 +79,10 @@ abstract class TestCase extends Orchestra
     protected function setupRoutes()
     {
         Route::get('auto-includes', function () {
-            return $this->fractal
-               ->collection($this->testBooks)
-               ->transformWith(TestTransformer::class)
-               ->toArray();
+            return fractal()
+                ->collection($this->testBooks)
+                ->transformWith(TestTransformer::class)
+                ->toArray();
         });
     }
 }

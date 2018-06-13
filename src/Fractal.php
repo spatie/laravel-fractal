@@ -34,8 +34,8 @@ class Fractal extends Fractalistic
         if (config('fractal.auto_includes.enabled')) {
             $requestKey = config('fractal.auto_includes.request_key');
 
-            if (app('request')->query($requestKey)) {
-                $fractal->parseIncludes(explode(',', app('request')->query($requestKey)));
+            if ($include = app('request')->query($requestKey)) {
+                $fractal->parseIncludes($include);
             }
         }
 
