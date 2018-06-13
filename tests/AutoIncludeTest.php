@@ -2,24 +2,22 @@
 
 namespace Spatie\Fractal\Test;
 
-use League\Fractal\Pagination\IlluminatePaginatorAdapter;
-
 class AutoIncludeTest extends TestCase
 {
     /** @test */
     public function includes_can_be_passed_as_array()
     {
         $response = $this->call('GET', '/auto-includes', [
-            "include" => [
+            'include' => [
                 'characters',
                 'publisher',
-            ]
+            ],
         ]);
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'data' => [
-                ['id', 'author', 'characters', 'publisher']
-            ]
+                ['id', 'author', 'characters', 'publisher'],
+            ],
         ]);
     }
 
@@ -27,13 +25,13 @@ class AutoIncludeTest extends TestCase
     public function includes_can_be_passed_as_string()
     {
         $response = $this->call('GET', '/auto-includes', [
-            "include" => 'characters,publisher'
+            'include' => 'characters,publisher',
         ]);
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'data' => [
-                ['id', 'author', 'characters', 'publisher']
-            ]
+                ['id', 'author', 'characters', 'publisher'],
+            ],
         ]);
     }
 
@@ -44,8 +42,8 @@ class AutoIncludeTest extends TestCase
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'data' => [
-                ['id', 'author']
-            ]
+                ['id', 'author'],
+            ],
         ]);
 
         foreach ($response->json()['data'] as $book) {
