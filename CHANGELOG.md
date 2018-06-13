@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.3.2 - 2018-06-13
+
+- fixed #153
+
 ## 5.3.1 - 2018-02-08
 
 - add support for L5.6
