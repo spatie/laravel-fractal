@@ -48,7 +48,7 @@ class AutoIncludeTest extends TestCase
 
         foreach ($response->json()['data'] as $book) {
             $this->assertArrayNotHasKey('characters', $book);
-            $this->assertArrayNotHasKey('pubisher', $book);
+            $this->assertArrayNotHasKey('publisher', $book);
         }
     }
 }
