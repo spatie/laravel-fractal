@@ -6,6 +6,7 @@ use Closure;
 use League\Fractal\Manager;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Traits\Macroable;
 use League\Fractal\Serializer\JsonApiSerializer;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 use League\Fractal\Serializer\SerializerAbstract;
@@ -14,6 +15,10 @@ use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 
 class Fractal extends Fractalistic
 {
+    use Macroable {
+        Macroable::__call as macroCall;
+    }
+
     /** @param \League\Fractal\Manager $manager */
     public function __construct(Manager $manager)
     {
@@ -122,5 +127,14 @@ class Fractal extends Fractalistic
         }
 
         return $response;
+    }
+
+    public function __call($name, array $arguments)
+    {
+        if (static::hasMacro($name)) {
+            return $this->macroCall($name, $arguments);
+        }
+
+        return parent::__call($name, $arguments);
     }
 }

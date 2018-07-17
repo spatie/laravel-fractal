@@ -42,4 +42,21 @@ class FractalInstanceTest extends TestCase
 
         $this->assertEquals($expectedArray, $array);
     }
+
+    /** @test */
+    public function it_can_be_extended_via_macros()
+    {
+        Fractal::macro('firstItem', function ($books) {
+            return $this->item($books[0]);
+        });
+
+        $array = $this->fractal
+            ->firstItem($this->testBooks)
+            ->transformWith(new TestTransformer())
+            ->toArray();
+
+        $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
+
+        $this->assertEquals($expectedArray, $array);
+    }
 }
