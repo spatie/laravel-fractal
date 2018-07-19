@@ -192,6 +192,19 @@ return fractal($books, new BookTransformer())->respond(function(JsonResponse $re
 });
 ```
 
+You can add methods to the Fractal class using Laravel's Macroable trait. Imagine you want to add some stats to the metadata of your request, you can do so without cluttering your code:
+
+```php
+use Spatie\Fractal\Fractal;
+
+Fractal::macro('stats', function ($stats) {
+    // transform the passed stats as necessary here
+    return $this->appendMeta(['stats' => $stats]);
+});
+
+fractal($books, new BookTransformer())->stats(['runtime' => 100])->respond();
+```
+
 ## Quickly creating a transformer
 
 You can run the `make:transformer` command to quickly generate a dummy transformer. By default it will be stored in the `app\Transformers` directory.
