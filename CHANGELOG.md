@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.4.1 - 2018-08-24
+
+- add support for Laravel 5.7
+
 ## 5.4.0 - 2018-07-19
 
 - make fractal macroable
