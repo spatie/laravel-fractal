@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.4.2 - 2018-09-28
+
+- support Lumen
+
 ## 5.4.1 - 2018-08-24
 
 - add support for Laravel 5.7
