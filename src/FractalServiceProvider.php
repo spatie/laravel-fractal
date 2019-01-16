@@ -31,7 +31,7 @@ class FractalServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('fractal', function (...$arguments) {
+        $this->app->singleton('fractal', function ($app, $arguments) {
             return fractal(...$arguments);
         });
 
