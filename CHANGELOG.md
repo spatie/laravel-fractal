@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.4.3 - 2019-01-16
+
+- improve singleton definition
+
 ## 5.4.2 - 2018-09-28
 
 - support Lumen
