@@ -2,6 +2,11 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.4.4 - 2019-02-27
+
+- drop support for PHP 7.0
+- add support for Laravel 5.8
+
 ## 5.4.3 - 2019-01-16
 
 - improve singleton definition

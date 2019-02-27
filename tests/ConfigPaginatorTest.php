@@ -6,7 +6,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class ConfigPaginatorTest extends TestCase
 {
-    public function setUp($defaultSerializer = '', $defaultPaginator = '')
+    public function setUp($defaultSerializer = '', $defaultPaginator = ''): void
     {
         parent::setUp('', TestPaginator::class);
     }

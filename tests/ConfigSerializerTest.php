@@ -6,7 +6,7 @@ use Spatie\Fractalistic\ArraySerializer;
 
 class ConfigSerializerTest extends TestCase
 {
-    public function setUp($defaultSerializer = '', $defaultPaginator = '')
+    public function setUp($defaultSerializer = '', $defaultPaginator = ''): void
     {
         parent::setUp(ArraySerializer::class);
     }

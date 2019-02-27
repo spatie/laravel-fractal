@@ -20,7 +20,7 @@ abstract class TestCase extends Orchestra
     /** @var string|\League\Fractal\Pagination\PaginatorInterface */
     protected $defaultPaginator;
 
-    public function setUp($defaultSerializer = '', $defaultPaginator = '')
+    public function setUp($defaultSerializer = '', $defaultPaginator = ''): void
     {
         $this->defaultSerializer = $defaultSerializer;
         $this->defaultPaginator = $defaultPaginator;
