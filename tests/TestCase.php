@@ -2,12 +2,15 @@
 
 namespace Spatie\Fractal\Test;
 
+use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use Illuminate\Support\Facades\Route;
 use Spatie\Fractal\FractalServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
+    use ArraySubsetAsserts;
+
     /** @var \Spatie\Fractal\Fractal */
     protected $fractal;
 
@@ -22,6 +25,7 @@ abstract class TestCase extends Orchestra
 
     public function setUp($defaultSerializer = '', $defaultPaginator = ''): void
     {
+
         $this->defaultSerializer = $defaultSerializer;
         $this->defaultPaginator = $defaultPaginator;
 
