@@ -13,6 +13,7 @@ class FractalFacadeTest extends TestCase
     public function it_returns_an_instance_of_fractal()
     {
         $this->assertInstanceOf(Fractal::class, FractalFacade::collection([]));
+        $this->assertInstanceOf(Fractal::class, \Spatie\Fractal\Facades\Fractal::collection([]));
     }
 
     /** @test */
