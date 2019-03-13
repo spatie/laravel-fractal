@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.5.1 - 2019-03-??
+
+- add `Spatie\Fractal\Facades\Fractal`
+
 ## 5.5.0 - 2019-02-27
 
 - drop support for PHP 7.1
