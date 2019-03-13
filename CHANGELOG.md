@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
-## 5.5.1 - 2019-03-??
+## 5.5.1 - 2019-03-13
 
 - add `Spatie\Fractal\Facades\Fractal`
 
