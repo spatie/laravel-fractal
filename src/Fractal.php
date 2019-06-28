@@ -4,7 +4,6 @@ namespace Spatie\Fractal;
 
 use Closure;
 use League\Fractal\Manager;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Traits\Macroable;
 use League\Fractal\Serializer\JsonApiSerializer;
