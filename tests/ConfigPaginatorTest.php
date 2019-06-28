@@ -38,7 +38,7 @@ class ConfigPaginatorTest extends TestCase
                     'current_page' => 1,
                     'total_pages' => 2,
                     'links' => [
-                        'next' => '/?page=2'
+                        'next' => '/?page=2',
                     ],
                 ],
             ],
