@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.6.0 - 2019-09-04
+
+- make compatible with Laravel 6
+
 ## 5.5.1 - 2019-03-13
 
 - add `Spatie\Fractal\Facades\Fractal`
