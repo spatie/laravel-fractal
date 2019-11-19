@@ -2,9 +2,9 @@
 
 namespace Spatie\Fractal\Test;
 
-use Spatie\Fractalistic\Fractal;
-use Spatie\Fractalistic\ArraySerializer;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Spatie\Fractalistic\ArraySerializer;
+use Spatie\Fractalistic\Fractal;
 
 class FractalFunctionTest extends TestCase
 {

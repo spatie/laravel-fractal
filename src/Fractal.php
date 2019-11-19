@@ -3,14 +3,14 @@
 namespace Spatie\Fractal;
 
 use Closure;
-use League\Fractal\Manager;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Traits\Macroable;
-use League\Fractal\Serializer\JsonApiSerializer;
-use Spatie\Fractalistic\Fractal as Fractalistic;
-use League\Fractal\Serializer\SerializerAbstract;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use League\Fractal\Manager;
 use League\Fractal\Pagination\IlluminatePaginatorAdapter;
+use League\Fractal\Serializer\JsonApiSerializer;
+use League\Fractal\Serializer\SerializerAbstract;
+use Spatie\Fractalistic\Fractal as Fractalistic;
 
 class Fractal extends Fractalistic
 {
