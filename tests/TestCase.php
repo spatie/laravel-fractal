@@ -2,10 +2,10 @@
 
 namespace Spatie\Fractal\Test;
 
-use Illuminate\Support\Facades\Route;
-use Spatie\Fractal\FractalServiceProvider;
-use Orchestra\Testbench\TestCase as Orchestra;
 use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
+use Illuminate\Support\Facades\Route;
+use Orchestra\Testbench\TestCase as Orchestra;
+use Spatie\Fractal\FractalServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
