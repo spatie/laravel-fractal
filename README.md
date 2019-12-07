@@ -1,8 +1,7 @@
 # An easy to use Fractal wrapper built for Laravel and Lumen applications
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
-[![Code coverage](https://scrutinizer-ci.com/g/spatie/laravel-fractal/badges/coverage.png)](https://scrutinizer-ci.com/g/spatie/laravel-fractal)
-[![Build Status](https://travis-ci.org/spatie/laravel-fractal.svg?branch=master)](https://travis-ci.org/spatie/laravel-fractal)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-fractal/run-tests?label=tests)
 [![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-fractal.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-fractal)
 [![StyleCI](https://styleci.io/repos/43743138/shield?branch=master)](https://styleci.io/repos/43743138)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
