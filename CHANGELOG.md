@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 5.7.0 - 2020-03-02
+
+- add support for Laravel 7
+
 ## 5.6.1 - 2019-11-19
 
 - update transformer stub (#200)
