@@ -15,7 +15,7 @@ return [
     'default_paginator' => '',
 
     /*
-     * League\Fractal\Serializer\JsonApiSerializer will use this value to
+     * League\Fractal\Serializer\JsonApiSerializer will use this value
      * as a prefix for generated links. Set to `null` to disable this.
      */
     'base_url' => null,
