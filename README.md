@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 ![Test Status](https://img.shields.io/github/workflow/status/spatie/laravel-fractal/run-tests?label=tests)
-![Code Style Status](https://img.shields.io/github/workflow/status/spatie/laravel-fractal/php-cs-fixer?label=code%20style)
+![Code Style Status](https://img.shields.io/github/workflow/status/spatie/laravel-fractal/Check%20&%20fix%20styling?label=code%20style)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-fractal.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-fractal)
 
 The package provides a nice and easy wrapper around [Fractal](http://fractal.thephpleague.com/)
