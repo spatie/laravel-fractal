@@ -43,12 +43,12 @@ class ResponseTest extends TestCase
     {
         $response = $this->fractal
             ->respond(404, [
-                'test' => 'test-value',
+                'test'  => 'test-value',
                 'test2' => 'test2-value',
             ]);
 
         $this->assertArraySubset([
-            'test' => ['test-value'],
+            'test'  => ['test-value'],
             'test2' => ['test2-value'],
         ], $response->headers->all());
     }
@@ -81,7 +81,7 @@ class ResponseTest extends TestCase
             });
 
         $this->assertArraySubset([
-            'test' => ['test-value'],
+            'test'  => ['test-value'],
             'test2' => ['test2-value'],
         ], $response->headers->all());
     }
@@ -142,7 +142,7 @@ class ResponseTest extends TestCase
             });
 
         $this->assertArraySubset([
-            'test' => ['test-value'],
+            'test'  => ['test-value'],
             'test2' => ['test2-value'],
             'test3' => ['test3-value'],
             'test4' => ['test4-value'],

@@ -24,7 +24,7 @@ class TestTransformer extends TransformerAbstract
     public function transform(array $book)
     {
         return [
-            'id' => (int) $book['id'],
+            'id'     => (int) $book['id'],
             'author' => $book['author_name'],
         ];
     }

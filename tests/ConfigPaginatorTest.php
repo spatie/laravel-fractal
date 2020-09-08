@@ -32,12 +32,12 @@ class ConfigPaginatorTest extends TestCase
             ],
             'meta' => [
                 'pagination' => [
-                    'total' => 9999,
-                    'count' => 2,
-                    'per_page' => 1,
+                    'total'        => 9999,
+                    'count'        => 2,
+                    'per_page'     => 1,
                     'current_page' => 1,
-                    'total_pages' => 2,
-                    'links' => [
+                    'total_pages'  => 2,
+                    'links'        => [
                         'next' => '/?page=2',
                     ],
                 ],

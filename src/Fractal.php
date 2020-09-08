@@ -25,8 +25,8 @@ class Fractal extends Fractalistic
     }
 
     /**
-     * @param null|mixed $data
-     * @param null|callable|\League\Fractal\TransformerAbstract $transformer
+     * @param null|mixed                                         $data
+     * @param null|callable|\League\Fractal\TransformerAbstract  $transformer
      * @param null|\League\Fractal\Serializer\SerializerAbstract $serializer
      *
      * @return \Spatie\Fractalistic\Fractal
@@ -75,15 +75,15 @@ class Fractal extends Fractalistic
             return $fractal->serializeWith(new $serializer($baseUrl));
         }
 
-        return $fractal->serializeWith(new $serializer);
+        return $fractal->serializeWith(new $serializer());
     }
 
     /**
      * Return a new JSON response.
      *
-     * @param  callable|int $statusCode
-     * @param  callable|array $headers
-     * @param  callable|int $options
+     * @param callable|int   $statusCode
+     * @param callable|array $headers
+     * @param callable|int   $options
      *
      * @return \Illuminate\Http\JsonResponse
      */

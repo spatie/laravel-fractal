@@ -102,12 +102,12 @@ class FractalFunctionTest extends TestCase
             ],
             'meta' => [
                 'pagination' => [
-                    'total' => 2,
-                    'count' => 2,
-                    'per_page' => 1,
+                    'total'        => 2,
+                    'count'        => 2,
+                    'per_page'     => 1,
                     'current_page' => 1,
-                    'total_pages' => 2,
-                    'links' => [
+                    'total_pages'  => 2,
+                    'links'        => [
                         'next' => '/?page=2',
                     ],
                 ],

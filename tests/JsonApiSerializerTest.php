@@ -21,17 +21,17 @@ class JsonApiSerializerTest extends TestCase
         $fractal = fractal()
             ->collection([
                 [
-                    'id' => 1,
+                    'id'    => 1,
                     'title' => 'Test 1',
                 ],
                 [
-                    'id' => 4,
+                    'id'    => 4,
                     'title' => 'Test 2',
                 ],
             ])
             ->transformWith(function ($item) {
                 return [
-                    'id' => $item['id'],
+                    'id'    => $item['id'],
                     'title' => $item['title'].'-transformed',
                 ];
             })
@@ -50,17 +50,17 @@ class JsonApiSerializerTest extends TestCase
         $fractal = fractal()
             ->collection([
                 [
-                    'id' => 1,
+                    'id'    => 1,
                     'title' => 'Test 1',
                 ],
                 [
-                    'id' => 4,
+                    'id'    => 4,
                     'title' => 'Test 2',
                 ],
             ])
             ->transformWith(function ($item) {
                 return [
-                    'id' => $item['id'],
+                    'id'    => $item['id'],
                     'title' => $item['title'].'-transformed',
                 ];
             })
@@ -79,17 +79,17 @@ class JsonApiSerializerTest extends TestCase
         $fractal = fractal()
             ->collection([
                 [
-                    'id' => 1,
+                    'id'    => 1,
                     'title' => 'Test 1',
                 ],
                 [
-                    'id' => 4,
+                    'id'    => 4,
                     'title' => 'Test 2',
                 ],
             ])
             ->transformWith(function ($item) {
                 return [
-                    'id' => $item['id'],
+                    'id'    => $item['id'],
                     'title' => $item['title'].'-transformed',
                 ];
             })

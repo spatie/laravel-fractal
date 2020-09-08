@@ -46,7 +46,7 @@ class FractalFacadeTest extends TestCase
     {
         $this->app['config']->set('fractal.default_serializer', DataArraySerializer::class);
 
-        $actualArray = FractalFacade::create($this->testBooks, new TestTransformer, new ArraySerializer)->toArray();
+        $actualArray = FractalFacade::create($this->testBooks, new TestTransformer(), new ArraySerializer())->toArray();
 
         $expectedArray = [
             ['id' => 1, 'author' => 'Philip K Dick'],
