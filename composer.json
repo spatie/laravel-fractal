@@ -21,14 +21,14 @@
         }
     ],
     "require": {
-        "php" : "^7.2",
-        "illuminate/contracts": "~5.8.0|^6.0|^7.0|^8.0",
-        "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0",
+        "php" : "^7.2|^8.0",
+        "illuminate/contracts": "^7.0|^8.0",
+        "illuminate/support": "^7.0|^8.0",
         "spatie/fractalistic": "^2.5"
     },
     "require-dev": {
-        "dms/phpunit-arraysubset-asserts": "^0.1.0",
-        "orchestra/testbench": "~3.8.0|^4.0|^5.0|^6.0"
+        "orchestra/testbench": "^5.0|^6.0",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {
@@ -36,6 +36,7 @@
         },
         "files": [
             "src/helpers.php"
+
         ]
     },
     "autoload-dev": {

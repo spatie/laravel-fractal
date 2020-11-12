@@ -9,8 +9,6 @@ use Spatie\Fractal\FractalServiceProvider;
 
 abstract class TestCase extends Orchestra
 {
-    use ArraySubsetAsserts;
-
     /** @var \Spatie\Fractal\Fractal */
     protected $fractal;
 

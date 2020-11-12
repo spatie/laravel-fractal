@@ -47,10 +47,10 @@ class ResponseTest extends TestCase
                 'test2' => 'test2-value',
             ]);
 
-        $this->assertArraySubset([
-            'test' => ['test-value'],
-            'test2' => ['test2-value'],
-        ], $response->headers->all());
+        $headers = $response->headers->all();
+
+        $this->assertEquals(['test-value'], $headers['test']);
+        $this->assertEquals(['test2-value'], $headers['test2']);
     }
 
     /** @test */
@@ -80,10 +80,8 @@ class ResponseTest extends TestCase
                 $response->withHeaders(['test2' => 'test2-value']);
             });
 
-        $this->assertArraySubset([
-            'test' => ['test-value'],
-            'test2' => ['test2-value'],
-        ], $response->headers->all());
+        $this->assertEquals(['test-value'], $response->headers->all()['test']);
+        $this->assertEquals(['test2-value'], $response->headers->all()['test2']);
     }
 
     /** @test */
@@ -106,9 +104,7 @@ class ResponseTest extends TestCase
             });
 
         $this->assertEquals(404, $response->status());
-        $this->assertArraySubset([
-            'test' => ['test-value'],
-        ], $response->headers->all());
+        $this->assertEquals(['test-value'], $response->headers->all()['test']);
     }
 
     /** @test */
@@ -119,9 +115,8 @@ class ResponseTest extends TestCase
         });
 
         $this->assertEquals(404, $response->status());
-        $this->assertArraySubset([
-            'test' => ['test-value'],
-        ], $response->headers->all());
+
+        $this->assertEquals(['test-value'], $response->headers->all()['test']);
         $this->assertTrue($response->hasEncodingOption(JSON_PRETTY_PRINT));
     }
 
@@ -140,13 +135,6 @@ class ResponseTest extends TestCase
                     ->header('test2', 'test2-value')
                     ->setEncodingOptions(JSON_PRETTY_PRINT);
             });
-
-        $this->assertArraySubset([
-            'test' => ['test-value'],
-            'test2' => ['test2-value'],
-            'test3' => ['test3-value'],
-            'test4' => ['test4-value'],
-        ], $response->headers->all());
 
         $this->assertEquals(404, $response->status());
 
