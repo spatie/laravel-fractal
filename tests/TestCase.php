@@ -2,7 +2,6 @@
 
 namespace Spatie\Fractal\Test;
 
-use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Fractal\FractalServiceProvider;
