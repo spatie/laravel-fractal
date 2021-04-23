@@ -16,8 +16,8 @@ use League\Fractal\Manager;
 use League\Fractal\Resource\Collection;
 
 $books = [
-   ['id'=>1, 'title'=>'Hogfather', 'characters' => [...]],
-   ['id'=>2, 'title'=>'Game Of Kill Everyone', 'characters' => [...]]
+   ['id' => 1, 'title' => 'Hogfather', 'characters' => [...]],
+   ['id' => 2, 'title' => 'Game Of Kill Everyone', 'characters' => [...]]
 ];
 
 $manager = new Manager();
