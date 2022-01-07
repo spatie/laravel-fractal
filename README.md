@@ -196,7 +196,7 @@ use Spatie\Fractal\Fractal;
 
 Fractal::macro('stats', function ($stats) {
     // transform the passed stats as necessary here
-    return $this->appendMeta(['stats' => $stats]);
+    return $this->addMeta(['stats' => $stats]);
 });
 
 fractal($books, new BookTransformer())->stats(['runtime' => 100])->respond();
