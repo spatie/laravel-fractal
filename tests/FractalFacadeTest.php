@@ -2,24 +2,23 @@
 
 namespace Spatie\Fractal\Test;
 
-use Fractal as FractalFacade;
 use League\Fractal\Serializer\DataArraySerializer;
 use Spatie\Fractalistic\ArraySerializer;
-use Spatie\Fractalistic\Fractal;
+use Spatie\Fractalistic\Fractal as FractalClass;
+use Spatie\Fractal\Facades\Fractal;
 
 class FractalFacadeTest extends TestCase
 {
     /** @test */
     public function it_returns_an_instance_of_fractal()
     {
-        $this->assertInstanceOf(Fractal::class, FractalFacade::collection([]));
-        $this->assertInstanceOf(Fractal::class, \Spatie\Fractal\Facades\Fractal::collection([]));
+        $this->assertInstanceOf(FractalClass::class, Fractal::collection([]));
     }
 
     /** @test */
     public function it_can_transform_the_given_array_with_the_given_closure()
     {
-        $transformedData = FractalFacade::collection(['item1', 'item2'], function ($item) {
+        $transformedData = Fractal::collection(['item1', 'item2'], function ($item) {
             return ['item' => $item.'-transformed'];
         })->toArray();
 
@@ -33,7 +32,7 @@ class FractalFacadeTest extends TestCase
     {
         $this->app['config']->set('fractal.default_serializer', ArraySerializer::class);
 
-        $response = FractalFacade::create()
+        $response = Fractal::create()
             ->item($this->testBooks[0])
             ->transformWith(new TestTransformer())
             ->respond(200);
@@ -46,7 +45,7 @@ class FractalFacadeTest extends TestCase
     {
         $this->app['config']->set('fractal.default_serializer', DataArraySerializer::class);
 
-        $actualArray = FractalFacade::create($this->testBooks, new TestTransformer(), new ArraySerializer())->toArray();
+        $actualArray = Fractal::create($this->testBooks, new TestTransformer(), new ArraySerializer())->toArray();
 
         $expectedArray = [
             ['id' => 1, 'author' => 'Philip K Dick'],

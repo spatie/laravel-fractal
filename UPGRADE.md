@@ -1,5 +1,11 @@
 # Upgrade guide
 
+## From v5 to v6
+
+In most cases, you don't need to do anything to upgrade, the API has remained the same.
+
+The facade has been moved from `Spatie\Fractal\FractalFacade` to `Spatie\Fractal\Facades\Fractal`.
+
 ## From v4 to v5
 
 If you have a configuration file named `laravel-fractal.php`, rename it to `fractal.php` for it to still be used.

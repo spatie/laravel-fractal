@@ -7,57 +7,32 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Lumen\Application as LumenApplication;
 use Spatie\Fractal\Console\Commands\TransformerMakeCommand;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FractalServiceProvider extends ServiceProvider
+class FractalServiceProvider extends PackageServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
-    public function boot()
+    public function configurePackage(Package $package): void
     {
-        $this->setupConfig();
-
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                TransformerMakeCommand::class,
-            ]);
-        }
-
-        $this->setupMacro();
+        $package
+            ->name('laravel-fractal')
+            ->hasConfigFile()
+            ->hasCommand(TransformerMakeCommand::class);
     }
 
-    /**
-     * Register the application services.
-     */
-    public function register()
+    public function packageBooted()
+    {
+        Collection::macro('transformWith', function ($transformer) {
+            return fractal($this, $transformer);
+        });
+    }
+
+    public function packageRegistered()
     {
         $this->app->singleton('fractal', function ($app, $arguments) {
             return fractal(...$arguments);
         });
 
         $this->app->alias('fractal', Fractal::class);
-    }
-
-    protected function setupConfig()
-    {
-        $source = realpath(__DIR__.'/../config/fractal.php');
-
-        if ($this->app instanceof LaravelApplication) {
-            $this->publishes([$source => config_path('fractal.php')]);
-        } elseif ($this->app instanceof LumenApplication) {
-            $this->app->configure('fractal');
-        }
-
-        $this->mergeConfigFrom($source, 'fractal');
-    }
-
-    /**
-     * Add a 'transformWith' macro to Laravel's collection.
-     */
-    protected function setupMacro()
-    {
-        Collection::macro('transformWith', function ($transformer) {
-            return fractal($this, $transformer);
-        });
     }
 }
