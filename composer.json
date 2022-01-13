@@ -22,12 +22,12 @@
     ],
     "require": {
         "php" : "^7.3|^8.0",
-        "illuminate/contracts": "^8.0",
-        "illuminate/support": "^8.0",
+        "illuminate/contracts": "^8.0|^9.0",
+        "illuminate/support": "^8.0|^9.0",
         "spatie/fractalistic": "^2.5"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.23",
+        "orchestra/testbench": "^6.23|^7.0",
         "ext-json": "*"
     },
     "autoload": {
