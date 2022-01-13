@@ -75,7 +75,7 @@ class Fractal extends Fractalistic
             return $fractal->serializeWith(new $serializer($baseUrl));
         }
 
-        return $fractal->serializeWith(new $serializer);
+        return $fractal->serializeWith(new $serializer());
     }
 
     /**
