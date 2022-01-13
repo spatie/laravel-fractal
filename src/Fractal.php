@@ -10,7 +10,6 @@ use League\Fractal\Manager;
 use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use League\Fractal\Serializer\JsonApiSerializer;
 use League\Fractal\Serializer\SerializerAbstract;
-use League\Fractal\TransformerAbstract;
 use Spatie\Fractalistic\Fractal as Fractalistic;
 
 class Fractal extends Fractalistic
@@ -83,8 +82,7 @@ class Fractal extends Fractalistic
         callable|int $statusCode = 200,
         callable|array $headers = [],
         callable|int $options = 0
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $response = new JsonResponse();
 
         $response->setData($this->createData()->toArray());

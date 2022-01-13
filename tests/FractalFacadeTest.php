@@ -3,9 +3,9 @@
 namespace Spatie\Fractal\Test;
 
 use League\Fractal\Serializer\DataArraySerializer;
+use Spatie\Fractal\Facades\Fractal;
 use Spatie\Fractalistic\ArraySerializer;
 use Spatie\Fractalistic\Fractal as FractalClass;
-use Spatie\Fractal\Facades\Fractal;
 
 class FractalFacadeTest extends TestCase
 {
