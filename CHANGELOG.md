@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.0.1 - 2022-03-31
+
+## What's Changed
+
+- Updated compose.json to handle with previous version by @deniscsz in https://github.com/spatie/laravel-fractal/pull/221
+
+## New Contributors
+
+- @deniscsz made their first contribution in https://github.com/spatie/laravel-fractal/pull/221
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.0.0...6.0.1
+
 ## 6.0.0 - 2022-01-13
 
 ## What's Changed
