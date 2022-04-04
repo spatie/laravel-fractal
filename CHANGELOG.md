@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.0.2 - 2022-04-04
+
+## What's Changed
+
+- Make stubs compatible with the latest `league/fractal` version by @osbre in https://github.com/spatie/laravel-fractal/pull/226
+
+## New Contributors
+
+- @osbre made their first contribution in https://github.com/spatie/laravel-fractal/pull/226
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.0.1...6.0.2
+
 ## 6.0.1 - 2022-03-31
 
 ## What's Changed
