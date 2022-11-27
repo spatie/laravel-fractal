@@ -11,7 +11,7 @@ class TestTransformer extends TransformerAbstract
      *
      * @var array
      */
-    protected $availableIncludes = [
+    protected array $availableIncludes = [
         'characters',
         'publisher',
     ];

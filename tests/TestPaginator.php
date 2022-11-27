@@ -11,7 +11,7 @@ class TestPaginator extends IlluminatePaginatorAdapter
      *
      * @return int
      */
-    public function getTotal()
+    public function getTotal(): int
     {
         return 9999;
     }
