@@ -48,10 +48,10 @@ it('will generate relative links when json api has empty string base url', funct
         ],
         ])
         ->transformWith(function ($item) {
-        return [
-            'id' => $item['id'],
-            'title' => $item['title'].'-transformed',
-        ];
+            return [
+                'id' => $item['id'],
+                'title' => $item['title'].'-transformed',
+            ];
         })
         ->withResourceName('articles')
         ->respond();
@@ -75,10 +75,10 @@ it('will generate fully qualified links when json api has base url', function ()
         ],
         ])
         ->transformWith(function ($item) {
-        return [
-            'id' => $item['id'],
-            'title' => $item['title'].'-transformed',
-        ];
+            return [
+                'id' => $item['id'],
+                'title' => $item['title'].'-transformed',
+            ];
         })
         ->withResourceName('articles')
         ->respond();

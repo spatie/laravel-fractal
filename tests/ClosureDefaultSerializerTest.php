@@ -5,7 +5,8 @@ namespace Spatie\Fractal\Test;
 use Spatie\Fractal\Test\Classes\TestTransformer;
 use Spatie\Fractalistic\ArraySerializer;
 
-trait SetupClosureDefaultSerializerTest {
+trait SetupClosureDefaultSerializerTest
+{
     protected function getEnvironmentSetUp($app)
     {
         $this->defaultSerializer = ArraySerializer::class;

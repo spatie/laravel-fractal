@@ -3,7 +3,8 @@
 use Spatie\Fractal\Test\Classes\TestTransformer;
 use Spatie\Fractalistic\ArraySerializer;
 
-trait SetupConfigSerializerTest {
+trait SetupConfigSerializerTest
+{
     protected function getEnvironmentSetUp($app)
     {
         $this->defaultSerializer = ArraySerializer::class;

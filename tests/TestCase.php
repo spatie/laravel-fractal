@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Fractal\FractalServiceProvider;
 use Spatie\Fractal\Test\Classes\TestTransformer;
-use Spatie\Fractalistic\ArraySerializer;
 
 abstract class TestCase extends Orchestra
 {

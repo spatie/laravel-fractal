@@ -45,7 +45,7 @@ it('uses the given encoding options', function () {
 it('accepts a status code in the given closure', function () {
     $response = $this->fractal
         ->respond(function (JsonResponse $response) {
-        $response->setStatusCode(404);
+            $response->setStatusCode(404);
         });
 
     expect($response->status())->toEqual(404);
@@ -54,8 +54,8 @@ it('accepts a status code in the given closure', function () {
 it('accepts a headers in the given closure', function () {
     $response = $this->fractal
         ->respond(function (JsonResponse $response) {
-        $response->header('test', 'test-value');
-        $response->withHeaders(['test2' => 'test2-value']);
+            $response->header('test', 'test-value');
+            $response->withHeaders(['test2' => 'test2-value']);
         });
 
     expect($response->headers->all()['test'])->toEqual(['test-value'])
@@ -65,7 +65,7 @@ it('accepts a headers in the given closure', function () {
 it('accepts encoding options in the given closure', function () {
     $response = $this->fractal
         ->respond(function (JsonResponse $response) {
-        $response->setEncodingOptions(JSON_PRETTY_PRINT);
+            $response->setEncodingOptions(JSON_PRETTY_PRINT);
         });
 
     expect($response->hasEncodingOption(JSON_PRETTY_PRINT))->toBeTrue();
@@ -74,7 +74,7 @@ it('accepts encoding options in the given closure', function () {
 it('accept a response code and a callback', function () {
     $response = $this->fractal
         ->respond(404, function (JsonResponse $response) {
-        $response->header('test', 'test-value');
+            $response->header('test', 'test-value');
         });
 
     expect($response->status())->toEqual(404)
@@ -89,26 +89,24 @@ it('accepts a response code and headers and a callback', function () {
     expect($response->status())->toEqual(404)
         ->and($response->headers->all()['test'])->toEqual(['test-value'])
         ->and($response->hasEncodingOption(JSON_PRETTY_PRINT))->toBeTrue();
-
 });
 
 it('all allowed methods in the callback are chainable', function () {
     $response = $this->fractal
         ->respond(function (JsonResponse $response) {
-        $response
-            ->header('test', 'test-value')
-            ->setStatusCode(404)
-            ->withHeaders([
-            'test3' => 'test3-value',
-            'test4' => 'test4-value',
-            ])
-            ->header('test2', 'test2-value')
-            ->setEncodingOptions(JSON_PRETTY_PRINT);
+            $response
+                ->header('test', 'test-value')
+                ->setStatusCode(404)
+                ->withHeaders([
+                'test3' => 'test3-value',
+                'test4' => 'test4-value',
+                ])
+                ->header('test2', 'test2-value')
+                ->setEncodingOptions(JSON_PRETTY_PRINT);
         });
 
     expect($response->status())->toEqual(404)
         ->and($response->hasEncodingOption(JSON_PRETTY_PRINT))->toBeTrue();
-
 });
 
 it('the status code set in the closure will be used event when passing a status code to the respond method', function () {

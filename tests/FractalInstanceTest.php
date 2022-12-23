@@ -5,7 +5,8 @@ use Spatie\Fractal\Test\Classes\FractalExtensionClass;
 use Spatie\Fractal\Test\Classes\TestTransformer;
 use Spatie\Fractalistic\ArraySerializer;
 
-trait SetupFractalInstanceTest {
+trait SetupFractalInstanceTest
+{
     protected function getEnvironmentSetUp($app)
     {
         $this->defaultSerializer = ArraySerializer::class;

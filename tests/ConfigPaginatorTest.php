@@ -4,7 +4,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use Spatie\Fractal\Test\Classes\TestPaginator;
 use Spatie\Fractal\Test\Classes\TestTransformer;
 
-trait SetupConfigPaginatorTest {
+trait SetupConfigPaginatorTest
+{
     protected function getEnvironmentSetUp($app)
     {
         $this->defaultPaginator = TestPaginator::class;
