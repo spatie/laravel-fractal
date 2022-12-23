@@ -1,23 +1,17 @@
 <?php
 
-namespace Spatie\Fractal\Test;
-
 use Illuminate\Support\Collection;
+use Spatie\Fractal\Test\Classes\TestTransformer;
 
-class LaravelCollectionMacroTest extends TestCase
-{
-    /** @test */
-    public function it_provides_laravel_colletion_macro()
-    {
-        $transformedData = Collection::make($this->testBooks)
-            ->transformWith(new TestTransformer())
-            ->toArray();
+it('provides laravel collection macro', function () {
+    $transformedData = Collection::make($this->testBooks)
+        ->transformWith(new TestTransformer())
+        ->toArray();
 
-        $expectedArray = ['data' => [
-            ['id' => 1, 'author' => 'Philip K Dick'],
-            ['id' => 2, 'author' => 'George R. R. Satan'],
-        ]];
+    $expectedArray = ['data' => [
+        ['id' => 1, 'author' => 'Philip K Dick'],
+        ['id' => 2, 'author' => 'George R. R. Satan'],
+    ]];
 
-        $this->assertEquals($expectedArray, $transformedData);
-    }
-}
+    expect($transformedData)->toEqual($expectedArray);
+});

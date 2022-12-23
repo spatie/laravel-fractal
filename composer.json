@@ -30,8 +30,9 @@
         "spatie/laravel-package-tools": "^1.11"
     },
     "require-dev": {
+        "ext-json": "*",
         "orchestra/testbench": "^7.0",
-        "ext-json": "*"
+        "pestphp/pest": "^1.22"
     },
     "autoload": {
         "psr-4": {
@@ -48,10 +49,13 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/pest"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "extra": {
         "laravel": {

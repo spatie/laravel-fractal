@@ -5,6 +5,7 @@ namespace Spatie\Fractal\Test;
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Fractal\FractalServiceProvider;
+use Spatie\Fractal\Test\Classes\TestTransformer;
 
 abstract class TestCase extends Orchestra
 {
@@ -20,11 +21,8 @@ abstract class TestCase extends Orchestra
     /** @var string|\League\Fractal\Pagination\PaginatorInterface */
     protected $defaultPaginator;
 
-    public function setUp($defaultSerializer = '', $defaultPaginator = ''): void
+    protected function setUp(): void
     {
-        $this->defaultSerializer = $defaultSerializer;
-        $this->defaultPaginator = $defaultPaginator;
-
         parent::setUp();
 
         $this->fractal = fractal();
