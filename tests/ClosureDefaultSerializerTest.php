@@ -2,38 +2,35 @@
 
 namespace Spatie\Fractal\Test;
 
+use Spatie\Fractal\Test\Classes\TestTransformer;
 use Spatie\Fractalistic\ArraySerializer;
 
-class ClosureDefaultSerializerTest extends TestCase
-{
-    public function setUp($defaultSerializer = '', $defaultPaginator = ''): void
+trait SetupClosureDefaultSerializerTest {
+    protected function getEnvironmentSetUp($app)
     {
-        parent::setUp(function () {
-            return new ArraySerializer();
-        });
-    }
-
-    /** @test */
-    public function it_uses_configured_transformer_when_toarray_is_used()
-    {
-        $array = $this->fractal
-            ->item($this->testBooks[0])
-            ->transformWith(new TestTransformer())
-            ->toArray();
-
-        $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
-
-        $this->assertEquals($expectedArray, $array);
-    }
-
-    /** @test */
-    public function it_uses_configured_transformer_when_response_is_used()
-    {
-        $response = $this->fractal
-            ->item($this->testBooks[0])
-            ->transformWith(new TestTransformer())
-            ->respond();
-
-        $this->assertEquals('{"id":1,"author":"Philip K Dick"}', json_encode($response->getData()));
+        $this->defaultSerializer = ArraySerializer::class;
+        parent::getEnvironmentSetUp($app);
     }
 }
+
+uses(SetupClosureDefaultSerializerTest::class);
+
+it('uses configured transformer when toarray is used', function () {
+    $array = $this->fractal
+        ->item($this->testBooks[0])
+        ->transformWith(new TestTransformer())
+        ->toArray();
+
+    $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
+
+    expect($array)->toEqual($expectedArray);
+});
+
+it('uses configured transformer when response is used', function () {
+    $response = $this->fractal
+        ->item($this->testBooks[0])
+        ->transformWith(new TestTransformer())
+        ->respond();
+
+    expect(json_encode($response->getData()))->toEqual('{"id":1,"author":"Philip K Dick"}');
+});

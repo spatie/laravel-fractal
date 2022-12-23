@@ -1,26 +1,25 @@
 <?php
 
-namespace Spatie\Fractal\Test;
-
+use Spatie\Fractal\Test\Classes\TestTransformer;
 use Spatie\Fractalistic\ArraySerializer;
 
-class ConfigSerializerTest extends TestCase
-{
-    public function setUp($defaultSerializer = '', $defaultPaginator = ''): void
+trait SetupConfigSerializerTest {
+    protected function getEnvironmentSetUp($app)
     {
-        parent::setUp(ArraySerializer::class);
-    }
-
-    /** @test */
-    public function it_uses_the_default_transformer_when_it_is_specified()
-    {
-        $array = $this->fractal
-            ->item($this->testBooks[0])
-            ->transformWith(new TestTransformer())
-            ->toArray();
-
-        $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
-
-        $this->assertEquals($expectedArray, $array);
+        $this->defaultSerializer = ArraySerializer::class;
+        parent::getEnvironmentSetUp($app);
     }
 }
+
+uses(SetupConfigSerializerTest::class)->group('group');
+
+it('uses the default transformer when it is specified', function () {
+    $array = $this->fractal
+        ->item($this->testBooks[0])
+        ->transformWith(new TestTransformer())
+        ->toArray();
+
+    $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
+
+    expect($array)->toEqual($expectedArray);
+});

@@ -1,62 +1,58 @@
 <?php
 
-namespace Spatie\Fractal\Test;
-
 use Spatie\Fractal\Fractal;
+use Spatie\Fractal\Test\Classes\FractalExtensionClass;
+use Spatie\Fractal\Test\Classes\TestTransformer;
 use Spatie\Fractalistic\ArraySerializer;
 
-class FractalInstanceTest extends TestCase
-{
-    public function setUp($defaultSerializer = '', $defaultPaginator = ''): void
+trait SetupFractalInstanceTest {
+    protected function getEnvironmentSetUp($app)
     {
-        parent::setUp(ArraySerializer::class);
-
-        $this->fractal = $this->app->make(Fractal::class);
-    }
-
-    /** @test */
-    public function it_returns_a_default_instance_when_resolving_fractal_using_the_container()
-    {
-        $this->assertInstanceOf(Fractal::class, $this->app->make(Fractal::class));
-    }
-
-    /** @test */
-    public function it_returns_a_configured_instance_when_resolving_fractal_using_the_container()
-    {
-        $this->app->forgetInstance('fractal');
-
-        app('config')->set('fractal.fractal_class', FractalExtensionClass::class);
-
-        $this->assertInstanceOf(FractalExtensionClass::class, $this->app->make(Fractal::class));
-    }
-
-    /** @test */
-    public function it_uses_the_default_serializer_when_it_is_specified()
-    {
-        $array = $this->fractal
-            ->item($this->testBooks[0])
-            ->transformWith(new TestTransformer())
-            ->toArray();
-
-        $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
-
-        $this->assertEquals($expectedArray, $array);
-    }
-
-    /** @test */
-    public function it_can_be_extended_via_macros()
-    {
-        Fractal::macro('firstItem', function ($books) {
-            return $this->item($books[0]);
-        });
-
-        $array = $this->fractal
-            ->firstItem($this->testBooks)
-            ->transformWith(new TestTransformer())
-            ->toArray();
-
-        $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
-
-        $this->assertEquals($expectedArray, $array);
+        $this->defaultSerializer = ArraySerializer::class;
+        parent::getEnvironmentSetUp($app);
     }
 }
+
+uses(SetupFractalInstanceTest::class)->group('group');
+
+beforeEach(function () {
+    $this->fractal = $this->app->make(Fractal::class);
+});
+
+it('returns a default instance when resolving fractal using the container', function () {
+    expect($this->app->make(Fractal::class))->toBeInstanceOf(Fractal::class);
+});
+
+it('returns a configured instance when resolving fractal using the container', function () {
+    $this->app->forgetInstance('fractal');
+
+    app('config')->set('fractal.fractal_class', FractalExtensionClass::class);
+
+    expect($this->app->make(Fractal::class))->toBeInstanceOf(FractalExtensionClass::class);
+});
+
+it('uses the default serializer when it is specified', function () {
+    $array = $this->fractal
+        ->item($this->testBooks[0])
+        ->transformWith(new TestTransformer())
+        ->toArray();
+
+    $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
+
+    expect($array)->toEqual($expectedArray);
+});
+
+it('can be extended via macros', function () {
+    Fractal::macro('firstItem', function ($books) {
+        return $this->item($books[0]);
+    });
+
+    $array = $this->fractal
+        ->firstItem($this->testBooks)
+        ->transformWith(new TestTransformer())
+        ->toArray();
+
+    $expectedArray = ['id' => 1, 'author' => 'Philip K Dick'];
+
+    expect($array)->toEqual($expectedArray);
+});
