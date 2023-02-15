@@ -2,6 +2,27 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.0.3 - 2023-02-15
+
+### What's Changed
+
+- Add Dependabot Automation by @patinthehat in https://github.com/spatie/laravel-fractal/pull/237
+- Bump actions/checkout from 2 to 3 by @dependabot in https://github.com/spatie/laravel-fractal/pull/239
+- Add PHP 8.2 Support by @patinthehat in https://github.com/spatie/laravel-fractal/pull/238
+- Fix broken tests by @patinthehat in https://github.com/spatie/laravel-fractal/pull/240
+- Refactor tests to pest by @AyoobMH in https://github.com/spatie/laravel-fractal/pull/244
+- Laravel 10.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-fractal/pull/245
+- Bump dependabot/fetch-metadata from 1.3.5 to 1.3.6 by @dependabot in https://github.com/spatie/laravel-fractal/pull/246
+
+### New Contributors
+
+- @patinthehat made their first contribution in https://github.com/spatie/laravel-fractal/pull/237
+- @dependabot made their first contribution in https://github.com/spatie/laravel-fractal/pull/239
+- @AyoobMH made their first contribution in https://github.com/spatie/laravel-fractal/pull/244
+- @laravel-shift made their first contribution in https://github.com/spatie/laravel-fractal/pull/245
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.0.2...6.0.3
+
 ## 6.0.2 - 2022-04-04
 
 ## What's Changed
