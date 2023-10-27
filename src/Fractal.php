@@ -43,6 +43,14 @@ class Fractal extends Fractalistic
             }
         }
 
+        if (config('fractal.auto_excludes.enabled')) {
+            $requestKey = config('fractal.auto_excludes.request_key');
+
+            if ($exclude = app('request')->get($requestKey)) {
+                $fractal->parseExcludes($exclude);
+            }
+        }
+
         if (empty($serializer)) {
             $serializer = config('fractal.default_serializer');
         }
