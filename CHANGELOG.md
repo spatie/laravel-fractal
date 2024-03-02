@@ -2,6 +2,19 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.1.0 - 2024-03-02
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/spatie/laravel-fractal/pull/247
+* Bump dependabot/fetch-metadata from 1.4.0 to 1.5.0 by @dependabot in https://github.com/spatie/laravel-fractal/pull/248
+* Bump dependabot/fetch-metadata from 1.5.0 to 1.5.1 by @dependabot in https://github.com/spatie/laravel-fractal/pull/249
+* Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/spatie/laravel-fractal/pull/250
+* Bump actions/checkout from 3 to 4 by @dependabot in https://github.com/spatie/laravel-fractal/pull/251
+* Laravel 11.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-fractal/pull/254
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.0.3...6.1.0
+
 ## 6.0.3 - 2023-02-15
 
 ### What's Changed
