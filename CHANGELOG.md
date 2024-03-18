@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.2.0 - 2024-03-18
+
+### What's Changed
+
+* Auto excludes by @simondotwhite in https://github.com/spatie/laravel-fractal/pull/253
+
+### New Contributors
+
+* @simondotwhite made their first contribution in https://github.com/spatie/laravel-fractal/pull/253
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.1.0...6.2.0
+
 ## 6.1.0 - 2024-03-02
 
 ### What's Changed
