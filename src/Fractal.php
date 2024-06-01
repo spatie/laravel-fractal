@@ -29,7 +29,7 @@ class Fractal extends Fractalistic
      * @param null|callable|\League\Fractal\TransformerAbstract $transformer
      * @param null|\League\Fractal\Serializer\SerializerAbstract $serializer
      *
-     * @return \Spatie\Fractalistic\Fractal
+     * @return \Spatie\Fractal\Fractal
      */
     public static function create($data = null, $transformer = null, $serializer = null)
     {
