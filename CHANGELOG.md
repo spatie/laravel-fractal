@@ -2,6 +2,18 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.2.1 - 2024-06-04
+
+### What's Changed
+
+* fix: wrong `return` annotation by @Mohammad-Alavi in https://github.com/spatie/laravel-fractal/pull/258
+
+### New Contributors
+
+* @Mohammad-Alavi made their first contribution in https://github.com/spatie/laravel-fractal/pull/258
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.2.0...6.2.1
+
 ## 6.2.0 - 2024-03-18
 
 ### What's Changed
