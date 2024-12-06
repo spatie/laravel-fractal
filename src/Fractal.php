@@ -26,7 +26,7 @@ class Fractal extends Fractalistic
 
     /**
      * @param null|mixed $data
-     * @param null|callable|\League\Fractal\TransformerAbstract $transformer
+     * @param null|string|callable|\League\Fractal\TransformerAbstract $transformer
      * @param null|\League\Fractal\Serializer\SerializerAbstract $serializer
      *
      * @return static
