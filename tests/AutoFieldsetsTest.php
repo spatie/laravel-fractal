@@ -13,7 +13,9 @@ it('returns only requested fields', function ($fields, $expectedMissing) {
     $response->assertOk();
     $response->assertJson(
         fn (AssertableJson $json) => $json->has(
-            'data', 2, fn (AssertableJson $json) => $json->hasAll($fields)
+            'data',
+            2,
+            fn (AssertableJson $json) => $json->hasAll($fields)
             ->missing($expectedMissing),
         ),
     );
@@ -35,7 +37,9 @@ it('doesnt work if "resource name" is not set', function ($fields) {
     $response->assertOk();
     $response->assertJson(
         fn (AssertableJson $json) => $json->has(
-            'data', 2, fn (AssertableJson $json) => $json->hasAll(['id', 'author', 'characters', 'publisher'])
+            'data',
+            2,
+            fn (AssertableJson $json) => $json->hasAll(['id', 'author', 'characters', 'publisher'])
         ),
     );
 })->with([
@@ -53,7 +57,9 @@ it('all fields are present when parameter is not passed', function () {
     $response->assertOk();
     $response->assertJson(
         fn (AssertableJson $json) => $json->has(
-            'data', 2, fn (AssertableJson $json) => $json->hasAll(['id', 'author', 'characters'])
+            'data',
+            2,
+            fn (AssertableJson $json) => $json->hasAll(['id', 'author', 'characters'])
             ->missing('publisher'),
         ),
     );
@@ -72,7 +78,9 @@ it('can be disabled via config', function () {
     $response->assertOk();
     $response->assertJson(
         fn (AssertableJson $json) => $json->has(
-            'data', 2, fn (AssertableJson $json) => $json->hasAll(['id', 'author', 'characters', 'publisher'])
+            'data',
+            2,
+            fn (AssertableJson $json) => $json->hasAll(['id', 'author', 'characters', 'publisher'])
         ),
     );
 });
@@ -91,7 +99,9 @@ it('uses the configured request key', function () {
     $response->assertOk();
     $response->assertJson(
         fn (AssertableJson $json) => $json->has(
-            'data', 2, fn (AssertableJson $json) => $json->has('id')
+            'data',
+            2,
+            fn (AssertableJson $json) => $json->has('id')
             ->missing('author')
         ),
     );
