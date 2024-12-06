@@ -96,7 +96,7 @@ This is the contents of the published file:
 
 ```php
 return [
-     /*
+    /*
      * The default serializer to be used when performing a transformation. It
      * may be left empty to use Fractal's default one. This can either be a
      * string or a League\Fractal\Serializer\SerializerAbstract subclass.
@@ -105,11 +105,12 @@ return [
 
     /* The default paginator to be used when performing a transformation. It
      * may be left empty to use Fractal's default one. This can either be a
-     * string or a League\Fractal\Paginator\PaginatorInterface subclass.*/
+     * string or a League\Fractal\Paginator\PaginatorInterface subclass.
+     */
     'default_paginator' => '',
 
     /*
-     * League\Fractal\Serializer\JsonApiSerializer will use this value to
+     * League\Fractal\Serializer\JsonApiSerializer will use this value
      * as a prefix for generated links. Set to `null` to disable this.
      */
     'base_url' => null,
@@ -133,12 +134,12 @@ return [
          */
         'request_key' => 'include',
     ],
-    
+
     'auto_excludes' => [
 
         /*
          * If enabled Fractal will automatically add the excludes who's
-         * names are present in the `include` request parameter.
+         * names are present in the `exclude` request parameter.
          */
         'enabled' => true,
 
@@ -147,6 +148,21 @@ return [
          */
         'request_key' => 'exclude',
     ],
+
+    'auto_fieldsets' => [
+
+        /*
+         * If enabled Fractal will automatically add the fieldsets who's
+         * names are present in the `fields` request parameter.
+         */
+        'enabled' => true,
+
+        /*
+         * The name of key in the request, where we should look for the fieldsets to parse.
+         */
+        'request_key' => 'fields',
+    ],
+];
 ```
 
 ## Usage

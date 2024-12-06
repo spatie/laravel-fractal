@@ -82,5 +82,20 @@ abstract class TestCase extends Orchestra
                 ->transformWith(TestTransformer::class)
                 ->toArray();
         });
+
+        Route::get('auto-fieldsets-with-resource-name', function () {
+            return fractal()
+                ->withResourceName('books')
+                ->collection($this->testBooks)
+                ->transformWith(TestTransformer::class)
+                ->toArray();
+        });
+
+        Route::get('auto-fieldsets-without-resource-name', function () {
+            return fractal()
+                ->collection($this->testBooks)
+                ->transformWith(TestTransformer::class)
+                ->toArray();
+        });
     }
 }

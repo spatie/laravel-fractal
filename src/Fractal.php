@@ -51,6 +51,14 @@ class Fractal extends Fractalistic
             }
         }
 
+        if (config('fractal.auto_fieldsets.enabled')) {
+            $requestKey = config('fractal.auto_fieldsets.request_key');
+
+            if ($fieldsets = app('request')->get($requestKey)) {
+                $fractal->parseFieldsets($fieldsets);
+            }
+        }
+
         if (empty($serializer)) {
             $serializer = config('fractal.default_serializer');
         }

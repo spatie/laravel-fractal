@@ -53,4 +53,20 @@ return [
          */
         'request_key' => 'exclude',
     ],
+
+    'auto_fieldsets' => [
+
+        /*
+         * If enabled Fractal will automatically add the fieldsets who's
+         * names are present in the `fields` request parameter.
+         *
+         * NOTE: This feature does not work if the "resource name" is not set.
+         */
+        'enabled' => true,
+
+        /*
+         * The name of key in the request, where we should look for the fieldsets to parse.
+         */
+        'request_key' => 'fields',
+    ],
 ];
