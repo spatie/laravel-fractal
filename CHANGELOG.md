@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.3.0 - 2024-12-09
+
+### What's Changed
+
+* Allow auto parsing the `fieldsets` by @Mohammad-Alavi in https://github.com/spatie/laravel-fractal/pull/261
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.2.2...6.3.0
+
 ## 6.2.2 - 2024-12-09
 
 ### What's Changed
