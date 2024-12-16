@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.3.1 - 2024-12-16
+
+### What's Changed
+
+* feat: disable fieldsets by default by @Mohammad-Alavi in https://github.com/spatie/laravel-fractal/pull/262
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.3.0...6.3.1
+
 ## 6.3.0 - 2024-12-09
 
 ### What's Changed
