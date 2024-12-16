@@ -62,7 +62,7 @@ return [
          *
          * NOTE: This feature does not work if the "resource name" is not set.
          */
-        'enabled' => true,
+        'enabled' => false,
 
         /*
          * The name of key in the request, where we should look for the fieldsets to parse.
