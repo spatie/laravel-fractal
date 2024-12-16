@@ -3,6 +3,7 @@
 use Illuminate\Testing\Fluent\AssertableJson;
 
 it('returns only requested fields', function ($fields, $expectedMissing) {
+    config()->set('fractal.auto_fieldsets.enabled', true);
     $response = $this->call('GET', '/auto-fieldsets-with-resource-name', [
         'fields' => [
             'books' => $fields,
@@ -27,6 +28,7 @@ it('returns only requested fields', function ($fields, $expectedMissing) {
 ]);
 
 it('doesnt work if "resource name" is not set', function ($fields) {
+    config()->set('fractal.auto_fieldsets.enabled', true);
     $response = $this->call('GET', '/auto-fieldsets-without-resource-name', [
         'fields' => [
             'books' => $fields,
@@ -50,6 +52,7 @@ it('doesnt work if "resource name" is not set', function ($fields) {
 ]);
 
 it('all fields are present when parameter is not passed', function () {
+    config()->set('fractal.auto_fieldsets.enabled', true);
     $response = $this->call('GET', '/auto-fieldsets-with-resource-name', [
         'include' => 'characters',
     ]);
@@ -86,6 +89,7 @@ it('can be disabled via config', function () {
 });
 
 it('uses the configured request key', function () {
+    config()->set('fractal.auto_fieldsets.enabled', true);
     config()->set('fractal.auto_fieldsets.request_key', 'other_fields');
     $response = $this->call('GET', '/auto-fieldsets-with-resource-name', [
         'fields' => [
