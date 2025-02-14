@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.3.2 - 2025-02-14
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/spatie/laravel-fractal/pull/263
+* Laravel 12.x Compatibility by @laravel-shift in https://github.com/spatie/laravel-fractal/pull/264
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.3.1...6.3.2
+
 ## 6.3.1 - 2024-12-16
 
 ### What's Changed
