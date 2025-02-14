@@ -32,7 +32,7 @@
     "require-dev": {
         "ext-json": "*",
         "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
-        "pestphp/pest": "^1.22|^2.34"
+        "pestphp/pest": "^1.22|^2.34|^3.0"
     },
     "autoload": {
         "psr-4": {
