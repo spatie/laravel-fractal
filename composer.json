@@ -22,8 +22,8 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0",
-        "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+        "illuminate/contracts": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
         "league/fractal": "^0.20.1|^0.20",
         "nesbot/carbon": "^2.63|^3.0",
         "spatie/fractalistic": "^2.9.5|^2.9",
@@ -31,8 +31,8 @@
     },
     "require-dev": {
         "ext-json": "*",
-        "orchestra/testbench": "^7.0|^8.0|^9.0",
-        "pestphp/pest": "^1.22|^2.34"
+        "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
+        "pestphp/pest": "^1.22|^2.34|^3.0"
     },
     "autoload": {
         "psr-4": {
