@@ -38,7 +38,7 @@ class Fractal extends Fractalistic
         if (config('fractal.auto_includes.enabled')) {
             $requestKey = config('fractal.auto_includes.request_key');
 
-            if ($include = app('request')->get($requestKey)) {
+            if ($include = app('request')->query($requestKey)) {
                 $fractal->parseIncludes($include);
             }
         }
@@ -46,7 +46,7 @@ class Fractal extends Fractalistic
         if (config('fractal.auto_excludes.enabled')) {
             $requestKey = config('fractal.auto_excludes.request_key');
 
-            if ($exclude = app('request')->get($requestKey)) {
+            if ($exclude = app('request')->query($requestKey)) {
                 $fractal->parseExcludes($exclude);
             }
         }
@@ -54,7 +54,7 @@ class Fractal extends Fractalistic
         if (config('fractal.auto_fieldsets.enabled')) {
             $requestKey = config('fractal.auto_fieldsets.request_key');
 
-            if ($fieldsets = app('request')->get($requestKey)) {
+            if ($fieldsets = app('request')->query($requestKey)) {
                 $fractal->parseFieldsets($fieldsets);
             }
         }
