@@ -2,6 +2,23 @@
 
 All notable changes to `laravel-fractal` will be documented in this file
 
+## 6.3.3 - 2025-12-22
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/spatie/laravel-fractal/pull/265
+* Update issue template by @AlexVanderbist in https://github.com/spatie/laravel-fractal/pull/268
+* Replace call to deprecated symfony method by @billypoke in https://github.com/spatie/laravel-fractal/pull/271
+* Bump actions/checkout from 4 to 6 by @dependabot[bot] in https://github.com/spatie/laravel-fractal/pull/270
+* Bump stefanzweifel/git-auto-commit-action from 4 to 7 by @dependabot[bot] in https://github.com/spatie/laravel-fractal/pull/269
+
+### New Contributors
+
+* @AlexVanderbist made their first contribution in https://github.com/spatie/laravel-fractal/pull/268
+* @billypoke made their first contribution in https://github.com/spatie/laravel-fractal/pull/271
+
+**Full Changelog**: https://github.com/spatie/laravel-fractal/compare/6.3.2...6.3.3
+
 ## 6.3.2 - 2025-02-14
 
 ### What's Changed
