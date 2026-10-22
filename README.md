@@ -66,7 +66,7 @@ our open source projects [on our website](https://spatie.be/opensource).
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-fractal.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-fractal)
+[<img src="https://spatie.be/github-ad-image/laravel-fractal.jpg" width="419px" />](https://spatie.be/github-ad-click/laravel-fractal)
 
 We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
 
