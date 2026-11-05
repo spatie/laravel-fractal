@@ -5,3 +5,4 @@ vendor
 .php-cs-fixer.cache
 .idea
 .phpunit.result.cache
+.phpunit.cache
