@@ -72,7 +72,9 @@ We invest a lot of resources into creating [best in class open source packages](
 
 We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
-## Installation in Laravel 5.5 and up
+## Installation
+
+This package requires PHP 8.4 or higher and Laravel 13.
 
 You can pull in the package via composer:
 ``` bash
